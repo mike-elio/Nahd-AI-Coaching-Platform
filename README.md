@@ -1,8 +1,8 @@
 # Nahd AI Coaching Platform
 
-Nahd AI Coaching Platform brings together four AI-powered coaching and support features. Each feature remains an independent Python application so it can be developed and deployed separately.
+This repository presents four AI-powered features I built for Nahd AI Coaching Platform. They are a selected part of the wider platform, which includes additional features and integrations not included in this repository. Each featured module remains an independent Python application so it can be developed and deployed separately.
 
-## Features
+## Included features
 
 | Feature | What it does | Directory |
 | --- | --- | --- |
