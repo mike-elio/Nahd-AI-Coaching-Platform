@@ -1,0 +1,481 @@
+[
+    {
+        "goal_id": "CNE_GOAL_01",
+        "goal_name": "CCNA Network Operations Track",
+        "domain": "CNE",
+        "description": "Prepares the user to pass the CCNA certification and work as a Network Engineer, designing and maintaining enterprise networks (switching, routing, WAN).",
+        "eligibility_rules": [
+            {
+                "fact": "networking_theory",
+                "op": ">=",
+                "value": 1
+            },
+            {
+                "fact": "lab_access",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 8
+            },
+            {
+                "fact": "target_outcome",
+                "op": "in",
+                "value": [
+                    "job",
+                    "internship",
+                    "freelance"
+                ]
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_netsec",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_02"
+            },
+            {
+                "fact": "prefers_wireless",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_03"
+            },
+            {
+                "fact": "prefers_cloud_net",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_04"
+            },
+            {
+                "fact": "prefers_iot",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_05"
+            },
+            {
+                "fact": "networking_theory",
+                "op": "<",
+                "value": 1,
+                "note": "Networking fundamentals are essential for CCNA"
+            },
+            {
+                "fact": "lab_access",
+                "op": "==",
+                "value": false,
+                "note": "Lab or simulator access is required for the certification"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 8,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "networking_theory",
+            "cisco_tools",
+            "linux_skill",
+            "scripting_skill",
+            "lab_access",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level",
+            "weak_internet"
+        ],
+        "base_score": 60,
+        "typical_duration_range_weeks": {
+            "min": 12,
+            "max": 20
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "CNE_GOAL_02",
+        "goal_name": "Network Security Track",
+        "domain": "CNE",
+        "description": "Prepares the user to work in network security: firewalls, VPN, IDS/IPS, network-level penetration testing, and security compliance.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_netsec",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "networking_theory",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "lab_access",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 10
+            },
+            {
+                "fact": "target_outcome",
+                "op": "in",
+                "value": [
+                    "job",
+                    "internship",
+                    "freelance"
+                ]
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_wireless",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_03"
+            },
+            {
+                "fact": "prefers_cloud_net",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_04"
+            },
+            {
+                "fact": "prefers_iot",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_05"
+            },
+            {
+                "fact": "networking_theory",
+                "op": "<",
+                "value": 2,
+                "note": "Network security requires a solid networking foundation"
+            },
+            {
+                "fact": "lab_access",
+                "op": "==",
+                "value": false,
+                "note": "Hands-on practice is mandatory in SecOps"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 10,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "networking_theory",
+            "cisco_tools",
+            "linux_skill",
+            "scripting_skill",
+            "prefers_netsec",
+            "lab_access",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level"
+        ],
+        "base_score": 58,
+        "typical_duration_range_weeks": {
+            "min": 14,
+            "max": 22
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "CNE_GOAL_03",
+        "goal_name": "Wireless & RF Engineering Track",
+        "domain": "CNE",
+        "description": "Prepares the user to design, operate, and troubleshoot enterprise wireless networks (Wi-Fi 6, WPA3, Mesh).",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_wireless",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "networking_theory",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "lab_access",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 8
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_netsec",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_02"
+            },
+            {
+                "fact": "prefers_cloud_net",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_04"
+            },
+            {
+                "fact": "prefers_iot",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_05"
+            },
+            {
+                "fact": "networking_theory",
+                "op": "<",
+                "value": 2,
+                "note": "Insufficient networking foundation"
+            },
+            {
+                "fact": "lab_access",
+                "op": "==",
+                "value": false,
+                "note": "RF/Wi-Fi equipment requires lab access"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 8,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "networking_theory",
+            "cisco_tools",
+            "linux_skill",
+            "prefers_wireless",
+            "lab_access",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level"
+        ],
+        "base_score": 48,
+        "typical_duration_range_weeks": {
+            "min": 12,
+            "max": 20
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "CNE_GOAL_04",
+        "goal_name": "Cloud Networking Track",
+        "domain": "CNE",
+        "description": "Prepares the user to design and operate cloud network infrastructure (VPC, Load Balancing, DNS, Hybrid Connectivity) on AWS/Azure/GCP.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_cloud_net",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "networking_theory",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "linux_skill",
+                "op": ">=",
+                "value": 1
+            },
+            {
+                "fact": "weak_internet",
+                "op": "==",
+                "value": false
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 10
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_netsec",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_02"
+            },
+            {
+                "fact": "prefers_wireless",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_03"
+            },
+            {
+                "fact": "prefers_iot",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_05"
+            },
+            {
+                "fact": "networking_theory",
+                "op": "<",
+                "value": 2,
+                "note": "Cloud networking builds on the networking foundation"
+            },
+            {
+                "fact": "linux_skill",
+                "op": "<",
+                "value": 1,
+                "note": "Linux is fundamental for cloud work"
+            },
+            {
+                "fact": "weak_internet",
+                "op": "==",
+                "value": true,
+                "note": "Cloud work requires a reliable internet connection"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 10,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "networking_theory",
+            "cisco_tools",
+            "linux_skill",
+            "scripting_skill",
+            "prefers_cloud_net",
+            "lab_access",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level",
+            "weak_internet"
+        ],
+        "base_score": 55,
+        "typical_duration_range_weeks": {
+            "min": 12,
+            "max": 20
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "CNE_GOAL_05",
+        "goal_name": "IoT & Edge Networking Track",
+        "domain": "CNE",
+        "description": "Prepares the user to design IoT networks and protocols (MQTT, CoAP, LoRa), edge computing, and security for constrained devices.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_iot",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "networking_theory",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "scripting_skill",
+                "op": ">=",
+                "value": 1
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 8
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_netsec",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_02"
+            },
+            {
+                "fact": "prefers_wireless",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_03"
+            },
+            {
+                "fact": "prefers_cloud_net",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to CNE_GOAL_04"
+            },
+            {
+                "fact": "networking_theory",
+                "op": "<",
+                "value": 2,
+                "note": "Insufficient networking foundation"
+            },
+            {
+                "fact": "scripting_skill",
+                "op": "<",
+                "value": 1,
+                "note": "IoT requires some programming for device control"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 8,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "networking_theory",
+            "cisco_tools",
+            "linux_skill",
+            "scripting_skill",
+            "prefers_iot",
+            "lab_access",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "weak_device"
+        ],
+        "base_score": 45,
+        "typical_duration_range_weeks": {
+            "min": 10,
+            "max": 18
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "CNE_GOAL_06",
+        "goal_name": "Networking Foundations Track",
+        "domain": "CNE",
+        "description": "Builds networking fundamentals for beginners through OSI/TCP-IP basics, subnetting, troubleshooting, Linux networking tools, and guided lab-ready practice before specialization.",
+        "eligibility_rules": [
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 1
+            }
+        ],
+        "disqualifiers": [],
+        "relevant_facts": [
+            "networking_basic",
+            "linux_cli_net_tools_skill",
+            "hours_per_week",
+            "target_outcome",
+            "weak_internet",
+            "cne_focus_area"
+        ],
+        "base_score": 50,
+        "typical_duration_range_weeks": {
+            "min": 6,
+            "max": 12
+        },
+        "selection_priority": 8,
+        "recommended_for": "both"
+    }
+]

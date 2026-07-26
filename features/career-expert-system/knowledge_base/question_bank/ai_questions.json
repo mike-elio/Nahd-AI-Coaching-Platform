@@ -1,0 +1,1462 @@
+[
+  {
+    "id": "N_AIE_001",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "python_skill_basic",
+    "weight": 3,
+    "next_if_true": "N_AIE_002",
+    "next_if_false": "N_AIE_PT001",
+    "source_citation": "CS2023 (ACM/IEEE-CS/AAAI), 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf); Russell & Norvig, AIMA 4e (https://aima.cs.berkeley.edu/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_001a",
+        "text_ar": "هل سبق لك كتابة كود Python من قبل؟",
+        "text_en": "Have you written Python code before?"
+      },
+      {
+        "id": "N_AIE_001b",
+        "text_ar": "هل تعرف Python ولو بشكل أساسي؟",
+        "text_en": "Do you have any basic knowledge of Python?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_002",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "numeric",
+    "fact_key": "hours_per_week",
+    "weight": 1,
+    "next_if_true": "N_AIE_003",
+    "next_if_false": "N_AIE_003",
+    "truthy_rule": ">= 8",
+    "source_citation": "Giarratano & Riley, Expert Systems 4e, 2005 (https://books.google.com/books/about/Expert_Systems.html?id=SbgZRAAACAAJ)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_002a",
+        "text_ar": "كم ساعة تستطيع تخصيصها أسبوعياً لتعلم الذكاء الاصطناعي؟ (1 إلى 40)",
+        "text_en": "How many hours per week can you dedicate to learning AI? (1 to 40)"
+      },
+      {
+        "id": "N_AIE_002b",
+        "text_ar": "ما متوسط وقت الدراسة الأسبوعي المتاح لك لهذا المسار؟ (1 إلى 40)",
+        "text_en": "What is your average available weekly study time for this track? (1 to 40)"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_003",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "weak_device",
+    "weight": 1,
+    "next_if_true": "N_AIE_004",
+    "next_if_false": "N_AIE_004",
+    "source_citation": "Giarratano & Riley, Expert Systems 4e, 2005 (https://books.google.com/books/about/Expert_Systems.html?id=SbgZRAAACAAJ); Stanford CS229, 2023 (https://cs229.stanford.edu/main_notes.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_003a",
+        "text_ar": "هل جهازك ضعيف للتدريب الثقيل (GPU ضعيف أو غير موجود)؟",
+        "text_en": "Is your device weak for heavy training (weak/no GPU)?"
+      },
+      {
+        "id": "N_AIE_003b",
+        "text_ar": "هل تعاني من محدودية عتاد عند تدريب نماذج (كرت شاشة ضعيف)؟",
+        "text_en": "Do you have limited hardware for training models (weak GPU)?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_004",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "research_interest",
+    "weight": 2,
+    "next_if_true": "N_AIE_010",
+    "next_if_false": "N_AIE_005",
+    "source_citation": "CS2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf); Russell & Norvig AIMA 4e (https://aima.cs.berkeley.edu/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_004a",
+        "text_ar": "هل تميل إلى مسار بحثي (قراءة أوراق علمية وتجارب) أكثر من مسار تطبيقي؟",
+        "text_en": "Do you lean toward a research-oriented path over an applied path?"
+      },
+      {
+        "id": "N_AIE_004b",
+        "text_ar": "هل هدفك الأساسي بحثي (Research) وليس فقط بناء تطبيقات؟",
+        "text_en": "Is your primary goal research (not only building applications)?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_005",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "prefers_cv",
+    "weight": 2,
+    "next_if_true": "N_AIE_020",
+    "next_if_false": "N_AIE_006",
+    "source_citation": "Stanford CS231n (https://cs231n.stanford.edu/); Szeliski, Computer Vision 2e (https://freecomputerbooks.com/Computer-Vision-Algorithms-and-Applications-2nd-Edition-by-Richard-Szeliski.html)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_005a",
+        "text_ar": "هل تفضّل مجال الرؤية الحاسوبية (Computer Vision) على بقية مجالات الذكاء الاصطناعي؟",
+        "text_en": "Do you prefer Computer Vision over other AI subfields?"
+      },
+      {
+        "id": "N_AIE_005b",
+        "text_ar": "هل تشعر أن العمل بالصور والفيديو هو المسار الأقرب لك؟",
+        "text_en": "Do you feel that working with images and video is the best fit for you?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_006",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "prefers_nlp",
+    "weight": 2,
+    "next_if_true": "N_AIE_030",
+    "next_if_false": "N_AIE_007",
+    "source_citation": "Jurafsky & Martin, SLP3 (https://web.stanford.edu/~jurafsky/slp3/); CS2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_006a",
+        "text_ar": "هل تفضّل مجال معالجة اللغات الطبيعية (NLP) على بقية المجالات؟",
+        "text_en": "Do you prefer Natural Language Processing (NLP) over other subfields?"
+      },
+      {
+        "id": "N_AIE_006b",
+        "text_ar": "هل تفضّل العمل على النصوص واللغة (تحليل نصوص، نماذج لغوية)؟",
+        "text_en": "Do you prefer working on language and text (text analysis, language models)?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_007",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "prefers_data_eng",
+    "weight": 2,
+    "next_if_true": "N_AIE_040",
+    "next_if_false": "N_AIE_050",
+    "source_citation": "Kleppmann, DDIA 2017 (https://dataintensive.net/); Sculley et al., NeurIPS 2015 (https://papers.neurips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_007a",
+        "text_ar": "هل تميل لمسار هندسة البيانات للذكاء الاصطناعي (Data Engineering) أكثر من بناء النماذج؟",
+        "text_en": "Do you lean toward AI Data Engineering more than model building?"
+      },
+      {
+        "id": "N_AIE_007b",
+        "text_ar": "هل تحب بناء خطوط البيانات، تنظيفها، وإعدادها أكثر من التدريب نفسه؟",
+        "text_en": "Do you enjoy building data pipelines and preparing data more than training models?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_010",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "math_skill",
+    "weight": 3,
+    "next_if_true": "N_AIE_011",
+    "next_if_false": "N_AIE_011",
+    "truthy_rule": ">=3",
+    "source_citation": "Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf); Bishop, PRML 2006 (https://www.microsoft.com/en-us/research/wp-content/uploads/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_010a",
+        "text_ar": "قيّم مهارتك في الرياضيات (جبر خطي، تفاضل، احتمالات) من 0 إلى 5.",
+        "text_en": "Rate your math skills (linear algebra, calculus, probability) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_010b",
+        "text_ar": "من 0 إلى 5، ما مدى راحتك مع الرياضيات المطلوبة لبحث ML؟",
+        "text_en": "From 0 to 5, how comfortable are you with the math needed for ML research?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_011",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "python_skill",
+    "weight": 3,
+    "next_if_true": "N_AIE_012",
+    "next_if_false": "N_AIE_012",
+    "truthy_rule": ">=3",
+    "source_citation": "Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_011a",
+        "text_ar": "قيّم مهارتك في Python (NumPy, pandas, كتابة سكربتات) من 0 إلى 5.",
+        "text_en": "Rate your Python skill (NumPy, pandas, scripting) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_011b",
+        "text_ar": "من 0 إلى 5، ما مدى قدرتك على تنفيذ تجارب ML ببايثون؟",
+        "text_en": "From 0 to 5, how able are you to implement ML experiments in Python?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_012",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "ml_exposure",
+    "weight": 2,
+    "next_if_true": "N_AIE_013",
+    "next_if_false": "N_AIE_013",
+    "source_citation": "Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf); Hastie et al., ESL 2e (https://hastie.su.domains/ElemStatLearn/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_012a",
+        "text_ar": "قيّم خبرتك السابقة بتعلم الآلة (خوارزميات، مشاريع، كورسات) من 0 إلى 5.",
+        "text_en": "Rate your prior ML exposure (algorithms, projects, courses) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_012b",
+        "text_ar": "من 0 إلى 5، إلى أي درجة درست أو طبّقت خوارزميات ML سابقاً؟",
+        "text_en": "From 0 to 5, to what extent have you studied/applied ML algorithms before?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_013",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "data_handling",
+    "weight": 2,
+    "next_if_true": "N_AIE_014",
+    "next_if_false": "N_AIE_014",
+    "source_citation": "Hastie et al., ESL 2e (https://hastie.su.domains/ElemStatLearn/); Kleppmann, DDIA (https://dataintensive.net/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_013a",
+        "text_ar": "قيّم قدرتك على التعامل مع البيانات (تنظيف، تحليل، تقسيم Train/Test) من 0 إلى 5.",
+        "text_en": "Rate your data handling (cleaning, analysis, train/test split) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_013b",
+        "text_ar": "من 0 إلى 5، ما مدى خبرتك بتنظيف البيانات والتحقق من جودتها؟",
+        "text_en": "From 0 to 5, how experienced are you with cleaning data and checking data quality?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_014",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "paper_reading_habit",
+    "weight": 2,
+    "next_if_true": "N_AIE_015",
+    "next_if_false": "N_AIE_015",
+    "source_citation": "Russell & Norvig AIMA 4e (https://aima.cs.berkeley.edu/); Jurafsky & Martin SLP3 (https://web.stanford.edu/~jurafsky/slp3/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_014a",
+        "text_ar": "هل لديك عادة قراءة أوراق علمية أو متابعة أبحاث جديدة بشكل دوري؟",
+        "text_en": "Do you regularly read research papers or follow new research?"
+      },
+      {
+        "id": "N_AIE_014b",
+        "text_ar": "هل تستطيع قراءة ورقة علمية وفهم الفكرة العامة والمنهجية؟",
+        "text_en": "Can you read a paper and understand the main idea and methodology?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_015",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "experiment_design_skill",
+    "weight": 2,
+    "next_if_true": "N_AIE_017",
+    "next_if_false": "N_AIE_017",
+    "source_citation": "Bishop, PRML 2006 (https://www.microsoft.com/en-us/research/wp-content/uploads/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf); Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_015a",
+        "text_ar": "هل تعرف كيف تصمم تجربة عادلة (baseline، ablation، تقسيم صحيح للبيانات)؟",
+        "text_en": "Do you know how to design a fair experiment (baseline, ablation, proper splits)?"
+      },
+      {
+        "id": "N_AIE_015b",
+        "text_ar": "هل لديك خبرة بعمل مقارنة منهجية بين نماذج أو إعدادات مختلفة؟",
+        "text_en": "Do you have experience doing systematic comparisons between models/settings?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_017",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "reinforcement_learning_interest",
+    "weight": 1,
+    "next_if_true": "N_AIE_090",
+    "next_if_false": "N_AIE_090",
+    "source_citation": "Sutton & Barto, RL: An Introduction 2e (https://incompleteideas.net/book/the-book-2nd.html)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_017a",
+        "text_ar": "هل يهمك تعلم التعلم المعزز (Reinforcement Learning) واتخاذ القرار؟",
+        "text_en": "Are you interested in Reinforcement Learning and decision making?"
+      },
+      {
+        "id": "N_AIE_017b",
+        "text_ar": "هل ترغب بالعمل على Agents تتعلم بالمكافأة والتجربة؟",
+        "text_en": "Do you want to work on agents that learn via reward and interaction?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_020",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "python_skill",
+    "weight": 3,
+    "next_if_true": "N_AIE_021",
+    "next_if_false": "N_AIE_021",
+    "source_citation": "Stanford CS231n (https://cs231n.stanford.edu/); Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_020a",
+        "text_ar": "قيّم مهارتك في Python لتطبيق نماذج CV من 0 إلى 5.",
+        "text_en": "Rate your Python skill for implementing CV models from 0 to 5."
+      },
+      {
+        "id": "N_AIE_020b",
+        "text_ar": "من 0 إلى 5، ما مدى قدرتك على كتابة كود للتعامل مع صور (تحميل، تحويل، معالجة)؟",
+        "text_en": "From 0 to 5, how able are you to code image handling (load/transform/process)?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_021",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "linear_algebra_skill",
+    "weight": 2,
+    "next_if_true": "N_AIE_022",
+    "next_if_false": "N_AIE_022",
+    "source_citation": "Goodfellow et al., Deep Learning MIT Press 2016 (https://www.deeplearningbook.org/); Stanford CS231n (https://cs231n.stanford.edu/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_021a",
+        "text_ar": "قيّم فهمك للجبر الخطي (متجهات، مصفوفات، ضرب) من 0 إلى 5.",
+        "text_en": "Rate your linear algebra understanding (vectors, matrices, multiplication) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_021b",
+        "text_ar": "من 0 إلى 5، ما مدى راحتك مع عمليات المصفوفات المستخدمة في الشبكات العصبية؟",
+        "text_en": "From 0 to 5, how comfortable are you with matrix operations used in neural nets?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_022",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "image_processing_basics",
+    "weight": 2,
+    "next_if_true": "N_AIE_023",
+    "next_if_false": "N_AIE_023",
+    "source_citation": "Szeliski, Computer Vision 2e (https://freecomputerbooks.com/Computer-Vision-Algorithms-and-Applications-2nd-Edition-by-Richard-Szeliski.html)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_022a",
+        "text_ar": "هل تعرف أساسيات معالجة الصور (فلترة، حواف، histogram، تحويل ألوان)؟",
+        "text_en": "Do you know image processing basics (filtering, edges, histograms, color transforms)?"
+      },
+      {
+        "id": "N_AIE_022b",
+        "text_ar": "هل سبق أن استخدمت OpenCV أو طبّقت عمليات مورفولوجية/مرشحات؟",
+        "text_en": "Have you used OpenCV or applied filters/morphological operations?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_023",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "cnn_understanding",
+    "weight": 3,
+    "next_if_true": "N_AIE_024",
+    "next_if_false": "N_AIE_024",
+    "source_citation": "Stanford CS231n (https://cs231n.stanford.edu/); Goodfellow et al., Deep Learning (https://www.deeplearningbook.org/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_023a",
+        "text_ar": "قيّم فهمك لـ CNN (conv, pooling, padding, stride) من 0 إلى 5.",
+        "text_en": "Rate your CNN understanding (conv, pooling, padding, stride) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_023b",
+        "text_ar": "من 0 إلى 5، هل تستطيع شرح كيف تتعلم CNN ميزات من الصور؟",
+        "text_en": "From 0 to 5, can you explain how CNNs learn features from images?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_024",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "augmentation_overfitting",
+    "weight": 2,
+    "next_if_true": "N_AIE_025",
+    "next_if_false": "N_AIE_025",
+    "source_citation": "Stanford CS231n (https://cs231n.stanford.edu/); Goodfellow et al., Deep Learning (https://www.deeplearningbook.org/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_024a",
+        "text_ar": "هل تعرف طرق تقليل overfitting في CV (augmentation, regularization, early stopping)؟",
+        "text_en": "Do you know ways to reduce overfitting in CV (augmentation, regularization, early stopping)?"
+      },
+      {
+        "id": "N_AIE_024b",
+        "text_ar": "هل لديك خبرة بتوسيع البيانات أو تنظيم التدريب لتحسين التعميم؟",
+        "text_en": "Do you have experience with data augmentation or training regularization for generalization?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_025",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "cv_task_preference",
+    "weight": 2,
+    "next_if_true": "N_AIE_027",
+    "next_if_false": "N_AIE_027",
+    "choices_ar": [
+      "تصنيف (Classification)",
+      "كشف أجسام (Detection)",
+      "تقسيم (Segmentation)",
+      "تتبع/حركة (Tracking)",
+      "غير متأكد"
+    ],
+    "choices_en": [
+      "classification",
+      "detection",
+      "segmentation",
+      "tracking",
+      "not sure"
+    ],
+    "source_citation": "Stanford CS231n (https://cs231n.stanford.edu/); Szeliski, Computer Vision 2e",
+    "pool_pair": [
+      {
+        "id": "N_AIE_025a",
+        "text_ar": "أي نوع من مهام CV تفضّل أكثر؟",
+        "text_en": "Which type of CV task do you prefer most?"
+      },
+      {
+        "id": "N_AIE_025b",
+        "text_ar": "أي مجال فرعي في CV تشعر أنه الأقرب لاهتمامك؟",
+        "text_en": "Which CV subtask feels most aligned with your interest?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_027",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "cv_deployment_interest",
+    "weight": 1,
+    "next_if_true": "N_AIE_090",
+    "next_if_false": "N_AIE_090",
+    "source_citation": "Sculley et al., NeurIPS 2015 (https://papers.neurips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf); Stanford CS231n (https://cs231n.stanford.edu/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_027a",
+        "text_ar": "هل يهمك نشر نموذج CV (API، Edge، تحسين سرعة inference) وليس فقط التدريب؟",
+        "text_en": "Do you care about deploying CV models (API, edge, inference speed) not only training?"
+      },
+      {
+        "id": "N_AIE_027b",
+        "text_ar": "هل لديك اهتمام بجعل نموذج الرؤية يعمل بكفاءة في منتج حقيقي؟",
+        "text_en": "Are you interested in making a vision model run efficiently in a real product?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_030",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "english_level",
+    "weight": 2,
+    "next_if_true": "N_AIE_031",
+    "next_if_false": "N_AIE_031",
+    "choices_ar": [
+      "basic (أساسي)",
+      "intermediate (متوسط)",
+      "advanced (متقدم)"
+    ],
+    "choices_en": [
+      "basic",
+      "intermediate",
+      "advanced"
+    ],
+    "source_citation": "Jurafsky & Martin, SLP3 (https://web.stanford.edu/~jurafsky/slp3/); CS2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_030a",
+        "text_ar": "ما هو مستواك في اللغة الإنجليزية (لاستخدام مراجع وأوراق علمية)؟",
+        "text_en": "What is your English level (for using references and papers)?"
+      },
+      {
+        "id": "N_AIE_030b",
+        "text_ar": "كيف تقيّم قدرتك على قراءة وثائق/كتب تقنية بالإنجليزية؟",
+        "text_en": "How do you rate your ability to read technical docs/books in English?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_031",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "python_skill",
+    "weight": 3,
+    "next_if_true": "N_AIE_032",
+    "next_if_false": "N_AIE_032",
+    "source_citation": "Jurafsky & Martin, SLP3 (https://web.stanford.edu/~jurafsky/slp3/); Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_031a",
+        "text_ar": "قيّم مهارتك في Python لتجارب NLP من 0 إلى 5.",
+        "text_en": "Rate your Python skill for NLP experiments from 0 to 5."
+      },
+      {
+        "id": "N_AIE_031b",
+        "text_ar": "من 0 إلى 5، ما مدى قدرتك على معالجة نصوص (tokenization، تنظيف) ببايثون؟",
+        "text_en": "From 0 to 5, how able are you to process text (tokenization, cleaning) in Python?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_032",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "nlp_preprocessing",
+    "weight": 2,
+    "next_if_true": "N_AIE_033",
+    "next_if_false": "N_AIE_033",
+    "source_citation": "Jurafsky & Martin, SLP3 (https://web.stanford.edu/~jurafsky/slp3/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_032a",
+        "text_ar": "هل تعرف أساسيات preprocessing في NLP (tokenization، stemming/lemmatization، stopwords)؟",
+        "text_en": "Do you know NLP preprocessing basics (tokenization, stemming/lemmatization, stopwords)?"
+      },
+      {
+        "id": "N_AIE_032b",
+        "text_ar": "هل سبق أن بنيت pipeline نصوص (تنظيف + توكن) قبل تدريب نموذج؟",
+        "text_en": "Have you built a text pipeline (cleaning + tokenization) before model training?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_033",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "transformer_understanding",
+    "weight": 3,
+    "next_if_true": "N_AIE_034",
+    "next_if_false": "N_AIE_034",
+    "source_citation": "Jurafsky & Martin, SLP3 (https://web.stanford.edu/~jurafsky/slp3/); Goodfellow et al., Deep Learning (https://www.deeplearningbook.org/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_033a",
+        "text_ar": "قيّم فهمك لـ embeddings و Transformers من 0 إلى 5.",
+        "text_en": "Rate your understanding of embeddings and Transformers from 0 to 5."
+      },
+      {
+        "id": "N_AIE_033b",
+        "text_ar": "من 0 إلى 5، هل تستطيع شرح self-attention ولماذا هو مفيد؟",
+        "text_en": "From 0 to 5, can you explain self-attention and why it helps?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_034",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "nlp_evaluation_skill",
+    "weight": 2,
+    "next_if_true": "N_AIE_035",
+    "next_if_false": "N_AIE_035",
+    "source_citation": "Jurafsky & Martin, SLP3 (https://web.stanford.edu/~jurafsky/slp3/); Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_034a",
+        "text_ar": "هل تعرف طرق تقييم نماذج NLP (Accuracy, F1، BLEU/ROUGE عند الحاجة)؟",
+        "text_en": "Do you know how to evaluate NLP models (Accuracy, F1, BLEU/ROUGE when needed)?"
+      },
+      {
+        "id": "N_AIE_034b",
+        "text_ar": "هل تعرف الفرق بين precision/recall وكيف تختار metric مناسب للمهمة؟",
+        "text_en": "Do you know precision/recall differences and how to pick the right metric?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_035",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "nlp_track_preference",
+    "weight": 2,
+    "next_if_true": "N_AIE_036",
+    "next_if_false": "N_AIE_036",
+    "choices_ar": [
+      "NLP تقليدي (تصنيف نصوص/قواعد)",
+      "نماذج Transformer من الصفر",
+      "Fine-tuning لنموذج جاهز",
+      "RAG/بحث واسترجاع",
+      "غير متأكد"
+    ],
+    "choices_en": [
+      "classical NLP",
+      "transformers from scratch",
+      "fine-tuning",
+      "RAG/retrieval",
+      "not sure"
+    ],
+    "source_citation": "Jurafsky & Martin, SLP3 (https://web.stanford.edu/~jurafsky/slp3/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_035a",
+        "text_ar": "أي نمط NLP تفضّل؟",
+        "text_en": "Which NLP style do you prefer?"
+      },
+      {
+        "id": "N_AIE_035b",
+        "text_ar": "أي مسار NLP يهمك أكثر؟",
+        "text_en": "Which NLP route interests you most?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_036",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "data_privacy_ethics_awareness",
+    "weight": 1,
+    "next_if_true": "N_AIE_037",
+    "next_if_false": "N_AIE_037",
+    "source_citation": "CS2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf); Russell & Norvig AIMA 4e (https://aima.cs.berkeley.edu/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_036a",
+        "text_ar": "هل تأخذ بعين الاعتبار خصوصية البيانات والتحيز (bias) عند التعامل مع نصوص المستخدمين؟",
+        "text_en": "Do you consider data privacy and bias when working with user text data?"
+      },
+      {
+        "id": "N_AIE_036b",
+        "text_ar": "هل لديك وعي بمخاطر تسريب بيانات حساسة أو تحيز النموذج في NLP؟",
+        "text_en": "Are you aware of risks like leaking sensitive data or model bias in NLP?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_037",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "nlp_project_experience",
+    "weight": 2,
+    "next_if_true": "N_AIE_090",
+    "next_if_false": "N_AIE_090",
+    "source_citation": "Jurafsky & Martin, SLP3 (https://web.stanford.edu/~jurafsky/slp3/); Sculley et al., NeurIPS 2015 (https://papers.neurips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_037a",
+        "text_ar": "هل سبق أن أنجزت مشروع NLP كامل (بيانات، تدريب، تقييم، نشر أو تقرير)؟",
+        "text_en": "Have you completed a full NLP project (data, training, eval, deployment/report)?"
+      },
+      {
+        "id": "N_AIE_037b",
+        "text_ar": "هل تستطيع تحويل فكرة NLP إلى نموذج يعمل مع بيانات حقيقية؟",
+        "text_en": "Can you turn an NLP idea into a working model on real data?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_040",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "data_handling",
+    "weight": 3,
+    "next_if_true": "N_AIE_041",
+    "next_if_false": "N_AIE_041",
+    "source_citation": "Kleppmann, DDIA 2017 (https://dataintensive.net/); Hastie et al., ESL 2e (https://hastie.su.domains/ElemStatLearn/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_040a",
+        "text_ar": "قيّم قدرتك على التعامل مع بيانات كبيرة/فوضوية (تنظيف، دمج، فحص جودة) من 0 إلى 5.",
+        "text_en": "Rate your ability to handle large/messy data (clean, join, quality checks) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_040b",
+        "text_ar": "من 0 إلى 5، ما مدى خبرتك بتحضير بيانات جاهزة للتعلم الآلي؟",
+        "text_en": "From 0 to 5, how experienced are you in preparing ML-ready datasets?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_041",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "sql_skill",
+    "weight": 2,
+    "next_if_true": "N_AIE_042",
+    "next_if_false": "N_AIE_042",
+    "source_citation": "Kleppmann, DDIA 2017 (https://dataintensive.net/); CS2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_041a",
+        "text_ar": "قيّم مهارتك في SQL (SELECT/JOIN/GROUP BY) من 0 إلى 5.",
+        "text_en": "Rate your SQL skill (SELECT/JOIN/GROUP BY) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_041b",
+        "text_ar": "من 0 إلى 5، هل تستطيع كتابة استعلامات تحليلية لاستخراج Features؟",
+        "text_en": "From 0 to 5, can you write analytical queries to extract features?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_042",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "etl_pipeline_experience",
+    "weight": 3,
+    "next_if_true": "N_AIE_043",
+    "next_if_false": "N_AIE_043",
+    "source_citation": "Kleppmann, DDIA 2017 (https://dataintensive.net/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_042a",
+        "text_ar": "هل سبق أن بنيت Pipeline بيانات (ETL/ELT) بشكل مجدول أو متكرر؟",
+        "text_en": "Have you built a scheduled/repeated data pipeline (ETL/ELT) before?"
+      },
+      {
+        "id": "N_AIE_042b",
+        "text_ar": "هل لديك خبرة بتجميع البيانات من مصادر متعددة وتحويلها إلى Dataset واحدة؟",
+        "text_en": "Do you have experience integrating multiple sources into one dataset?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_043",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "data_quality_monitoring",
+    "weight": 2,
+    "next_if_true": "N_AIE_044",
+    "next_if_false": "N_AIE_044",
+    "source_citation": "Sculley et al., NeurIPS 2015 (https://papers.neurips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf); Kleppmann, DDIA (https://dataintensive.net/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_043a",
+        "text_ar": "هل تعرف مفاهيم مثل Data Quality و Data Drift و Monitoring للبيانات؟",
+        "text_en": "Do you know concepts like data quality, data drift, and monitoring?"
+      },
+      {
+        "id": "N_AIE_043b",
+        "text_ar": "هل سبق أن واجهت مشكلة تغيّر البيانات مع الوقت وكيف عالجتها؟",
+        "text_en": "Have you faced data changing over time and dealt with it?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_044",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "versioning_lineage",
+    "weight": 2,
+    "next_if_true": "N_AIE_045",
+    "next_if_false": "N_AIE_045",
+    "source_citation": "Sculley et al., NeurIPS 2015 (https://papers.neurips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_044a",
+        "text_ar": "هل تستخدم Versioning للبيانات/النماذج أو تحفظ lineage للتجارب؟",
+        "text_en": "Do you version data/models or keep experiment lineage?"
+      },
+      {
+        "id": "N_AIE_044b",
+        "text_ar": "هل عندك أسلوب يمنع ضياع نسخة dataset أو نموذج تم تدريبه؟",
+        "text_en": "Do you have a method to avoid losing which dataset/model version was used?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_045",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "cloud_data_tools_exposure",
+    "weight": 1,
+    "next_if_true": "N_AIE_047",
+    "next_if_false": "N_AIE_047",
+    "choices_ar": [
+      "Azure (Synapse/ADF/Databricks)",
+      "AWS (Glue/EMR/Redshift)",
+      "GCP (Dataflow/BigQuery)",
+      "لا يوجد"
+    ],
+    "choices_en": [
+      "Azure",
+      "AWS",
+      "GCP",
+      "None"
+    ],
+    "source_citation": "CS2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf); Kleppmann, DDIA (https://dataintensive.net/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_045a",
+        "text_ar": "هل لديك خبرة بأدوات بيانات على السحابة؟",
+        "text_en": "Do you have experience with cloud data tools?"
+      },
+      {
+        "id": "N_AIE_045b",
+        "text_ar": "أي منصة بيانات استخدمتها أو تفضّلها؟",
+        "text_en": "Which data platform have you used or prefer?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_047",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "ml_systems_awareness",
+    "weight": 2,
+    "next_if_true": "N_AIE_090",
+    "next_if_false": "N_AIE_090",
+    "source_citation": "Sculley et al., NeurIPS 2015 (https://papers.neurips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_047a",
+        "text_ar": "هل لديك وعي بمشاكل إنتاج أنظمة ML (data leakage، feedback loops، technical debt)؟",
+        "text_en": "Are you aware of ML production pitfalls (data leakage, feedback loops, technical debt)?"
+      },
+      {
+        "id": "N_AIE_047b",
+        "text_ar": "هل تعرف لماذا أنظمة ML تتعقّد في الإنتاج أكثر من التدريب المحلي؟",
+        "text_en": "Do you know why ML systems become harder in production than in local training?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_050",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "python_skill",
+    "weight": 3,
+    "next_if_true": "N_AIE_051",
+    "next_if_false": "N_AIE_051",
+    "source_citation": "Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_050a",
+        "text_ar": "قيّم مهارتك في Python لتطبيق خوارزميات ML من 0 إلى 5.",
+        "text_en": "Rate your Python skill for implementing ML algorithms from 0 to 5."
+      },
+      {
+        "id": "N_AIE_050b",
+        "text_ar": "من 0 إلى 5، هل تستطيع بناء تدريب بسيط (تحميل بيانات، تدريب، تقييم)؟",
+        "text_en": "From 0 to 5, can you build a simple training loop (load, train, evaluate)?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_051",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "math_skill",
+    "weight": 3,
+    "next_if_true": "N_AIE_052",
+    "next_if_false": "N_AIE_052",
+    "source_citation": "Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf); Hastie et al., ESL 2e (https://hastie.su.domains/ElemStatLearn/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_051a",
+        "text_ar": "قيّم أساسك الرياضي لـ ML (احتمالات، مشتقات، مصفوفات) من 0 إلى 5.",
+        "text_en": "Rate your math foundation for ML (probability, derivatives, matrices) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_051b",
+        "text_ar": "من 0 إلى 5، ما مدى قدرتك على فهم loss functions والـ gradients؟",
+        "text_en": "From 0 to 5, how well can you understand loss functions and gradients?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_052",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "ml_exposure",
+    "weight": 2,
+    "next_if_true": "N_AIE_053",
+    "next_if_false": "N_AIE_053",
+    "source_citation": "Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf); Bishop, PRML 2006 (https://www.microsoft.com/en-us/research/wp-content/uploads/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_052a",
+        "text_ar": "قيّم خبرتك مع ML التقليدي (Linear/Logistic، SVM، Trees) من 0 إلى 5.",
+        "text_en": "Rate your exposure to classical ML (Linear/Logistic, SVM, Trees) from 0 to 5."
+      },
+      {
+        "id": "N_AIE_052b",
+        "text_ar": "من 0 إلى 5، كم مرّة نفذت نماذج ML غير عميقة (غير Deep Learning)؟",
+        "text_en": "From 0 to 5, how often have you implemented non-deep ML models?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_053",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "classical_models_understanding",
+    "weight": 2,
+    "next_if_true": "N_AIE_054",
+    "next_if_false": "N_AIE_054",
+    "source_citation": "Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf); Hastie et al., ESL 2e (https://hastie.su.domains/ElemStatLearn/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_053a",
+        "text_ar": "هل تفهم الفرق بين bias/variance وكيف يؤثر على اختيار النموذج؟",
+        "text_en": "Do you understand bias-variance tradeoff and how it affects model choice?"
+      },
+      {
+        "id": "N_AIE_053b",
+        "text_ar": "هل تستطيع تفسير لماذا قد يفشل نموذج بالتعميم رغم أداء تدريب ممتاز؟",
+        "text_en": "Can you explain why a model might generalize poorly despite strong training performance?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_054",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "model_evaluation_skill",
+    "weight": 2,
+    "next_if_true": "N_AIE_055",
+    "next_if_false": "N_AIE_055",
+    "source_citation": "Stanford CS229 (https://cs229.stanford.edu/main_notes.pdf); Hastie et al., ESL 2e (https://hastie.su.domains/ElemStatLearn/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_054a",
+        "text_ar": "هل تعرف تقييم النماذج بشكل صحيح (cross-validation، اختيار metric مناسب)؟",
+        "text_en": "Do you know proper model evaluation (cross-validation, choosing metrics)?"
+      },
+      {
+        "id": "N_AIE_054b",
+        "text_ar": "هل تعرف كيف تمنع overfitting أثناء اختيار hyperparameters؟",
+        "text_en": "Do you know how to avoid overfitting during hyperparameter tuning?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_055",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "feature_engineering_leakage",
+    "weight": 2,
+    "next_if_true": "N_AIE_056",
+    "next_if_false": "N_AIE_056",
+    "source_citation": "Sculley et al., NeurIPS 2015 (https://papers.neurips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf); Hastie et al., ESL 2e (https://hastie.su.domains/ElemStatLearn/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_055a",
+        "text_ar": "هل تعرف مفهوم data leakage وكيف يتسبب بنتائج تقييم مضللة؟",
+        "text_en": "Do you know what data leakage is and why it creates misleading evaluation results?"
+      },
+      {
+        "id": "N_AIE_055b",
+        "text_ar": "هل سبق أن واجهت مشكلة أن الـ features تسرب معلومات من المستقبل؟",
+        "text_en": "Have you faced features leaking future information?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_056",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "deep_learning_interest",
+    "weight": 1,
+    "next_if_true": "N_AIE_057",
+    "next_if_false": "N_AIE_057",
+    "source_citation": "Goodfellow et al., Deep Learning (https://www.deeplearningbook.org/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_056a",
+        "text_ar": "هل ترغب بالتركيز على Deep Learning (شبكات عصبية) ضمن مسارك؟",
+        "text_en": "Do you want to focus on Deep Learning (neural networks) in your track?"
+      },
+      {
+        "id": "N_AIE_056b",
+        "text_ar": "هل تفضّل الشبكات العصبية على النماذج التقليدية عند توفر بيانات كافية؟",
+        "text_en": "Do you prefer neural networks over classical models when enough data is available?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_057",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "deployment_interest",
+    "weight": 1,
+    "next_if_true": "N_AIE_090",
+    "next_if_false": "N_AIE_090",
+    "source_citation": "Sculley et al., NeurIPS 2015 (https://papers.neurips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_057a",
+        "text_ar": "هل هدفك نشر نموذج ML في نظام حقيقي (API، خدمة) وليس فقط تدريب محلي؟",
+        "text_en": "Is your goal to deploy an ML model in a real system (API/service), not only local training?"
+      },
+      {
+        "id": "N_AIE_057b",
+        "text_ar": "هل لديك اهتمام بتحويل النموذج إلى منتج يعمل باستقرار؟",
+        "text_en": "Are you interested in turning the model into a stable product feature?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_090",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "target_outcome",
+    "weight": 2,
+    "next_if_true": "N_AIE_091",
+    "next_if_false": "N_AIE_091",
+    "choices_ar": [
+      "internship (تدريب)",
+      "job (وظيفة)",
+      "research (بحث)",
+      "freelance (عمل حر)"
+    ],
+    "choices_en": [
+      "internship",
+      "job",
+      "research",
+      "freelance"
+    ],
+    "source_citation": "Giarratano & Riley, Expert Systems 4e (https://books.google.com/books/about/Expert_Systems.html?id=SbgZRAAACAAJ); CS2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_090a",
+        "text_ar": "ما هو الهدف النهائي الأقرب لك حالياً؟",
+        "text_en": "What is your closest current outcome goal?"
+      },
+      {
+        "id": "N_AIE_090b",
+        "text_ar": "أي نتيجة تريد تحقيقها من هذا المسار؟",
+        "text_en": "Which outcome do you want from this track?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_091",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "time_horizon",
+    "weight": 1,
+    "next_if_true": "N_AIE_092",
+    "next_if_false": "N_AIE_092",
+    "choices_ar": [
+      "short (قصير 4-8 أسابيع)",
+      "medium (متوسط 2-4 أشهر)",
+      "long (طويل 5-8 أشهر)"
+    ],
+    "choices_en": [
+      "short",
+      "medium",
+      "long"
+    ],
+    "source_citation": "Giarratano & Riley, Expert Systems 4e (https://books.google.com/books/about/Expert_Systems.html?id=SbgZRAAACAAJ)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_091a",
+        "text_ar": "ما هو الأفق الزمني المناسب لك لتحقيق الهدف؟",
+        "text_en": "What time horizon fits you to reach the goal?"
+      },
+      {
+        "id": "N_AIE_091b",
+        "text_ar": "خلال كم مدة ترغب أن ترى نتيجة واضحة؟",
+        "text_en": "In what timeframe do you want to see clear progress?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_092",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "pressure_load",
+    "weight": 1,
+    "next_if_true": "END",
+    "next_if_false": "END",
+    "choices_ar": [
+      "low (منخفض)",
+      "medium (متوسط)",
+      "high (مرتفع)"
+    ],
+    "choices_en": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "source_citation": "Giarratano & Riley, Expert Systems 4e (https://books.google.com/books/about/Expert_Systems.html?id=SbgZRAAACAAJ); Sculley et al., NeurIPS 2015",
+    "pool_pair": [
+      {
+        "id": "N_AIE_092a",
+        "text_ar": "كيف هو ضغطك الحالي (دراسة/عمل)؟",
+        "text_en": "How is your current workload pressure (study/work)?"
+      },
+      {
+        "id": "N_AIE_092b",
+        "text_ar": "ما مستوى الضغط والالتزامات حالياً؟",
+        "text_en": "What is your current pressure level and commitments?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_PT001",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner"
+    ],
+    "type": "boolean",
+    "fact_key": "any_programming_experience",
+    "weight": 1,
+    "next_if_true": "N_AIE_PT002",
+    "next_if_false": "N_AIE_PT003",
+    "source_citation": "CS2023 (ACM/IEEE)  -  Computing Curricula 2023, Foundational programming (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_PT001a",
+        "text_ar": "هل سبق لك استخدام أي لغة برمجة (Python, Java, C++, ...) ولو بشكل بسيط جداً؟",
+        "text_en": "Have you ever used any programming language (Python, Java, C++, etc.) even at a very basic level?"
+      },
+      {
+        "id": "N_AIE_PT001b",
+        "text_ar": "هل لديك معرفة بمفاهيم البرمجة الأساسية مثل المتغيرات والحلقات والدوال؟",
+        "text_en": "Do you have knowledge of basic programming concepts such as variables, loops, and functions?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_PT002",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner"
+    ],
+    "type": "boolean",
+    "fact_key": "ml_awareness",
+    "weight": 1,
+    "next_if_true": "N_AIE_PT003",
+    "next_if_false": "N_AIE_PT003",
+    "source_citation": "Russell & Norvig, AIMA 4e  -  Ch. 1 Introduction (https://aima.cs.berkeley.edu/)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_PT002a",
+        "text_ar": "هل أنت على دراية بمفهوم الذكاء الاصطناعي ومجالاته الرئيسية (ML, CV, NLP)؟",
+        "text_en": "Are you familiar with the concept of AI and its main fields (ML, CV, NLP)?"
+      },
+      {
+        "id": "N_AIE_PT002b",
+        "text_ar": "هل سمعت عن Machine Learning و Deep Learning وتعرف الفرق الأساسي بينهما؟",
+        "text_en": "Have you heard of ML and Deep Learning and know the basic difference between them?"
+      }
+    ]
+  },
+  {
+    "id": "N_AIE_PT003",
+    "domain": "AIE",
+    "level_filter": [
+      "beginner"
+    ],
+    "type": "scale",
+    "scale_min": 0,
+    "scale_max": 5,
+    "fact_key": "pretrack_readiness",
+    "weight": 1,
+    "next_if_true": "N_AIE_002",
+    "next_if_false": "END",
+    "truthy_rule": "إذا تقييمك 2 أو أكثر: يكمل المقابلة. إذا أقل من 2: يوجّه لـ PreTrack Goal",
+    "source_citation": "Andrew Ng, ML Specialization Coursera 2022  -  Course prerequisites; CS2023 ACM/IEEE (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_AIE_PT003a",
+        "text_ar": "كيف تقيّم استعدادك الحالي لبدء تعلم الذكاء الاصطناعي؟ (0 = مبتدئ كامل, 5 = جاهز تماماً)",
+        "text_en": "How do you rate your current readiness to start learning AI? (0 = complete beginner, 5 = fully ready)"
+      },
+      {
+        "id": "N_AIE_PT003b",
+        "text_ar": "هل تريد بدء رحلتك في AI من الصفر مع التركيز على الأساسيات (Python + Math + ML Basics)؟",
+        "text_en": "Do you want to start your AI journey from scratch with focus on fundamentals (Python + Math + ML)?"
+      }
+    ]
+  }
+]

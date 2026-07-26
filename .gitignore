@@ -1,0 +1,33 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+venv/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+
+# Local model weights
+model.safetensors
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local planning records
+docs/superpowers/

@@ -1,0 +1,1368 @@
+[
+  {
+    "id": "N_SE_001",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "programming_basic",
+    "weight": 3,
+    "next_if_true": "N_SE_002",
+    "next_if_false": "N_SE_PT001",
+    "source_citation": "ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf); SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_001a",
+        "text_ar": "هل سبق لك كتابة كود برمجي من قبل (بأي لغة)؟",
+        "text_en": "Have you written code before (in any language)?"
+      },
+      {
+        "id": "N_SE_001b",
+        "text_ar": "هل عندك خبرة سابقة بالبرمجة ولو بسيطة؟",
+        "text_en": "Do you have any prior programming experience, even basic?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_PT001",
+    "domain": "SE",
+    "level_filter": [
+      "beginner"
+    ],
+    "type": "boolean",
+    "fact_key": "basics_control_flow",
+    "weight": 2,
+    "next_if_true": "N_SE_002",
+    "next_if_false": "N_SE_PT002",
+    "source_citation": "ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_PT001a",
+        "text_ar": "هل بتفهم فكرة المتغيرات و if و loops بشكل عام؟",
+        "text_en": "Do you understand variables, if statements, and loops at a basic level?"
+      },
+      {
+        "id": "N_SE_PT001b",
+        "text_ar": "إذا أعطيتك كود بسيط فيه if/for، بتقدر تقرا شو عم يعمل؟",
+        "text_en": "If you see a small code snippet with if/for, can you read what it does?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_PT002",
+    "domain": "SE",
+    "level_filter": [
+      "beginner"
+    ],
+    "type": "scale",
+    "fact_key": "pretrack_readiness",
+    "weight": 1,
+    "next_if_true": "N_SE_002",
+    "next_if_false": "END",
+    "source_citation": "ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf); SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_PT002a",
+        "text_ar": "قيّم جاهزيتك لتتعلم أساسيات البرمجة من 0 إلى 5 (0 = ما بعرف شي, 5 = جاهز تمام).",
+        "text_en": "Rate your readiness to learn programming fundamentals from 0 to 5 (0 = none, 5 = fully ready)."
+      },
+      {
+        "id": "N_SE_PT002b",
+        "text_ar": "قديش بتحس حالك مستعد تبدأ من الأساسيات وتلتزم بخطة بسيطة؟ (0-5)",
+        "text_en": "How ready are you to start from fundamentals and stick to a simple plan? (0-5)"
+      }
+    ],
+    "scale_min": 0,
+    "scale_max": 5,
+    "truthy_rule": "إذا التقييم 2 أو أكثر: كمل المقابلة. إذا أقل من 2: يوجّه لـ PreTrack Goal"
+  },
+  {
+    "id": "N_SE_002",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "current_level",
+    "weight": 1,
+    "next_if_true": "N_SE_003",
+    "next_if_false": "N_SE_003",
+    "source_citation": "SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf); ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_002a",
+        "text_ar": "شو هو مستواك الحالي بالبرمجة أو هندسة البرمجيات؟",
+        "text_en": "What is your current level in programming or software engineering?"
+      },
+      {
+        "id": "N_SE_002b",
+        "text_ar": "كيف بتصنف خبرتك الحالية؟",
+        "text_en": "How would you classify your current experience level?"
+      }
+    ],
+    "choices_ar": [
+      "مبتدئ",
+      "متوسط",
+      "متقدم"
+    ],
+    "choices_en": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ]
+  },
+  {
+    "id": "N_SE_003",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "numeric",
+    "fact_key": "hours_per_week",
+    "weight": 1,
+    "next_if_true": "N_SE_004",
+    "next_if_false": "N_SE_004",
+    "source_citation": "SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf); ISO/IEC/IEEE 12207:2017 Software life cycle processes (https://www.iso.org/standard/63712.html)",
+    "pool_pair": [
+      {
+        "id": "N_SE_003a",
+        "text_ar": "كم ساعة بالأسبوع تقدر تخصصها لتطوير مهاراتك بهندسة البرمجيات؟ (1 إلى 40)",
+        "text_en": "How many hours per week can you dedicate to improving your SE skills? (1 to 40)"
+      },
+      {
+        "id": "N_SE_003b",
+        "text_ar": "شو متوسط وقتك المتاح أسبوعيا لهالمسار؟ (1-40)",
+        "text_en": "What is your average weekly available time for this track? (1-40)"
+      }
+    ],
+    "truthy_rule": ">= 8"
+  },
+  {
+    "id": "N_SE_004",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "target_outcome",
+    "weight": 2,
+    "next_if_true": "N_SE_005",
+    "next_if_false": "N_SE_005",
+    "source_citation": "SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf); ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_004a",
+        "text_ar": "شو هدفك الأساسي من هالمسار؟",
+        "text_en": "What is your primary goal for this track?"
+      },
+      {
+        "id": "N_SE_004b",
+        "text_ar": "شو النتيجة يلي بدك توصلها؟",
+        "text_en": "What outcome are you targeting?"
+      }
+    ],
+    "choices_ar": [
+      "تدريب (Internship)",
+      "وظيفة (Job)",
+      "عمل حر (Freelance)",
+      "بحث (Research)"
+    ],
+    "choices_en": [
+      "internship",
+      "job",
+      "freelance",
+      "research"
+    ]
+  },
+  {
+    "id": "N_SE_005",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "prefers_projects",
+    "weight": 1,
+    "next_if_true": "N_SE_006",
+    "next_if_false": "N_SE_006",
+    "source_citation": "Manifesto for Agile Software Development and Principles (https://agilemanifesto.org/; https://agilemanifesto.org/principles.html); The Scrum Guide 2020 (https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_005a",
+        "text_ar": "بتفضل تتعلم عن طريق مشاريع عملية أكثر من القراءة النظرية؟",
+        "text_en": "Do you prefer learning through hands-on projects rather than mostly theory?"
+      },
+      {
+        "id": "N_SE_005b",
+        "text_ar": "هل التعلم العملي بالمشاريع هو اللي بيحفزك أكثر؟",
+        "text_en": "Are hands-on projects what motivate you most?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_006",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "prefers_building_apps",
+    "weight": 2,
+    "next_if_true": "N_SE_007",
+    "next_if_false": "N_SE_009",
+    "source_citation": "SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf); ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_006a",
+        "text_ar": "هل اهتمامك الأساسي ببناء تطبيقات (API أو واجهات) أكثر من البنية التحتية والأمان؟",
+        "text_en": "Are you mainly interested in building applications (APIs or UIs) more than infrastructure and security?"
+      },
+      {
+        "id": "N_SE_006b",
+        "text_ar": "هل بتحب شغل بناء منتج/تطبيق أكثر من شغل DevOps أو Security؟",
+        "text_en": "Do you prefer building a product/app over DevOps or security work?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_007",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "prefers_backend",
+    "weight": 2,
+    "next_if_true": "N_SE_BE01",
+    "next_if_false": "N_SE_FE01",
+    "source_citation": "SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf); IETF RFC 9110 HTTP Semantics (https://datatracker.ietf.org/doc/html/rfc9110)",
+    "pool_pair": [
+      {
+        "id": "N_SE_007a",
+        "text_ar": "ضمن بناء التطبيقات, بتفضل Backend و APIs أكثر من واجهات المستخدم؟",
+        "text_en": "Within app development, do you prefer backend and APIs over UI work?"
+      },
+      {
+        "id": "N_SE_007b",
+        "text_ar": "إذا بدك تختار, بتروح على Server-side ولا Frontend؟",
+        "text_en": "If you had to choose one, would you prefer backend APIs and server-side work over frontend UI work?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_009",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "prefers_devops",
+    "weight": 2,
+    "next_if_true": "N_SE_DO01",
+    "next_if_false": "N_SE_010",
+    "source_citation": "DORA metrics guide (https://dora.dev/guides/dora-metrics/); Google SRE books online (https://sre.google/books/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_009a",
+        "text_ar": "هل بتستمتع أكثر بالأتمتة والنشر (CI/CD, Deployments) من تحليل البيانات؟",
+        "text_en": "Do you enjoy automation and deployment (CI/CD, deployments) more than data work?"
+      },
+      {
+        "id": "N_SE_009b",
+        "text_ar": "هل ميولك أقرب لـ DevOps/SRE من Data Engineering؟",
+        "text_en": "Are you closer to DevOps/SRE than data engineering?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_010",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "prefers_security",
+    "weight": 2,
+    "next_if_true": "N_SE_SEC01",
+    "next_if_false": "N_SE_DA01",
+    "source_citation": "OWASP Top 10 Web Application Security Risks (https://owasp.org/www-project-top-ten/); NIST SP 800-218 Secure Software Development Framework (SSDF) v1.1 (https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-218.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_010a",
+        "text_ar": "هل تركيزك الأساسي هو أمن التطبيقات والبرمجيات؟",
+        "text_en": "Is your primary focus application and software security?"
+      },
+      {
+        "id": "N_SE_010b",
+        "text_ar": "إذا خيروك بين Security وبين Data, بتختار Security؟",
+        "text_en": "If you had to choose between security and data, would you choose security?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_BE01",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "api_concepts",
+    "weight": 2,
+    "next_if_true": "N_SE_BE02",
+    "next_if_false": "N_SE_BE02",
+    "source_citation": "IETF RFC 9110 HTTP Semantics (https://datatracker.ietf.org/doc/html/rfc9110)",
+    "pool_pair": [
+      {
+        "id": "N_SE_BE01a",
+        "text_ar": "هل بتعرف الفرق بين GET و POST و PUT و DELETE؟",
+        "text_en": "Do you know the difference between GET, POST, PUT, and DELETE?"
+      },
+      {
+        "id": "N_SE_BE01b",
+        "text_ar": "هل عندك فكرة عن HTTP methods الأساسية واستخدامها؟",
+        "text_en": "Do you have a basic idea of core HTTP methods and their use?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_BE02",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "status_codes_basic",
+    "weight": 2,
+    "next_if_true": "N_SE_BE03",
+    "next_if_false": "N_SE_BE03",
+    "source_citation": "IETF RFC 9110 HTTP Semantics (https://datatracker.ietf.org/doc/html/rfc9110)",
+    "pool_pair": [
+      {
+        "id": "N_SE_BE02a",
+        "text_ar": "هل بتعرف معنى 200 و 400 و 401 و 404 و 500 بشكل عام؟",
+        "text_en": "Do you generally know what 200, 400, 401, 404, and 500 mean?"
+      },
+      {
+        "id": "N_SE_BE02b",
+        "text_ar": "إذا رجع السيرفر 401 أو 403, بتعرف شو الفرق بينهم؟",
+        "text_en": "If a server returns 401 or 403, do you know the difference?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_BE03",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "api_documentation_openapi",
+    "weight": 2,
+    "next_if_true": "N_SE_BE04",
+    "next_if_false": "N_SE_BE04",
+    "source_citation": "OpenAPI Specification 3.1.0 (https://spec.openapis.org/oas/v3.1.0.html)",
+    "pool_pair": [
+      {
+        "id": "N_SE_BE03a",
+        "text_ar": "هل سبق لك كتابة أو قراءة OpenAPI/Swagger لوصف API؟",
+        "text_en": "Have you ever written or read an OpenAPI/Swagger definition for an API?"
+      },
+      {
+        "id": "N_SE_BE03b",
+        "text_ar": "هل بتعرف شو فائدة OpenAPI Specification بتوثيق الـ endpoints؟",
+        "text_en": "Do you know why the OpenAPI Specification is useful for documenting endpoints?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_BE04",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "fact_key": "db_modeling_skill",
+    "weight": 2,
+    "next_if_true": "N_SE_BE05",
+    "next_if_false": "N_SE_BE05",
+    "source_citation": "CMU 15-445 notes (Relational model, Concurrency control) (https://15445.courses.cs.cmu.edu/spring2026/notes/01-relationalmodel.pdf; https://15445.courses.cs.cmu.edu/fall2023/notes/15-concurrencycontrol.pdf); MIT OCW 1.264J Lecture 10 Data normalization (https://ocw.mit.edu/courses/1-264j-database-internet-and-systems-integration-technologies-fall-2013/8230628ff6c6aeff33f1c096a78f2bd8_MIT1_264JF13_lect_10.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_BE04a",
+        "text_ar": "قيّم مهارتك بتصميم جداول قاعدة بيانات وعلاقاتها (0-5).",
+        "text_en": "Rate your skill in designing database tables and relationships (0-5)."
+      },
+      {
+        "id": "N_SE_BE04b",
+        "text_ar": "قديش بتقدر تعمل ERD بسيط وتحوّله لجداول؟ (0-5)",
+        "text_en": "How well can you create a simple ERD and turn it into tables? (0-5)"
+      }
+    ],
+    "scale_min": 0,
+    "scale_max": 5
+  },
+  {
+    "id": "N_SE_BE05",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "input_validation",
+    "weight": 2,
+    "next_if_true": "N_SE_BE06",
+    "next_if_false": "N_SE_BE06",
+    "source_citation": "OWASP ASVS 4.0.3 (https://raw.githubusercontent.com/OWASP/ASVS/v4.0.3/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-en.pdf); IETF RFC 9110 HTTP Semantics (https://datatracker.ietf.org/doc/html/rfc9110)",
+    "pool_pair": [
+      {
+        "id": "N_SE_BE05a",
+        "text_ar": "هل عادة بتعمل validation صارم للمدخلات قبل ما تحفظها أو تعالجها؟",
+        "text_en": "Do you usually apply strict validation to inputs before processing or storing them?"
+      },
+      {
+        "id": "N_SE_BE05b",
+        "text_ar": "هل عندك ممارسة واضحة للتعامل مع input errors (مثل 400 مع رسالة مفهومة)؟",
+        "text_en": "Do you have a clear practice for handling input errors (like returning 400 with a clear message)?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_BE06",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "backend_testing",
+    "weight": 3,
+    "next_if_true": "N_SE_BE07",
+    "next_if_false": "N_SE_BE07",
+    "source_citation": "ISO/IEC/IEEE 29119 Software testing (https://www.iso.org/standard/45142.html); SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_BE06a",
+        "text_ar": "هل كتبت اختبارات (unit أو integration) ل API قبل؟",
+        "text_en": "Have you written tests (unit or integration) for an API before?"
+      },
+      {
+        "id": "N_SE_BE06b",
+        "text_ar": "هل عندك خبرة باستخدام test framework للتحقق من endpoints؟",
+        "text_en": "Do you have experience using a test framework to verify endpoints?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_BE07",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "http_caching",
+    "weight": 2,
+    "next_if_true": "N_SE_BE08",
+    "next_if_false": "N_SE_BE08",
+    "source_citation": "IETF RFC 9111 HTTP Caching (https://datatracker.ietf.org/doc/html/rfc9111)",
+    "pool_pair": [
+      {
+        "id": "N_SE_BE07a",
+        "text_ar": "هل بتستخدم مفاهيم caching بالـ HTTP مثل Cache-Control أو ETag؟",
+        "text_en": "Do you use HTTP caching concepts like Cache-Control or ETag?"
+      },
+      {
+        "id": "N_SE_BE07b",
+        "text_ar": "هل بتعرف متى response ممكن يكون cacheable ومتى لا؟",
+        "text_en": "Do you know when a response can be cacheable and when it should not be?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_BE08",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "config_12factor",
+    "weight": 2,
+    "next_if_true": "END",
+    "next_if_false": "END",
+    "source_citation": "The Twelve-Factor App (https://12factor.net/); Kubernetes ConfigMaps (https://kubernetes.io/docs/concepts/configuration/configmap/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_BE08a",
+        "text_ar": "هل بتفصل إعدادات التطبيق (config) عن الكود مثل environment variables؟",
+        "text_en": "Do you separate app configuration from code, e.g. via environment variables?"
+      },
+      {
+        "id": "N_SE_BE08b",
+        "text_ar": "هل بتعرف مبدأ إن نفس الـ build لازم يشتغل بكل بيئات النشر مع اختلاف config فقط؟",
+        "text_en": "Do you know the idea that the same build should run across environments with only config changes?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_FE01",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "fact_key": "web_basics",
+    "weight": 2,
+    "next_if_true": "N_SE_FE02",
+    "next_if_false": "N_SE_FE02",
+    "source_citation": "SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf); MDN JavaScript Guide (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)",
+    "pool_pair": [
+      {
+        "id": "N_SE_FE01a",
+        "text_ar": "قيّم معرفتك بـ HTML/CSS/JS كأساسيات (0-5).",
+        "text_en": "Rate your knowledge of HTML/CSS/JS fundamentals (0-5)."
+      },
+      {
+        "id": "N_SE_FE01b",
+        "text_ar": "قديش مرتاح بأساسيات الويب (HTML, CSS, JavaScript)؟ (0-5)",
+        "text_en": "How comfortable are you with web basics (HTML, CSS, JavaScript)? (0-5)"
+      }
+    ],
+    "scale_min": 0,
+    "scale_max": 5
+  },
+  {
+    "id": "N_SE_FE02",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "dom_events",
+    "weight": 2,
+    "next_if_true": "N_SE_FE03",
+    "next_if_false": "N_SE_FE03",
+    "source_citation": "MDN JavaScript Guide (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)",
+    "pool_pair": [
+      {
+        "id": "N_SE_FE02a",
+        "text_ar": "هل بتعرف تتعامل مع DOM و events (click, input) ب JavaScript؟",
+        "text_en": "Can you work with the DOM and events (click, input) in JavaScript?"
+      },
+      {
+        "id": "N_SE_FE02b",
+        "text_ar": "هل بتعرف الفرق بين state بالواجهة وبين DOM مباشرة؟",
+        "text_en": "Do you know the difference between UI state and manipulating the DOM directly?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_FE03",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "frontend_state_management",
+    "weight": 2,
+    "next_if_true": "N_SE_FE04",
+    "next_if_false": "N_SE_FE04",
+    "source_citation": "React docs (state management) (https://react.dev/learn/managing-state); SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_FE03a",
+        "text_ar": "هل عندك خبرة بإدارة state وتدفق البيانات ضمن Components؟",
+        "text_en": "Do you have experience managing state and data flow across components?"
+      },
+      {
+        "id": "N_SE_FE03b",
+        "text_ar": "هل واجهت مشاكل مثل duplicated state أو state lifting وحليتها؟",
+        "text_en": "Have you faced issues like duplicated state or lifting state and fixed them?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_FE04",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "http_client_basics",
+    "weight": 2,
+    "next_if_true": "N_SE_FE05",
+    "next_if_false": "N_SE_FE05",
+    "source_citation": "WHATWG Fetch Standard (https://fetch.spec.whatwg.org/); IETF RFC 9110 HTTP Semantics (https://datatracker.ietf.org/doc/html/rfc9110)",
+    "pool_pair": [
+      {
+        "id": "N_SE_FE04a",
+        "text_ar": "هل بتعرف تعمل طلبات HTTP من الواجهة (fetch/AJAX) وتتعامل مع JSON؟",
+        "text_en": "Can you make HTTP requests from the frontend (fetch/AJAX) and handle JSON?"
+      },
+      {
+        "id": "N_SE_FE04b",
+        "text_ar": "هل بتعرف كيف تتعامل مع async/await ب requests؟",
+        "text_en": "Do you know how to use async/await for requests?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_FE05",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "cors_understanding",
+    "weight": 2,
+    "next_if_true": "N_SE_FE06",
+    "next_if_false": "N_SE_FE06",
+    "source_citation": "W3C CORS spec and MDN CORS guide (https://www.w3.org/TR/2020/SPSD-cors-20200602/; https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS); WHATWG Fetch Standard (https://fetch.spec.whatwg.org/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_FE05a",
+        "text_ar": "هل بتفهم مشكلة CORS وليش بيصير preflight (OPTIONS)؟",
+        "text_en": "Do you understand CORS and why preflight (OPTIONS) happens?"
+      },
+      {
+        "id": "N_SE_FE05b",
+        "text_ar": "إذا صار CORS error بالمتصفح, بتعرف تشخصه على مستوى headers؟",
+        "text_en": "If you get a CORS error in the browser, can you diagnose it at the header level?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_FE06",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "ui_accessibility",
+    "weight": 2,
+    "next_if_true": "N_SE_FE07",
+    "next_if_false": "N_SE_FE07",
+    "source_citation": "W3C WCAG 2.2 (https://www.w3.org/TR/WCAG22/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_FE06a",
+        "text_ar": "هل بتاخد accessibility بعين الاعتبار (مثل keyboard navigation و ARIA)؟",
+        "text_en": "Do you consider accessibility (keyboard navigation, ARIA) in UI work?"
+      },
+      {
+        "id": "N_SE_FE06b",
+        "text_ar": "هل سمعت بـ WCAG أو طبقت معايير وصولية بالمشروع؟",
+        "text_en": "Have you heard of WCAG or applied accessibility guidelines in a project?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_FE07",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "frontend_testing",
+    "weight": 2,
+    "next_if_true": "N_SE_FE08",
+    "next_if_false": "N_SE_FE08",
+    "source_citation": "ISO/IEC/IEEE 29119 Software testing (https://www.iso.org/standard/45142.html); SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_FE07a",
+        "text_ar": "هل كتبت اختبارات للواجهة (unit/component/e2e) من قبل؟",
+        "text_en": "Have you written frontend tests (unit/component/e2e) before?"
+      },
+      {
+        "id": "N_SE_FE07b",
+        "text_ar": "هل عندك تصور عن مستويات الاختبار للواجهة وكيف تختار بينها؟",
+        "text_en": "Do you understand frontend test levels and how to choose among them?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_FE08",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "ui_performance",
+    "weight": 2,
+    "next_if_true": "END",
+    "next_if_false": "END",
+    "source_citation": "SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf); ISO/IEC 25010:2011 System and software quality models (https://www.iso.org/standard/35733.html)",
+    "pool_pair": [
+      {
+        "id": "N_SE_FE08a",
+        "text_ar": "هل عندك خبرة بتحسين أداء الواجهة (تقليل re-render, تحميل كسول)؟",
+        "text_en": "Do you have experience optimizing UI performance (reducing re-renders, lazy loading)?"
+      },
+      {
+        "id": "N_SE_FE08b",
+        "text_ar": "هل بتراقب مؤشرات مثل responsiveness و usability ضمن الجودة؟",
+        "text_en": "Do you track quality aspects like responsiveness and usability?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DA01",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "fact_key": "sql_skill",
+    "weight": 2,
+    "next_if_true": "N_SE_DA02",
+    "next_if_false": "N_SE_DA02",
+    "source_citation": "ISO/IEC SQL standard overview (ISO/IEC 9075) (https://www.iso.org/standard/63555.html); SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DA01a",
+        "text_ar": "قيّم مستواك بـ SQL (SELECT, JOIN, GROUP BY) من 0 إلى 5.",
+        "text_en": "Rate your SQL level (SELECT, JOIN, GROUP BY) from 0 to 5."
+      },
+      {
+        "id": "N_SE_DA01b",
+        "text_ar": "قديش بتقدر تكتب استعلامات SQL متوسطة؟ (0-5)",
+        "text_en": "How well can you write intermediate SQL queries? (0-5)"
+      }
+    ],
+    "scale_min": 0,
+    "scale_max": 5
+  },
+  {
+    "id": "N_SE_DA02",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "normalization_basic",
+    "weight": 2,
+    "next_if_true": "N_SE_DA03",
+    "next_if_false": "N_SE_DA03",
+    "source_citation": "MIT OCW 1.264J Lecture 10 Data normalization (https://ocw.mit.edu/courses/1-264j-database-internet-and-systems-integration-technologies-fall-2013/8230628ff6c6aeff33f1c096a78f2bd8_MIT1_264JF13_lect_10.pdf); CMU 15-445 notes (Relational model, Concurrency control) (https://15445.courses.cs.cmu.edu/spring2026/notes/01-relationalmodel.pdf; https://15445.courses.cs.cmu.edu/fall2023/notes/15-concurrencycontrol.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DA02a",
+        "text_ar": "هل بتعرف مفهوم Normalization مثل 1NF و 2NF و 3NF؟",
+        "text_en": "Do you know database normalization concepts like 1NF, 2NF, and 3NF?"
+      },
+      {
+        "id": "N_SE_DA02b",
+        "text_ar": "هل بتقدر تشرح ليش 3NF بتقلل anomalies؟",
+        "text_en": "Can you explain why 3NF reduces anomalies?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DA03",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "indexes_query_perf",
+    "weight": 2,
+    "next_if_true": "N_SE_DA04",
+    "next_if_false": "N_SE_DA04",
+    "source_citation": "CMU 15-445 notes (Relational model, Concurrency control) (https://15445.courses.cs.cmu.edu/spring2026/notes/01-relationalmodel.pdf; https://15445.courses.cs.cmu.edu/fall2023/notes/15-concurrencycontrol.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DA03a",
+        "text_ar": "هل بتفهم دور الـ indexes وتأثيرها على query performance؟",
+        "text_en": "Do you understand indexes and how they affect query performance?"
+      },
+      {
+        "id": "N_SE_DA03b",
+        "text_ar": "إذا query بطيء, بتفكر بـ index أو خطة تنفيذ (EXPLAIN)؟",
+        "text_en": "When a query is slow, do you consider indexes or execution plans (EXPLAIN)?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DA04",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "transactions_acid",
+    "weight": 2,
+    "next_if_true": "N_SE_DA05",
+    "next_if_false": "N_SE_DA05",
+    "source_citation": "PostgreSQL docs Transactions and ACID glossary (https://www.postgresql.org/docs/current/tutorial-transactions.html; https://www.postgresql.org/docs/current/glossary.html); CMU 15-445 notes (Relational model, Concurrency control) (https://15445.courses.cs.cmu.edu/spring2026/notes/01-relationalmodel.pdf; https://15445.courses.cs.cmu.edu/fall2023/notes/15-concurrencycontrol.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DA04a",
+        "text_ar": "هل بتعرف شو يعني Transaction و خصائص ACID؟",
+        "text_en": "Do you know what a transaction is and what ACID properties mean?"
+      },
+      {
+        "id": "N_SE_DA04b",
+        "text_ar": "هل بتستخدم BEGIN/COMMIT وبتفهم ليش مهمين؟",
+        "text_en": "Do you use BEGIN/COMMIT and understand why they matter?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DA05",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "isolation_levels",
+    "weight": 2,
+    "next_if_true": "N_SE_DA06",
+    "next_if_false": "N_SE_DA06",
+    "source_citation": "PostgreSQL docs Transactions and ACID glossary (https://www.postgresql.org/docs/current/tutorial-transactions.html; https://www.postgresql.org/docs/current/glossary.html)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DA05a",
+        "text_ar": "هل بتعرف مستويات العزل (Read Committed, Repeatable Read) وتأثيرها؟",
+        "text_en": "Do you know isolation levels (Read Committed, Repeatable Read) and their impact?"
+      },
+      {
+        "id": "N_SE_DA05b",
+        "text_ar": "هل بتفهم شو يعني race conditions داخل DB وكيف تنحل؟",
+        "text_en": "Do you understand DB race conditions and how to handle them?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DA06",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "data_modeling_erd",
+    "weight": 2,
+    "next_if_true": "N_SE_DA07",
+    "next_if_false": "N_SE_DA07",
+    "source_citation": "OMG Unified Modeling Language (UML) 2.5.1 (https://www.omg.org/spec/UML/2.5.1/About-UML); ISO/IEC/IEEE 29148 Requirements engineering (https://www.iso.org/standard/45171.html)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DA06a",
+        "text_ar": "هل بتقدر توثق البيانات باستخدام ERD أو UML class diagram بسيط؟",
+        "text_en": "Can you document data using an ERD or a simple UML class diagram?"
+      },
+      {
+        "id": "N_SE_DA06b",
+        "text_ar": "هل بتعرف كيف تحول requirements إلى model واضح للبيانات؟",
+        "text_en": "Do you know how to turn requirements into a clear data model?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DA07",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "data_quality_thinking",
+    "weight": 2,
+    "next_if_true": "N_SE_DA08",
+    "next_if_false": "N_SE_DA08",
+    "source_citation": "ISO/IEC 25010:2011 System and software quality models (https://www.iso.org/standard/35733.html); SWEBOK Guide v3.0 (IEEE Computer Society), 2014 (https://ieeecs-media.computer.org/media/education/swebok/swebok-v3.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DA07a",
+        "text_ar": "هل بتفكر بجودة البيانات مثل الاتساق والتحقق والقيود (constraints)؟",
+        "text_en": "Do you think about data quality like consistency, validation, and constraints?"
+      },
+      {
+        "id": "N_SE_DA07b",
+        "text_ar": "هل بتستخدم constraints مثل NOT NULL و FK لتقليل أخطاء البيانات؟",
+        "text_en": "Do you use constraints like NOT NULL and foreign keys to reduce data errors?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DA08",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "data_pipeline_basics",
+    "weight": 2,
+    "next_if_true": "END",
+    "next_if_false": "END",
+    "source_citation": "Google SRE books online (https://sre.google/books/); DORA metrics guide (https://dora.dev/guides/dora-metrics/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DA08a",
+        "text_ar": "هل عندك اهتمام ببناء pipelines بسيطة لمعالجة البيانات (حتى لو ETL صغير)؟",
+        "text_en": "Are you interested in building simple data pipelines (even small ETL)?"
+      },
+      {
+        "id": "N_SE_DA08b",
+        "text_ar": "هل بتعرف تفرق بين OLTP و reporting/analytics بشكل عام؟",
+        "text_en": "Do you generally know the difference between OLTP and analytics/reporting?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DO01",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "version_control_git",
+    "weight": 2,
+    "next_if_true": "N_SE_DO02",
+    "next_if_false": "N_SE_DO02",
+    "source_citation": "Pro Git book (https://git-scm.com/book/en/v2)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DO01a",
+        "text_ar": "هل بتستخدم Git بشكل يومي (commit, branch, merge)؟",
+        "text_en": "Do you use Git regularly (commit, branch, merge)?"
+      },
+      {
+        "id": "N_SE_DO01b",
+        "text_ar": "هل بتعرف تشتغل ب branching strategy وتتعامل مع conflicts؟",
+        "text_en": "Do you work with branching strategies and resolve merge conflicts?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DO02",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "commit_conventions",
+    "weight": 1,
+    "next_if_true": "N_SE_DO03",
+    "next_if_false": "N_SE_DO03",
+    "source_citation": "Conventional Commits 1.0.0 (https://www.conventionalcommits.org/en/v1.0.0/); Semantic Versioning 2.0.0 (https://semver.org/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DO02a",
+        "text_ar": "هل بتستخدم Conventional Commits أو أسلوب واضح لرسائل الـ commit؟",
+        "text_en": "Do you use Conventional Commits or a clear convention for commit messages?"
+      },
+      {
+        "id": "N_SE_DO02b",
+        "text_ar": "هل بتفهم كيف رسائل الـ commit بتساعد على توليد changelog و versioning؟",
+        "text_en": "Do you understand how commit messages help generate changelogs and versioning?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DO03",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "ci_basics",
+    "weight": 2,
+    "next_if_true": "N_SE_DO04",
+    "next_if_false": "N_SE_DO04",
+    "source_citation": "Martin Fowler, Continuous Integration (https://martinfowler.com/articles/continuousIntegration.html); GitHub Actions documentation (https://docs.github.com/actions)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DO03a",
+        "text_ar": "هل عندك خبرة بـ CI (build + tests) بشكل تلقائي عند push؟",
+        "text_en": "Do you have experience with CI (build + tests) automatically on push?"
+      },
+      {
+        "id": "N_SE_DO03b",
+        "text_ar": "هل سبق لك إعداد pipeline بسيط (مثلا GitHub Actions)؟",
+        "text_en": "Have you set up a simple pipeline (e.g., GitHub Actions) before?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DO04",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "cd_understanding",
+    "weight": 2,
+    "next_if_true": "N_SE_DO05",
+    "next_if_false": "N_SE_DO05",
+    "source_citation": "The Twelve-Factor App (https://12factor.net/); DORA metrics guide (https://dora.dev/guides/dora-metrics/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DO04a",
+        "text_ar": "هل بتفهم الفرق بين CI و CD و كيف تقيس lead time للتغيير؟",
+        "text_en": "Do you understand the difference between CI and CD and how to measure change lead time?"
+      },
+      {
+        "id": "N_SE_DO04b",
+        "text_ar": "هل بتعرف مؤشرات DORA الأساسية (deployment frequency, MTTR...)؟",
+        "text_en": "Do you know the core DORA metrics (deployment frequency, MTTR, etc.)?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DO05",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "containers_basics",
+    "weight": 2,
+    "next_if_true": "N_SE_DO06",
+    "next_if_false": "N_SE_DO06",
+    "source_citation": "Docker Docs, Building best practices (https://docs.docker.com/build/building/best-practices/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DO05a",
+        "text_ar": "هل استخدمت Docker أو كتبت Dockerfile من قبل؟",
+        "text_en": "Have you used Docker or written a Dockerfile before?"
+      },
+      {
+        "id": "N_SE_DO05b",
+        "text_ar": "هل بتفهم فكرة image vs container وكيف تبني image؟",
+        "text_en": "Do you understand image vs container and how to build an image?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DO06",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "kubernetes_basics",
+    "weight": 2,
+    "next_if_true": "N_SE_DO07",
+    "next_if_false": "N_SE_DO07",
+    "source_citation": "Kubernetes Deployments and rolling updates (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/; https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DO06a",
+        "text_ar": "هل عندك معرفة بـ Kubernetes concepts مثل Pod و Deployment؟",
+        "text_en": "Do you know Kubernetes concepts like Pod and Deployment?"
+      },
+      {
+        "id": "N_SE_DO06b",
+        "text_ar": "هل بتعرف شو يعني rolling update وكيف يصير بدون downtime؟",
+        "text_en": "Do you know what a rolling update is and how it achieves zero downtime?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DO07",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "observability_sre",
+    "weight": 2,
+    "next_if_true": "N_SE_DO08",
+    "next_if_false": "N_SE_DO08",
+    "source_citation": "Google SRE books online (https://sre.google/books/); DORA metrics guide (https://dora.dev/guides/dora-metrics/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DO07a",
+        "text_ar": "هل عندك خبرة بـ monitoring/alerting وكتابة postmortem بعد incident؟",
+        "text_en": "Do you have experience with monitoring/alerting and writing postmortems after incidents?"
+      },
+      {
+        "id": "N_SE_DO07b",
+        "text_ar": "هل بتفهم فكرة SLO/SLI بشكل عام لقياس reliability؟",
+        "text_en": "Do you understand the idea of SLO/SLI to measure reliability?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_DO08",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "config_management",
+    "weight": 2,
+    "next_if_true": "END",
+    "next_if_false": "END",
+    "source_citation": "Kubernetes ConfigMaps (https://kubernetes.io/docs/concepts/configuration/configmap/); The Twelve-Factor App (https://12factor.net/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_DO08a",
+        "text_ar": "هل بتستخدم فصل config عن التطبيق (ConfigMap/ENV) بدل ما تثبته بالكود؟",
+        "text_en": "Do you externalize configuration (ConfigMap/ENV) instead of hardcoding it?"
+      },
+      {
+        "id": "N_SE_DO08b",
+        "text_ar": "هل بتعرف تفرق بين secrets وبين config عادي؟",
+        "text_en": "Do you distinguish between secrets and non-secret config?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_SEC01",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "owasp_awareness",
+    "weight": 2,
+    "next_if_true": "N_SE_SEC02",
+    "next_if_false": "N_SE_SEC02",
+    "source_citation": "OWASP Top 10 Web Application Security Risks (https://owasp.org/www-project-top-ten/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_SEC01a",
+        "text_ar": "هل سمعت بـ OWASP Top 10 أو اشتغلت عليه؟",
+        "text_en": "Have you heard of or worked with the OWASP Top 10?"
+      },
+      {
+        "id": "N_SE_SEC01b",
+        "text_ar": "هل بتعرف أمثلة مثل Injection و XSS و Broken Access Control؟",
+        "text_en": "Do you know examples like Injection, XSS, and Broken Access Control?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_SEC02",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "threat_modeling_basic",
+    "weight": 2,
+    "next_if_true": "N_SE_SEC03",
+    "next_if_false": "N_SE_SEC03",
+    "source_citation": "NIST SP 800-218 Secure Software Development Framework (SSDF) v1.1 (https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-218.pdf); OWASP ASVS 4.0.3 (https://raw.githubusercontent.com/OWASP/ASVS/v4.0.3/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-en.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_SEC02a",
+        "text_ar": "هل بتعمل threat modeling بسيط قبل التنفيذ (أصول, مهاجم, تهديد)؟",
+        "text_en": "Do you do basic threat modeling before implementation (assets, attacker, threats)?"
+      },
+      {
+        "id": "N_SE_SEC02b",
+        "text_ar": "هل بتفكر بمخاطر التصميم قبل ما تكتب الكود؟",
+        "text_en": "Do you think about design risks before writing code?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_SEC03",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "authz_access_control",
+    "weight": 3,
+    "next_if_true": "N_SE_SEC04",
+    "next_if_false": "N_SE_SEC04",
+    "source_citation": "OWASP ASVS 4.0.3 (https://raw.githubusercontent.com/OWASP/ASVS/v4.0.3/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-en.pdf); OWASP Top 10 Web Application Security Risks (https://owasp.org/www-project-top-ten/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_SEC03a",
+        "text_ar": "هل بتفرق بين Authentication و Authorization وبتطبق RBAC/ABAC حسب الحاجة؟",
+        "text_en": "Do you distinguish authentication vs authorization and apply RBAC/ABAC when needed?"
+      },
+      {
+        "id": "N_SE_SEC03b",
+        "text_ar": "هل عندك عادة تعمل server-side access checks بكل endpoint حساس؟",
+        "text_en": "Do you consistently enforce server-side access checks for sensitive endpoints?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_SEC04",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "secure_coding_input",
+    "weight": 3,
+    "next_if_true": "N_SE_SEC05",
+    "next_if_false": "N_SE_SEC05",
+    "source_citation": "OWASP Top 10 Web Application Security Risks (https://owasp.org/www-project-top-ten/); NIST SP 800-218 Secure Software Development Framework (SSDF) v1.1 (https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-218.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_SEC04a",
+        "text_ar": "هل بتطبق حماية ضد Injection (مثل parameterized queries)؟",
+        "text_en": "Do you apply defenses against injection (e.g., parameterized queries)?"
+      },
+      {
+        "id": "N_SE_SEC04b",
+        "text_ar": "هل عندك قواعد واضحة للتعامل مع untrusted input؟",
+        "text_en": "Do you have clear rules for handling untrusted input?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_SEC05",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "dependency_security",
+    "weight": 2,
+    "next_if_true": "N_SE_SEC06",
+    "next_if_false": "N_SE_SEC06",
+    "source_citation": "OWASP Top 10 Web Application Security Risks (https://owasp.org/www-project-top-ten/); SLSA framework (https://slsa.dev/; https://openssf.org/projects/slsa/)",
+    "pool_pair": [
+      {
+        "id": "N_SE_SEC05a",
+        "text_ar": "هل بتراقب dependencies وتعمل تحديثات أمنية وتفهم مخاطر components القديمة؟",
+        "text_en": "Do you monitor dependencies, apply security updates, and understand risks of outdated components?"
+      },
+      {
+        "id": "N_SE_SEC05b",
+        "text_ar": "هل بتستخدم أدوات لفحص الثغرات في الـ packages ضمن CI؟",
+        "text_en": "Do you use tools to scan package vulnerabilities in CI?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_SEC06",
+    "domain": "SE",
+    "level_filter": [
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "secure_sdcl_practices",
+    "weight": 2,
+    "next_if_true": "N_SE_SEC07",
+    "next_if_false": "N_SE_SEC07",
+    "source_citation": "NIST SP 800-218 Secure Software Development Framework (SSDF) v1.1 (https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-218.pdf); OWASP ASVS 4.0.3 (https://raw.githubusercontent.com/OWASP/ASVS/v4.0.3/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0.3-en.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_SEC06a",
+        "text_ar": "هل عندك practices واضحة ضمن SDLC مثل code review و security testing و secrets management؟",
+        "text_en": "Do you have SDLC practices like code review, security testing, and secrets management?"
+      },
+      {
+        "id": "N_SE_SEC06b",
+        "text_ar": "هل بتعرف إطار SSDF أو استخدمت checklist مشابه؟",
+        "text_en": "Do you know the SSDF framework or a similar checklist?"
+      }
+    ]
+  },
+  {
+    "id": "N_SE_SEC07",
+    "domain": "SE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "supply_chain_security",
+    "weight": 2,
+    "next_if_true": "END",
+    "next_if_false": "END",
+    "source_citation": "SLSA framework (https://slsa.dev/; https://openssf.org/projects/slsa/); NIST SP 800-218 Secure Software Development Framework (SSDF) v1.1 (https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-218.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_SE_SEC07a",
+        "text_ar": "هل عندك اهتمام بأمن سلسلة التوريد (provenance, signed builds, artifact integrity)؟",
+        "text_en": "Are you interested in supply chain security (provenance, signed builds, artifact integrity)?"
+      },
+      {
+        "id": "N_SE_SEC07b",
+        "text_ar": "هل بتعرف شو يعني build provenance أو مستوى SLSA بشكل عام؟",
+        "text_en": "Do you know what build provenance or an SLSA level means at a high level?"
+      }
+    ]
+  }
+]

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Voice Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="shell">
+            <section class="panel">
+                <header class="hero">
+                    <p class="brand-tag">Nova</p>
+                    <h1>Nova Voice Agent</h1>
+                    <p class="subtitle">A modern voice agent built for fast, natural, real-time conversations.</p>
+                </header>
+
+                <section class="voice-stage">
+                    <div id="voice-visual" class="voice-visual" aria-hidden="true">
+                        <div class="orb"></div>
+                        <div class="bars">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <section class="status-card">
+                        <div id="status-pill" class="status-pill stopped">
+                            <span class="status-dot"></span>
+                            <span id="status-text" class="status-text">Offline</span>
+                        </div>
+
+                        <h2 id="state-title" class="state-title">Assistant offline</h2>
+                        <p id="state-detail" class="state-detail">Press Start Assistant to launch the model and connect.</p>
+
+                        <div id="eta-panel" class="eta-panel" hidden>
+                            <div class="eta-row">
+                                <span>Starting model</span>
+                                <span id="eta-seconds">10s</span>
+                            </div>
+                            <div class="eta-bar">
+                                <span id="eta-progress" class="eta-progress"></span>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="control-dock">
+                    <input id="participant-name" type="hidden" value="Nova Guest">
+                    <input id="room-name" type="hidden">
+
+                    <div class="mic-panel">
+                        <label class="mic-label" for="mic-select">Microphone</label>
+                        <div class="mic-row">
+                            <select id="mic-select" class="mic-select">
+                                <option value="">Default microphone</option>
+                            </select>
+                            <button id="test-mic-btn" class="icon-btn" type="button" aria-label="Test microphone">Test</button>
+                        </div>
+                        <p id="mic-status" class="mic-status">Choose Start Assistant or Test to allow microphone access in Brave.</p>
+                    </div>
+
+                    <div class="button-stack">
+                        <button id="start-btn" class="btn primary-btn" type="button">Start Assistant</button>
+                        <button id="mic-btn" class="btn ghost-btn" type="button" disabled>Mute Mic</button>
+                        <button id="disconnect-btn" class="btn danger-btn" type="button" disabled>End Session</button>
+                    </div>
+
+                    <p class="dock-note">Expected warm-up time: about 8 to 10 seconds.</p>
+                    <div id="audio-host" class="audio-host"></div>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <script type="module">
+        import {
+            Room,
+            RoomEvent,
+            Track,
+        } from "https://unpkg.com/livekit-client/dist/livekit-client.esm.mjs";
+
+        const statusText = document.getElementById("status-text");
+        const statusPill = document.getElementById("status-pill");
+        const stateTitle = document.getElementById("state-title");
+        const stateDetail = document.getElementById("state-detail");
+        const etaPanel = document.getElementById("eta-panel");
+        const etaSeconds = document.getElementById("eta-seconds");
+        const etaProgress = document.getElementById("eta-progress");
+        const startBtn = document.getElementById("start-btn");
+        const voiceVisual = document.getElementById("voice-visual");
+        const roomNameInput = document.getElementById("room-name");
+        const participantNameInput = document.getElementById("participant-name");
+        const disconnectBtn = document.getElementById("disconnect-btn");
+        const micBtn = document.getElementById("mic-btn");
+        const micSelect = document.getElementById("mic-select");
+        const micStatus = document.getElementById("mic-status");
+        const testMicBtn = document.getElementById("test-mic-btn");
+        const audioHost = document.getElementById("audio-host");
+
+        let room = null;
+        let micEnabled = false;
+        let lastRunningState = false;
+        let currentPhase = "offline";
+        let startupEstimateSeconds = 10;
+        let selectedMicDeviceId = "";
+
+        function setEta(remainingSeconds) {
+            if (remainingSeconds === null || remainingSeconds === undefined) {
+                etaPanel.hidden = true;
+                return;
+            }
+
+            etaPanel.hidden = false;
+            etaSeconds.textContent = `${remainingSeconds}s`;
+            const progress = Math.max(0, Math.min(100, ((startupEstimateSeconds - remainingSeconds) / startupEstimateSeconds) * 100));
+            etaProgress.style.width = `${progress}%`;
+        }
+
+        function setUiState({ phase, running, detail }) {
+            currentPhase = phase || "offline";
+
+            statusText.classList.toggle("running", running);
+            statusText.classList.toggle("stopped", !running);
+            statusPill.classList.toggle("running", running);
+            statusPill.classList.toggle("stopped", !running);
+
+            if (phase === "starting") {
+                statusText.textContent = "Starting";
+                stateTitle.textContent = "Starting the model";
+                stateDetail.textContent = detail || "Please wait while Nova loads.";
+                return;
+            }
+
+            if (room) {
+                statusText.textContent = "Connected";
+                stateTitle.textContent = micEnabled ? "Nova is listening" : "Nova connected, mic muted";
+                stateDetail.textContent = detail || "Speak naturally when you are ready.";
+                return;
+            }
+
+            if (running) {
+                statusText.textContent = "Ready";
+                stateTitle.textContent = "Nova is ready";
+                stateDetail.textContent = detail || "Press Start Assistant to reconnect.";
+                return;
+            }
+
+            statusText.textContent = "Offline";
+            stateTitle.textContent = "Assistant offline";
+            stateDetail.textContent = detail || "Press Start Assistant to launch the model and connect.";
+        }
+
+        function updateControls(connected) {
+            startBtn.disabled = currentPhase === "starting";
+            startBtn.textContent = currentPhase === "starting" ? "Starting..." : connected ? "Live Session" : "Start Assistant";
+            disconnectBtn.disabled = !connected;
+            micBtn.disabled = !connected;
+            micBtn.textContent = micEnabled ? "Mute Mic" : "Unmute Mic";
+        }
+
+        function setMicStatus(message, tone = "muted") {
+            micStatus.textContent = message;
+            micStatus.classList.toggle("ok", tone === "ok");
+            micStatus.classList.toggle("error", tone === "error");
+        }
+
+        function getMicConstraints() {
+            if (!selectedMicDeviceId) {
+                return { audio: true, video: false };
+            }
+
+            return {
+                audio: {
+                    deviceId: { exact: selectedMicDeviceId },
+                    echoCancellation: true,
+                    noiseSuppression: true,
+                    autoGainControl: true,
+                },
+                video: false,
+            };
+        }
+
+        function describeMicError(error) {
+            if (error.name === "NotAllowedError" || error.name === "PermissionDeniedError") {
+                return "Brave is blocking the microphone. Click the lock icon in the address bar and set Microphone to Allow.";
+            }
+
+            if (error.name === "NotFoundError" || error.name === "DevicesNotFoundError") {
+                return "No microphone was found by Brave. Check Windows input settings or plug in a microphone.";
+            }
+
+            if (error.name === "NotReadableError" || error.name === "TrackStartError") {
+                return "The microphone is busy or unavailable. Close other apps using it, then try again.";
+            }
+
+            if (error.name === "OverconstrainedError") {
+                return "The selected microphone is unavailable. Pick another microphone or use Default microphone.";
+            }
+
+            return error.message || "Unable to access the microphone.";
+        }
+
+        async function refreshMicrophones() {
+            if (!navigator.mediaDevices?.enumerateDevices) {
+                setMicStatus("This browser does not support microphone device listing.", "error");
+                return;
+            }
+
+            const previousDeviceId = selectedMicDeviceId || micSelect.value;
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const microphones = devices.filter((device) => device.kind === "audioinput");
+
+            micSelect.innerHTML = '<option value="">Default microphone</option>';
+            microphones.forEach((device, index) => {
+                const option = document.createElement("option");
+                option.value = device.deviceId;
+                option.textContent = device.label || `Microphone ${index + 1}`;
+                micSelect.appendChild(option);
+            });
+
+            if ([...micSelect.options].some((option) => option.value === previousDeviceId)) {
+                micSelect.value = previousDeviceId;
+            }
+
+            selectedMicDeviceId = micSelect.value;
+            if (microphones.length > 0) {
+                const activeLabel = micSelect.selectedOptions[0]?.textContent || "Default microphone";
+                setMicStatus(`Ready to use: ${activeLabel}`, "ok");
+            } else {
+                setMicStatus("No microphone devices are currently visible to Brave.", "error");
+            }
+        }
+
+        async function testMicrophoneAccess() {
+            if (!navigator.mediaDevices?.getUserMedia) {
+                setMicStatus("Brave cannot access microphones from this page. Use localhost or HTTPS.", "error");
+                return false;
+            }
+
+            testMicBtn.disabled = true;
+            setMicStatus("Checking microphone permission...");
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia(getMicConstraints());
+                stream.getTracks().forEach((track) => track.stop());
+                await refreshMicrophones();
+                setMicStatus("Microphone access is allowed. You can start the assistant now.", "ok");
+                return true;
+            } catch (error) {
+                setMicStatus(describeMicError(error), "error");
+                return false;
+            } finally {
+                testMicBtn.disabled = false;
+            }
+        }
+
+        function renderStatus(data) {
+            const running = Boolean(data.running);
+            lastRunningState = running;
+            startupEstimateSeconds = data.startup_estimate_seconds || 10;
+            voiceVisual.classList.toggle("active", running || Boolean(room));
+            setEta(data.phase === "starting" ? data.startup_remaining_seconds : null);
+            setUiState({
+                phase: data.phase,
+                running,
+                detail: data.message,
+            });
+
+            if (!running && room) {
+                disconnectRoom(true);
+            }
+
+            updateControls(Boolean(room));
+        }
+
+        function attachRemoteAudio(track, participantIdentity) {
+            const element = track.attach();
+            element.autoplay = true;
+            element.controls = false;
+            element.dataset.participant = participantIdentity;
+            audioHost.appendChild(element);
+        }
+
+        function detachRemoteAudio(track) {
+            track.detach().forEach((element) => element.remove());
+        }
+
+        async function readJson(response) {
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.detail || data.message || "Request failed.");
+            }
+            return data;
+        }
+
+        async function fetchStatus() {
+            try {
+                const response = await fetch("/status", { cache: "no-store" });
+                const data = await readJson(response);
+                renderStatus(data);
+            } catch (error) {
+                stateTitle.textContent = "Status unavailable";
+                stateDetail.textContent = error.message || "Unable to fetch current status.";
+            }
+        }
+
+        async function requestBrowserToken() {
+            const response = await fetch("/livekit/token", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    room_name: "",
+                    participant_name: participantNameInput.value.trim(),
+                }),
+            });
+
+            return readJson(response);
+        }
+
+        function wireRoomEvents(activeRoom) {
+            activeRoom.on(RoomEvent.Connected, () => {
+                setUiState({
+                    phase: "connected",
+                    running: true,
+                    detail: "Connected. You can start speaking now.",
+                });
+                setEta(null);
+                voiceVisual.classList.add("speaking");
+            });
+
+            activeRoom.on(RoomEvent.ParticipantConnected, (participant) => {
+                setUiState({
+                    phase: "connected",
+                    running: true,
+                    detail: `Connected to ${participant.identity}.`,
+                });
+            });
+
+            activeRoom.on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
+                if (track.kind === Track.Kind.Audio) {
+                    attachRemoteAudio(track, participant.identity);
+                    setUiState({
+                        phase: "connected",
+                        running: true,
+                        detail: "Assistant audio is now playing.",
+                    });
+                    setEta(null);
+                }
+            });
+
+            activeRoom.on(RoomEvent.TrackUnsubscribed, (track) => {
+                if (track.kind === Track.Kind.Audio) {
+                    detachRemoteAudio(track);
+                }
+            });
+
+            activeRoom.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
+                voiceVisual.classList.toggle("speaking", speakers.length > 0 || micEnabled);
+            });
+
+            activeRoom.on(RoomEvent.Disconnected, () => {
+                voiceVisual.classList.remove("speaking");
+                room = null;
+                micEnabled = false;
+                roomNameInput.value = "";
+                setUiState({
+                    phase: lastRunningState ? "ready" : "offline",
+                    running: lastRunningState,
+                    detail: lastRunningState
+                        ? "Session ended. Press Start Assistant to connect again."
+                        : "Assistant is offline.",
+                });
+                updateControls(false);
+            });
+        }
+
+        async function connectRoom() {
+            if (room) {
+                return;
+            }
+
+            const session = await requestBrowserToken();
+            roomNameInput.value = session.room_name;
+            participantNameInput.value = session.participant_name;
+
+            room = new Room({
+                adaptiveStream: true,
+                dynacast: true,
+            });
+
+            wireRoomEvents(room);
+            await room.connect(session.url, session.token);
+            const microphoneOptions = selectedMicDeviceId
+                ? {
+                    deviceId: { exact: selectedMicDeviceId },
+                    echoCancellation: true,
+                    noiseSuppression: true,
+                    autoGainControl: true,
+                }
+                : undefined;
+
+            await room.localParticipant.setMicrophoneEnabled(true, microphoneOptions);
+
+            micEnabled = true;
+            updateControls(true);
+        }
+
+        async function startAssistant() {
+            if (room) {
+                return;
+            }
+
+            setUiState({
+                phase: "starting",
+                running: false,
+                detail: "Starting the model and preparing your voice session.",
+            });
+            setEta(startupEstimateSeconds);
+            updateControls(false);
+
+            try {
+                const micAllowed = await testMicrophoneAccess();
+                if (!micAllowed) {
+                    setEta(null);
+                    setUiState({
+                        phase: lastRunningState ? "ready" : "offline",
+                        running: lastRunningState,
+                        detail: micStatus.textContent || "Microphone access is required before starting.",
+                    });
+                    updateControls(false);
+                    return;
+                }
+
+                if (!lastRunningState) {
+                    const response = await fetch("/start", { method: "POST" });
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.detail || data.message || "Unable to start the assistant.");
+                    }
+
+                    renderStatus(data);
+                }
+
+                await connectRoom();
+            } catch (error) {
+                room = null;
+                micEnabled = false;
+                setEta(null);
+                setUiState({
+                    phase: lastRunningState ? "ready" : "offline",
+                    running: lastRunningState,
+                    detail: error.message || "Unable to start the assistant.",
+                });
+                updateControls(false);
+                await fetchStatus();
+            }
+        }
+
+        function disconnectRoom(fromBackend = false) {
+            if (!room) {
+                roomNameInput.value = "";
+                micEnabled = false;
+                updateControls(false);
+                return;
+            }
+
+            try {
+                room.disconnect();
+            } catch (error) {
+                console.error(error);
+            }
+
+            audioHost.innerHTML = "";
+            room = null;
+            roomNameInput.value = "";
+            micEnabled = false;
+            voiceVisual.classList.remove("speaking");
+            setEta(null);
+            setUiState({
+                phase: fromBackend ? "offline" : lastRunningState ? "ready" : "offline",
+                running: !fromBackend && lastRunningState,
+                detail: fromBackend
+                    ? "Assistant stopped. Start again when you are ready."
+                    : lastRunningState
+                        ? "Session ended. Press Start Assistant to reconnect."
+                        : "Assistant is offline.",
+            });
+            updateControls(false);
+        }
+
+        async function toggleMic() {
+            if (!room) {
+                return;
+            }
+
+            micEnabled = !micEnabled;
+            const microphoneOptions = selectedMicDeviceId
+                ? {
+                    deviceId: { exact: selectedMicDeviceId },
+                    echoCancellation: true,
+                    noiseSuppression: true,
+                    autoGainControl: true,
+                }
+                : undefined;
+
+            await room.localParticipant.setMicrophoneEnabled(micEnabled, microphoneOptions);
+            updateControls(true);
+            setUiState({
+                phase: "connected",
+                running: true,
+                detail: micEnabled ? "Microphone is live." : "Microphone muted.",
+            });
+        }
+
+        startBtn.addEventListener("click", startAssistant);
+        disconnectBtn.addEventListener("click", () => disconnectRoom(false));
+        micBtn.addEventListener("click", toggleMic);
+        testMicBtn.addEventListener("click", testMicrophoneAccess);
+        micSelect.addEventListener("change", () => {
+            selectedMicDeviceId = micSelect.value;
+            const activeLabel = micSelect.selectedOptions[0]?.textContent || "Default microphone";
+            setMicStatus(`Selected: ${activeLabel}`, "ok");
+        });
+
+        refreshMicrophones().catch((error) => {
+            setMicStatus(describeMicError(error), "error");
+        });
+        navigator.mediaDevices?.addEventListener?.("devicechange", () => {
+            refreshMicrophones().catch((error) => {
+                setMicStatus(describeMicError(error), "error");
+            });
+        });
+        fetchStatus();
+        setInterval(fetchStatus, 1000);
+    </script>
+</body>
+</html>

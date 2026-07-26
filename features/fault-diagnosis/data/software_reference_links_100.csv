@@ -1,0 +1,111 @@
+domain,tag,title,url,status,validation_reason
+software,python,Python 3 Documentation Home,https://docs.python.org/3/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python Tutorial,https://docs.python.org/3/tutorial/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python Library Reference,https://docs.python.org/3/library/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python Language Reference,https://docs.python.org/3/reference/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python Stdtypes,https://docs.python.org/3/library/stdtypes.html,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python Built-in Functions,https://docs.python.org/3/library/functions.html,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python Exceptions,https://docs.python.org/3/library/exceptions.html,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python Logging,https://docs.python.org/3/library/logging.html,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python asyncio,https://docs.python.org/3/library/asyncio.html,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python dataclasses,https://docs.python.org/3/library/dataclasses.html,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python typing,https://docs.python.org/3/library/typing.html,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,python,Python json,https://docs.python.org/3/library/json.html,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,javascript,MDN JavaScript Guide,https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,javascript,MDN JavaScript Reference,https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,javascript,MDN Fetch API,https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,javascript,MDN Promise,https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,javascript,MDN async function,https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,javascript,MDN import,https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,javascript,MDN export,https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,javascript,MDN Event loop,https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,typescript,TypeScript Handbook Intro,https://www.typescriptlang.org/docs/handbook/intro.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""typescript""."
+software,typescript,TypeScript Everyday Types,https://www.typescriptlang.org/docs/handbook/2/everyday-types.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""typescript""."
+software,typescript,TypeScript Narrowing,https://www.typescriptlang.org/docs/handbook/2/narrowing.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""typescript""."
+software,typescript,TypeScript Functions,https://www.typescriptlang.org/docs/handbook/2/functions.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""typescript""."
+software,typescript,TypeScript Generics,https://www.typescriptlang.org/docs/handbook/2/generics.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""typescript""."
+software,typescript,TypeScript TSConfig Reference,https://www.typescriptlang.org/tsconfig,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""typescript""."
+software,java,Oracle Java SE Docs,https://docs.oracle.com/en/java/javase/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""java""."
+software,java,Oracle Java 21 API,https://docs.oracle.com/en/java/javase/21/docs/api/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""java""."
+software,java,Oracle Java Language Updates,https://docs.oracle.com/en/java/javase/21/language/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""java""."
+software,java,Oracle Java Tutorials Archive,https://docs.oracle.com/javase/tutorial/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""java""."
+software,c#,.NET Documentation,https://learn.microsoft.com/en-us/dotnet/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,c#,C# Documentation,https://learn.microsoft.com/en-us/dotnet/csharp/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,c#,.NET Debugging,https://learn.microsoft.com/en-us/dotnet/core/diagnostics/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,c#,.NET Logging,https://learn.microsoft.com/en-us/dotnet/core/extensions/logging,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,c#,ASP.NET Core Logging,https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,sql,PostgreSQL Documentation Home,https://www.postgresql.org/docs/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""sql""."
+software,sql,PostgreSQL SQL Commands,https://www.postgresql.org/docs/current/sql-commands.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""sql""."
+software,sql,MySQL Documentation Home,https://dev.mysql.com/doc/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""sql""."
+software,sql,MySQL Reference Manual,https://dev.mysql.com/doc/refman/en/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""sql""."
+software,sql,Redis Documentation Home,https://redis.io/docs/latest/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""sql""."
+software,sql,Redis Data Types,https://redis.io/docs/latest/develop/data-types/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""sql""."
+software,sql,MDN SQL Injection,https://developer.mozilla.org/en-US/docs/Glossary/SQL_Injection,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,html/css,MDN HTML,https://developer.mozilla.org/en-US/docs/Web/HTML,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,html/css,MDN HTML Elements Reference,https://developer.mozilla.org/en-US/docs/Web/HTML/Element,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,html/css,MDN CSS,https://developer.mozilla.org/en-US/docs/Web/CSS,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,html/css,MDN CSS Reference,https://developer.mozilla.org/en-US/docs/Web/CSS/Reference,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,html/css,MDN Flexbox,https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,html/css,MDN Grid,https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,git,Git Documentation,https://git-scm.com/doc,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""git""."
+software,git,Pro Git Book,https://git-scm.com/book/en/v2,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""git""."
+software,git,git-clone,https://git-scm.com/docs/git-clone,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""git""."
+software,git,git-branch,https://git-scm.com/docs/git-branch,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""git""."
+software,git,git-merge,https://git-scm.com/docs/git-merge,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""git""."
+software,git,git-rebase,https://git-scm.com/docs/git-rebase,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""git""."
+software,django,Django Documentation,https://docs.djangoproject.com/en/stable/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,django,Django Tutorial,https://docs.djangoproject.com/en/stable/intro/tutorial01/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,django,Django Models,https://docs.djangoproject.com/en/stable/topics/db/models/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,django,Django Views,https://docs.djangoproject.com/en/stable/topics/http/views/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,django,Django Middleware,https://docs.djangoproject.com/en/stable/topics/http/middleware/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,django,Django Auth,https://docs.djangoproject.com/en/stable/topics/auth/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,django,Django Logging,https://docs.djangoproject.com/en/stable/topics/logging/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,flask,Flask Documentation,https://flask.palletsprojects.com/en/stable/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""flask""."
+software,flask,Flask Quickstart,https://flask.palletsprojects.com/en/stable/quickstart/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""flask""."
+software,flask,Flask API,https://flask.palletsprojects.com/en/stable/api/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""flask""."
+software,flask,Flask Config,https://flask.palletsprojects.com/en/stable/config/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""flask""."
+software,flask,Flask Logging,https://flask.palletsprojects.com/en/stable/logging/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""flask""."
+software,fastapi,FastAPI Documentation,https://fastapi.tiangolo.com/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""fastapi""."
+software,fastapi,FastAPI Tutorial,https://fastapi.tiangolo.com/tutorial/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""fastapi""."
+software,fastapi,FastAPI CORS,https://fastapi.tiangolo.com/tutorial/cors/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""fastapi""."
+software,fastapi,FastAPI Security OAuth2 JWT,https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""fastapi""."
+software,fastapi,FastAPI Dependencies,https://fastapi.tiangolo.com/tutorial/dependencies/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""fastapi""."
+software,fastapi,FastAPI Middleware,https://fastapi.tiangolo.com/tutorial/middleware/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""fastapi""."
+software,fastapi,FastAPI Error Handling,https://fastapi.tiangolo.com/tutorial/handling-errors/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""fastapi""."
+software,node.js,Node.js Documentation,https://nodejs.org/en/docs,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""node.js""."
+software,node.js,Node.js API,https://nodejs.org/api/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""node.js""."
+software,node.js,Node.js Debugger,https://nodejs.org/api/debugger.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""node.js""."
+software,node.js,Node.js HTTP,https://nodejs.org/api/http.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""node.js""."
+software,node.js,Node.js Streams,https://nodejs.org/api/stream.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""node.js""."
+software,express,Express Guide,https://expressjs.com/en/guide/routing.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""express""."
+software,express,Express API,https://expressjs.com/en/4x/api.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""express""."
+software,express,Express Middleware,https://expressjs.com/en/guide/using-middleware.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""express""."
+software,express,Express Error Handling,https://expressjs.com/en/guide/error-handling.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""express""."
+software,spring-boot,Spring Boot Reference,https://docs.spring.io/spring-boot/docs/current/reference/html/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""spring-boot""."
+software,spring-boot,Spring Boot Actuator,https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""spring-boot""."
+software,spring-boot,Spring Boot External Config,https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""spring-boot""."
+software,spring-boot,Spring Boot Logging,https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.logging,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""spring-boot""."
+software,asp.net-core,ASP.NET Core Documentation,https://learn.microsoft.com/en-us/aspnet/core/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,asp.net-core,ASP.NET Core Security,https://learn.microsoft.com/en-us/aspnet/core/security/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,asp.net-core,ASP.NET Core Authentication,https://learn.microsoft.com/en-us/aspnet/core/security/authentication/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,asp.net-core,ASP.NET Core Authorization,https://learn.microsoft.com/en-us/aspnet/core/security/authorization/introduction,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,asp.net-core,ASP.NET Core Middleware,https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,asp.net-core,ASP.NET Core Configuration,https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,reactjs,React Documentation,https://react.dev/,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""reactjs""."
+software,reactjs,React Learn,https://react.dev/learn,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""reactjs""."
+software,reactjs,React Reference,https://react.dev/reference/react,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""reactjs""."
+software,reactjs,React useEffect,https://react.dev/reference/react/useEffect,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""reactjs""."
+software,reactjs,React useState,https://react.dev/reference/react/useState,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""reactjs""."
+software,rest,MDN HTTP Overview,https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,rest,MDN HTTP Methods,https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,rest,MDN Status Codes,https://developer.mozilla.org/en-US/docs/Web/HTTP/Status,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,rest,MDN Content-Type,https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,rest,RESTful API Design Best Practices (Microsoft),https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,auth,OWASP Authentication Cheat Sheet,https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""auth""."
+software,auth,OWASP Authorization Cheat Sheet,https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""auth""."
+software,auth,OWASP REST Security Cheat Sheet,https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""auth""."
+software,auth,RFC 7519: JSON Web Token (JWT),https://datatracker.ietf.org/doc/html/rfc7519,valid,Accepted replacement: IETF standards-track RFC for JWT. Strong official protocol reference and a better trusted source than jwt.io.
+software,auth,RFC 7519 JSON Web Token,https://datatracker.ietf.org/doc/html/rfc7519,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,auth,OAuth 2.0 Framework RFC 6749,https://datatracker.ietf.org/doc/html/rfc6749,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,auth,OAuth 2.0 Threat Model RFC 6819,https://datatracker.ietf.org/doc/html/rfc6819,valid,Accepted: official or standards-based documentation; strong domain match and strong tag relevance.
+software,auth,OpenID Connect Core,https://openid.net/specs/openid-connect-core-1_0.html,valid,"Accepted: trusted technical source; domain ""software"" matches the topic; link is relevant to tag ""auth""."

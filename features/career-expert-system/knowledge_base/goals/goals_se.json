@@ -1,0 +1,523 @@
+[
+    {
+        "goal_id": "SE_GOAL_01",
+        "goal_name": "Backend Development Track",
+        "domain": "SE",
+        "description": "Prepares the user to build APIs and backend services using Python with relational databases, targeting internship or employment as a Backend Developer.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_backend",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "python_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 8
+            },
+            {
+                "fact": "target_outcome",
+                "op": "in",
+                "value": [
+                    "internship",
+                    "job",
+                    "freelance"
+                ]
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_frontend",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_02"
+            },
+            {
+                "fact": "prefers_devops",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_03"
+            },
+            {
+                "fact": "prefers_security",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_04"
+            },
+            {
+                "fact": "python_skill",
+                "op": "<",
+                "value": 2,
+                "note": "Insufficient Python skill level"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 8,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "python_skill",
+            "sql_skill",
+            "problem_solving",
+            "linux_skill",
+            "prefers_backend",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level",
+            "weak_device",
+            "pressure_load"
+        ],
+        "base_score": 60,
+        "typical_duration_range_weeks": {
+            "min": 8,
+            "max": 16
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "SE_GOAL_02",
+        "goal_name": "Frontend Development Track",
+        "domain": "SE",
+        "description": "Prepares the user to build interactive interfaces with HTML/CSS/JS and React, focusing on UX, performance, and accessibility.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_frontend",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "js_skill",
+                "op": ">=",
+                "value": 1
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 8
+            },
+            {
+                "fact": "target_outcome",
+                "op": "in",
+                "value": [
+                    "internship",
+                    "job",
+                    "freelance"
+                ]
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_backend",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_01"
+            },
+            {
+                "fact": "prefers_devops",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_03"
+            },
+            {
+                "fact": "prefers_security",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_04"
+            },
+            {
+                "fact": "js_skill",
+                "op": "<",
+                "value": 1,
+                "note": "No JavaScript background"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 8,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "js_skill",
+            "python_skill",
+            "problem_solving",
+            "prefers_frontend",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level",
+            "weak_device"
+        ],
+        "base_score": 58,
+        "typical_duration_range_weeks": {
+            "min": 8,
+            "max": 14
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "SE_GOAL_03",
+        "goal_name": "DevOps & Cloud Engineering Track",
+        "domain": "SE",
+        "description": "Prepares the user to manage CI/CD pipelines, containerisation, and cloud infrastructure, targeting SRE/DevOps employment or freelance work.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_devops",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "linux_skill",
+                "op": ">=",
+                "value": 1
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 10
+            },
+            {
+                "fact": "weak_device",
+                "op": "==",
+                "value": false
+            },
+            {
+                "fact": "target_outcome",
+                "op": "in",
+                "value": [
+                    "job",
+                    "freelance",
+                    "internship"
+                ]
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_backend",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_01"
+            },
+            {
+                "fact": "prefers_frontend",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_02"
+            },
+            {
+                "fact": "prefers_security",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_04"
+            },
+            {
+                "fact": "linux_skill",
+                "op": "<",
+                "value": 1,
+                "note": "Linux is fundamental to all DevOps tools"
+            },
+            {
+                "fact": "weak_device",
+                "op": "==",
+                "value": true,
+                "note": "Docker/K8s environments require adequate hardware"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 10,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "linux_skill",
+            "python_skill",
+            "problem_solving",
+            "prefers_devops",
+            "hours_per_week",
+            "target_outcome",
+            "weak_device",
+            "weak_internet",
+            "pressure_load"
+        ],
+        "base_score": 55,
+        "typical_duration_range_weeks": {
+            "min": 10,
+            "max": 20
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "SE_GOAL_04",
+        "goal_name": "Application Security Track",
+        "domain": "SE",
+        "description": "Prepares the user in application security (OWASP, AppSec, Secure Coding, Vulnerability Scanning), targeting employment or security consulting.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_security",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "python_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 10
+            },
+            {
+                "fact": "target_outcome",
+                "op": "in",
+                "value": [
+                    "job",
+                    "freelance",
+                    "internship"
+                ]
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_backend",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_01"
+            },
+            {
+                "fact": "prefers_frontend",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_02"
+            },
+            {
+                "fact": "prefers_devops",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_03"
+            },
+            {
+                "fact": "python_skill",
+                "op": "<",
+                "value": 2,
+                "note": "Insufficient Python skill level"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 10,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "python_skill",
+            "linux_skill",
+            "problem_solving",
+            "prefers_security",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level"
+        ],
+        "base_score": 52,
+        "typical_duration_range_weeks": {
+            "min": 12,
+            "max": 20
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "SE_GOAL_05",
+        "goal_name": "Data Engineering Track",
+        "domain": "SE",
+        "description": "Prepares the user to build data pipelines, ETL processes, and data warehouses, targeting employment or research roles.",
+        "eligibility_rules": [
+            {
+                "fact": "sql_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "python_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 8
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_backend",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_01"
+            },
+            {
+                "fact": "prefers_frontend",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_02"
+            },
+            {
+                "fact": "prefers_devops",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_03"
+            },
+            {
+                "fact": "prefers_security",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to SE_GOAL_04"
+            },
+            {
+                "fact": "sql_skill",
+                "op": "<",
+                "value": 2,
+                "note": "SQL is fundamental to Data Engineering"
+            },
+            {
+                "fact": "python_skill",
+                "op": "<",
+                "value": 2,
+                "note": "Insufficient Python skill level"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 8,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "sql_skill",
+            "python_skill",
+            "problem_solving",
+            "math_tolerance",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level"
+        ],
+        "base_score": 50,
+        "typical_duration_range_weeks": {
+            "min": 10,
+            "max": 18
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "SE_GOAL_06",
+        "goal_name": "Backend Development Foundations Track",
+        "domain": "SE",
+        "description": "Builds the beginner foundation for backend development through programming fundamentals, HTTP/API basics, validation, testing, and database modeling before the full backend track.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_backend",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 1
+            }
+        ],
+        "disqualifiers": [],
+        "relevant_facts": [
+            "programming_basic",
+            "pretrack_readiness",
+            "prefers_projects",
+            "prefers_backend",
+            "prefers_building_apps",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level"
+        ],
+        "base_score": 54,
+        "typical_duration_range_weeks": {
+            "min": 6,
+            "max": 12
+        },
+        "selection_priority": 24,
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "SE_GOAL_08",
+        "goal_name": "Frontend Development Foundations Track",
+        "domain": "SE",
+        "description": "Builds the beginner foundation for frontend development through HTML/CSS/JS basics, DOM/events, HTTP requests, accessibility, and small UI projects before the full frontend track.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_frontend",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 1
+            }
+        ],
+        "disqualifiers": [],
+        "relevant_facts": [
+            "web_basics",
+            "prefers_projects",
+            "prefers_frontend",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level"
+        ],
+        "base_score": 53,
+        "typical_duration_range_weeks": {
+            "min": 6,
+            "max": 12
+        },
+        "selection_priority": 24,
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "SE_GOAL_07",
+        "goal_name": "Software Engineering Foundations Track",
+        "domain": "SE",
+        "description": "Builds general software engineering readiness for beginners through programming basics, problem solving, Git, web/API fundamentals, and small guided projects before specialization.",
+        "eligibility_rules": [
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 1
+            }
+        ],
+        "disqualifiers": [],
+        "relevant_facts": [
+            "programming_basic",
+            "pretrack_readiness",
+            "prefers_projects",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level"
+        ],
+        "base_score": 46,
+        "typical_duration_range_weeks": {
+            "min": 6,
+            "max": 10
+        },
+        "selection_priority": 4,
+        "recommended_for": "both"
+    }
+]

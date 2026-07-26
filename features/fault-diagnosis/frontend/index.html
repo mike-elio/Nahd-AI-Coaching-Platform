@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Evidence-backed troubleshooting assistant for software, networking, and AI issues">
+  <title>Technical Fault Diagnosis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container" id="app-container">
+
+    <!-- ===== Screen 1: Input ===== -->
+    <section id="screen-input" class="screen active">
+      <header class="app-header">
+        <h1 class="app-header__title">Technical Fault Diagnosis</h1>
+        <p class="app-header__subtitle">Evidence-backed troubleshooting assistant for software, networking, and AI issues</p>
+      </header>
+
+      <div class="card">
+        <div class="form-group">
+          <label class="form-label" for="problem-text">Describe the technical issue</label>
+          <textarea
+            id="problem-text"
+            class="form-textarea"
+            placeholder="Describe the technical issue, error message, stack, recent changes, and what already works..."
+            rows="7"
+          ></textarea>
+          <p class="form-helper">Include error messages, stack, environment, recent deployment/config changes, and affected component.</p>
+        </div>
+
+        <fieldset class="level-selector">
+          <legend class="level-selector__legend">Display level</legend>
+          <div class="segmented-control" role="radiogroup" aria-label="Display level">
+            <input type="radio" name="display_level" value="basic" id="level-basic">
+            <label for="level-basic" class="segmented-control__option">
+              <span class="segmented-control__option-name">Basic</span>
+              <span class="segmented-control__option-desc">Quick steps</span>
+            </label>
+
+            <input type="radio" name="display_level" value="standard" id="level-standard" checked>
+            <label for="level-standard" class="segmented-control__option">
+              <span class="segmented-control__option-name">Standard</span>
+              <span class="segmented-control__option-desc">Balanced diagnosis</span>
+            </label>
+
+            <input type="radio" name="display_level" value="expert" id="level-expert">
+            <label for="level-expert" class="segmented-control__option">
+              <span class="segmented-control__option-name">Expert</span>
+              <span class="segmented-control__option-desc">Detailed paths</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <button id="btn-diagnose" class="btn btn--primary" type="button" disabled>
+          Diagnose Issue
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== Screen 2: Loading ===== -->
+    <section id="screen-loading" class="screen" aria-live="polite">
+      <div class="card loading-container">
+        <div class="spinner" aria-hidden="true"></div>
+        <p class="loading-text">Analyzing issue and preparing diagnostic steps&hellip;</p>
+        <p class="loading-subtext">This may take a moment while the system evaluates the problem and builds a diagnostic path.</p>
+        <button id="btn-cancel" class="btn btn--ghost" type="button">Cancel</button>
+      </div>
+    </section>
+
+    <!-- ===== Screen 3: Result ===== -->
+    <section id="screen-result" class="screen">
+      <div id="result-container"></div>
+    </section>
+
+    <!-- ===== Screen 4: Error ===== -->
+    <section id="screen-error" class="screen" role="alert">
+      <div class="card error-card">
+        <p class="error-card__title">Could not complete diagnosis</p>
+        <ul id="error-list" class="error-list"></ul>
+        <button id="btn-retry" class="btn btn--primary" type="button">Try Again</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== Action Plan Modal ===== -->
+  <div id="action-plan-overlay" class="ap-overlay" aria-hidden="true">
+    <div class="ap-panel" role="dialog" aria-labelledby="ap-panel-title" aria-modal="true">
+      <div class="ap-panel__header">
+        <h2 id="ap-panel-title" class="ap-panel__title">Recommended action plan</h2>
+        <button id="btn-ap-close" class="ap-panel__close" type="button" aria-label="Close panel">&times;</button>
+      </div>
+      <div id="ap-panel-body" class="ap-panel__body"></div>
+      <div class="ap-panel__footer">
+        <button id="btn-ap-copy" class="btn btn--secondary" type="button">Copy action plan</button>
+        <button id="btn-ap-dismiss" class="btn btn--primary" type="button" style="width: auto">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

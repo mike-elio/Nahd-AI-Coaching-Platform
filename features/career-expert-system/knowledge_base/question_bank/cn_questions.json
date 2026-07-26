@@ -1,0 +1,1431 @@
+[
+  {
+    "id": "N_CNE_001",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "networking_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_002",
+    "next_if_false": "N_CNE_PT001",
+    "source_citation": "ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf); Stanford CS144 (https://cs144.github.io/); CS144 course info (https://www.scs.stanford.edu/10au-cs144/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_001a",
+        "text_ar": "هل درست أساسيات الشبكات (TCP/IP و OSI) من قبل؟",
+        "text_en": "Have you studied basic networking (TCP/IP and OSI) before?"
+      },
+      {
+        "id": "N_CNE_001b",
+        "text_ar": "هل عندك خلفية سابقة بالشبكات ولو بسيطة؟",
+        "text_en": "Do you have any prior networking background, even basic?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_PT001",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "osi_layers_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_PT002",
+    "next_if_false": "N_CNE_PT002",
+    "source_citation": "Stanford CS144 (https://cs144.github.io/); CS144 course info (https://www.scs.stanford.edu/10au-cs144/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_PT001a",
+        "text_ar": "هل تستطيع شرح طبقات OSI باختصار؟",
+        "text_en": "Can you briefly explain the OSI layers?"
+      },
+      {
+        "id": "N_CNE_PT001b",
+        "text_ar": "هل بتعرف الفرق بين الطبقات L2 و L3 و L4؟",
+        "text_en": "Do you know the difference between L2, L3, and L4?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_PT002",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "ip_subnetting_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_PT003",
+    "next_if_false": "N_CNE_PT003",
+    "source_citation": "IETF RFC 4632 CIDR (https://datatracker.ietf.org/doc/html/rfc4632)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_PT002a",
+        "text_ar": "هل تستطيع حساب subnet mask و CIDR لشبكة بسيطة؟",
+        "text_en": "Can you compute subnet masks and CIDR prefixes for a simple network?"
+      },
+      {
+        "id": "N_CNE_PT002b",
+        "text_ar": "هل تعرف كيف تقسم شبكة /24 لعدة subnets؟",
+        "text_en": "Do you know how to split a /24 network into multiple subnets?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_PT003",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "tcp_udp_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_PT004",
+    "next_if_false": "N_CNE_PT004",
+    "source_citation": "IETF RFC 9293 TCP (https://datatracker.ietf.org/doc/rfc9293/); IETF RFC 768 UDP (https://www.rfc-editor.org/rfc/rfc768.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_PT003a",
+        "text_ar": "هل تستطيع شرح الفرق بين TCP و UDP من حيث الاعتمادية والاتصال؟",
+        "text_en": "Can you explain TCP vs UDP in terms of reliability and connection state?"
+      },
+      {
+        "id": "N_CNE_PT003b",
+        "text_ar": "هل بتعرف متى نستخدم UDP بدل TCP؟",
+        "text_en": "Do you know when to use UDP instead of TCP?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_PT004",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "basic_troubleshooting_tools",
+    "weight": 2,
+    "next_if_true": "N_CNE_002",
+    "next_if_false": "N_CNE_002",
+    "source_citation": "IETF RFC 792 ICMP (https://www.rfc-editor.org/rfc/rfc792.html); Stanford CS144 (https://cs144.github.io/); CS144 course info (https://www.scs.stanford.edu/10au-cs144/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_PT004a",
+        "text_ar": "هل سبق لك استخدام ping و traceroute لتشخيص مشكلة شبكة؟",
+        "text_en": "Have you used ping and traceroute to troubleshoot a network issue?"
+      },
+      {
+        "id": "N_CNE_PT004b",
+        "text_ar": "هل بتعرف شو يعني ICMP Time Exceeded يلي بيطلع مع traceroute؟",
+        "text_en": "Do you know what ICMP Time Exceeded indicates in traceroute?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_002",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "numeric",
+    "fact_key": "hours_per_week",
+    "weight": 1,
+    "next_if_true": "N_CNE_003",
+    "next_if_false": "N_CNE_003",
+    "source_citation": "ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_002a",
+        "text_ar": "كم ساعة تستطيع تخصيصها أسبوعياً لتعلم الشبكات؟ (1 إلى 40)",
+        "text_en": "How many hours per week can you dedicate to learning networking? (1 to 40)"
+      },
+      {
+        "id": "N_CNE_002b",
+        "text_ar": "ما متوسط وقت الدراسة الأسبوعي المتاح لك لهذا المسار؟ (1 إلى 40)",
+        "text_en": "What is your average weekly study time available for this track? (1 to 40)"
+      }
+    ],
+    "truthy_rule": ">= 6"
+  },
+  {
+    "id": "N_CNE_003",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "cne_focus_area",
+    "weight": 2,
+    "next_if_true": "N_CNE_004",
+    "next_if_false": "N_CNE_004",
+    "source_citation": "ACM/IEEE-CS/AAAI Computer Science Curricula 2023 (https://csed.acm.org/wp-content/uploads/2023/09/Version-Gamma.pdf); Stanford CS144 (https://cs144.github.io/); CS144 course info (https://www.scs.stanford.edu/10au-cs144/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_003a",
+        "text_ar": "أي مجال ضمن الشبكات ترغب تركز عليه أكثر؟",
+        "text_en": "Which networking subarea do you want to focus on most?"
+      },
+      {
+        "id": "N_CNE_003b",
+        "text_ar": "شو المجال الأقرب لاهتمامك ضمن الاتصالات والشبكات؟",
+        "text_en": "Which domain feels most aligned with your interest in networking?"
+      }
+    ],
+    "choices_ar": [
+      "Routing and Switching",
+      "Transport and Web protocols",
+      "Wireless and Wi-Fi",
+      "Network Security",
+      "Cloud and Data Center Networking",
+      "Telecom and 5G",
+      "غير متأكد"
+    ],
+    "choices_en": [
+      "routing_switching",
+      "transport_web",
+      "wireless_wifi",
+      "network_security",
+      "cloud_datacenter",
+      "telecom_5g",
+      "not_sure"
+    ]
+  },
+  {
+    "id": "N_CNE_004",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "fact_key": "linux_cli_net_tools_skill",
+    "weight": 2,
+    "next_if_true": "N_CNE_RS01",
+    "next_if_false": "N_CNE_RS01",
+    "source_citation": "Stanford CS144 (https://cs144.github.io/); CS144 course info (https://www.scs.stanford.edu/10au-cs144/); Kubernetes Cluster Networking (https://kubernetes.io/docs/concepts/cluster-administration/networking/); Services & Networking (https://kubernetes.io/docs/concepts/services-networking/); Network Policies (https://kubernetes.io/docs/concepts/services-networking/network-policies/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_004a",
+        "text_ar": "قيّم مهارتك باستخدام أدوات الشبكة على لينكس (ip, ss, tcpdump) من 0 إلى 5.",
+        "text_en": "Rate your Linux networking tools skill (ip, ss, tcpdump) from 0 to 5."
+      },
+      {
+        "id": "N_CNE_004b",
+        "text_ar": "من 0 إلى 5، قديش بتقدر تشخص مشاكل شبكة عبر CLI؟",
+        "text_en": "From 0 to 5, how well can you troubleshoot networking via CLI?"
+      }
+    ],
+    "scale_min": 0,
+    "scale_max": 5,
+    "truthy_rule": ">=3"
+  },
+  {
+    "id": "N_CNE_RS01",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "routing_models_understanding",
+    "weight": 3,
+    "next_if_true": "N_CNE_RS02",
+    "next_if_false": "N_CNE_RS02",
+    "source_citation": "Stanford CS144 (https://cs144.github.io/); CS144 course info (https://www.scs.stanford.edu/10au-cs144/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS01a",
+        "text_ar": "هل تستطيع التفريق بين routing (L3) و switching/bridging (L2)؟",
+        "text_en": "Can you distinguish routing (L3) from switching/bridging (L2)?"
+      },
+      {
+        "id": "N_CNE_RS01b",
+        "text_ar": "هل بتعرف شو الفرق بين مسار الطبقة الثانية والطبقة الثالثة؟",
+        "text_en": "Do you know the difference between L2 forwarding and L3 forwarding?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_RS02",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "routing_algorithms_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_RS03",
+    "next_if_false": "N_CNE_RS03",
+    "source_citation": "Stanford CS144 (https://cs144.github.io/); CS144 course info (https://www.scs.stanford.edu/10au-cs144/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS02a",
+        "text_ar": "هل تعرف الفرق بين Distance Vector و Link State routing؟",
+        "text_en": "Do you know the difference between distance-vector and link-state routing?"
+      },
+      {
+        "id": "N_CNE_RS02b",
+        "text_ar": "هل بتعرف فكرة Dijkstra مقابل Bellman-Ford ضمن بروتوكولات التوجيه؟",
+        "text_en": "Are you familiar with Dijkstra vs Bellman-Ford in routing protocols?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_RS03",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "ospf_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_RS04",
+    "next_if_false": "N_CNE_RS04",
+    "source_citation": "IETF RFC 2328 OSPFv2 (https://datatracker.ietf.org/doc/html/rfc2328)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS03a",
+        "text_ar": "هل تستطيع شرح فكرة OSPF كـ Link-State داخل AS واحد؟",
+        "text_en": "Can you explain OSPF as a link-state protocol within a single AS?"
+      },
+      {
+        "id": "N_CNE_RS03b",
+        "text_ar": "هل بتعرف شو يعني LSDB وكيف بيحسب OSPF الـ shortest-path tree؟",
+        "text_en": "Do you know what the LSDB is and how OSPF computes the shortest-path tree?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_RS04",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "bgp_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_RS05",
+    "next_if_false": "N_CNE_RS05",
+    "source_citation": "IETF RFC 4271 BGP-4 (https://www.rfc-editor.org/rfc/rfc4271.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS04a",
+        "text_ar": "هل تستطيع شرح دور BGP كبروتوكول توجيه بين Autonomous Systems؟",
+        "text_en": "Can you explain BGP as an inter-AS routing protocol?"
+      },
+      {
+        "id": "N_CNE_RS04b",
+        "text_ar": "هل بتعرف شو يعني AS-PATH وليش مهم ضمن BGP؟",
+        "text_en": "Do you know what AS-PATH is and why it matters in BGP?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_RS05",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "vlan_8021q_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_RS06",
+    "next_if_false": "N_CNE_RS06",
+    "source_citation": "IEEE 802.1Q-2018 (https://standards.ieee.org/ieee/802.1Q/6844/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS05a",
+        "text_ar": "هل تعرف شو هي VLAN ولماذا نستخدم 802.1Q tagging؟",
+        "text_en": "Do you know what a VLAN is and why 802.1Q tagging is used?"
+      },
+      {
+        "id": "N_CNE_RS05b",
+        "text_ar": "هل بتفرق بين access port و trunk port ضمن VLANs؟",
+        "text_en": "Can you distinguish an access port from a trunk port in VLANs?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_RS06",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "stp_loop_prevention",
+    "weight": 2,
+    "next_if_true": "N_CNE_RS07",
+    "next_if_false": "N_CNE_RS07",
+    "source_citation": "IEEE 802.1D-2004 (bridging/STP context) (https://standards.ieee.org/ieee/802.1D/3387/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS06a",
+        "text_ar": "هل تعرف كيف STP يمنع loops في الشبكات المبدلة (switching)؟",
+        "text_en": "Do you know how STP prevents loops in switched networks?"
+      },
+      {
+        "id": "N_CNE_RS06b",
+        "text_ar": "هل بتعرف شو يعني Root Bridge و Port States بشكل عام؟",
+        "text_en": "Do you generally understand root bridge selection and port states?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_RS07",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "arp_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_RS08",
+    "next_if_false": "N_CNE_RS08",
+    "source_citation": "IETF RFC 826 ARP (https://datatracker.ietf.org/doc/html/rfc826)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS07a",
+        "text_ar": "هل تستطيع شرح كيف ARP يحول IP إلى MAC ضمن الشبكة المحلية؟",
+        "text_en": "Can you explain how ARP maps IP addresses to MAC addresses on a LAN?"
+      },
+      {
+        "id": "N_CNE_RS07b",
+        "text_ar": "هل بتعرف شو الفرق بين ARP request و ARP reply؟",
+        "text_en": "Do you know the difference between an ARP request and an ARP reply?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_RS08",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "dhcp_dora_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_RS09",
+    "next_if_false": "N_CNE_RS09",
+    "source_citation": "IETF RFC 2131 DHCP (https://datatracker.ietf.org/doc/html/rfc2131)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS08a",
+        "text_ar": "هل تستطيع وصف مراحل DHCP (Discover-Offer-Request-Ack)؟",
+        "text_en": "Can you describe the DHCP DORA process (Discover, Offer, Request, Ack)?"
+      },
+      {
+        "id": "N_CNE_RS08b",
+        "text_ar": "هل بتعرف شو يعني lease و شو دور DHCP relay؟",
+        "text_en": "Do you know what a lease is and what a DHCP relay does?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_RS09",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "nat_pat_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TR01",
+    "next_if_false": "N_CNE_TR01",
+    "source_citation": "IETF RFC 3022 NAT (https://datatracker.ietf.org/doc/html/rfc3022); IETF RFC 1918 private addressing (https://www.ietf.org/rfc/rfc1918.txt)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_RS09a",
+        "text_ar": "هل تستطيع شرح NAT و الفرق بين NAT و PAT (NAPT)؟",
+        "text_en": "Can you explain NAT and the difference between NAT and PAT (NAPT)?"
+      },
+      {
+        "id": "N_CNE_RS09b",
+        "text_ar": "هل بتعرف ليش بنستخدم عناوين RFC1918 وكيف NAT بيتعامل معها؟",
+        "text_en": "Do you know why RFC1918 private addresses are used and how NAT handles them?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR01",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "tcp_state_machine_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_TR02",
+    "next_if_false": "N_CNE_TR02",
+    "source_citation": "IETF RFC 9293 TCP (https://datatracker.ietf.org/doc/rfc9293/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR01a",
+        "text_ar": "هل تستطيع شرح الـ 3-way handshake في TCP؟",
+        "text_en": "Can you explain the TCP three-way handshake?"
+      },
+      {
+        "id": "N_CNE_TR01b",
+        "text_ar": "هل بتعرف شو يعني SYN و ACK ضمن تأسيس الاتصال؟",
+        "text_en": "Do you know what SYN and ACK mean in connection establishment?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR02",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "reliability_mechanisms_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_TR03",
+    "next_if_false": "N_CNE_TR03",
+    "source_citation": "IETF RFC 9293 TCP (https://datatracker.ietf.org/doc/rfc9293/); IETF RFC 768 UDP (https://www.rfc-editor.org/rfc/rfc768.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR02a",
+        "text_ar": "هل تعرف كيف TCP يحقق الاعتمادية (sequence numbers, ACKs, retransmission)؟",
+        "text_en": "Do you know how TCP provides reliability (sequence numbers, ACKs, retransmission)?"
+      },
+      {
+        "id": "N_CNE_TR02b",
+        "text_ar": "هل بتعرف شو ميزات UDP الأساسية ولماذا هو أخف من TCP؟",
+        "text_en": "Do you know UDP's core properties and why it is lighter than TCP?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR03",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "congestion_control_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_TR04",
+    "next_if_false": "N_CNE_TR04",
+    "source_citation": "IETF RFC 5681 TCP congestion control (https://datatracker.ietf.org/doc/html/rfc5681)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR03a",
+        "text_ar": "هل تستطيع شرح Slow Start و Congestion Avoidance بشكل عام؟",
+        "text_en": "Can you explain slow start and congestion avoidance at a high level?"
+      },
+      {
+        "id": "N_CNE_TR03b",
+        "text_ar": "هل بتعرف شو يعني cwnd و ssthresh ضمن TCP congestion control؟",
+        "text_en": "Do you know what cwnd and ssthresh mean in TCP congestion control?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR04",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "rto_rtt_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TR05",
+    "next_if_false": "N_CNE_TR05",
+    "source_citation": "IETF RFC 6298 TCP RTO (https://www.rfc-editor.org/rfc/rfc6298.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR04a",
+        "text_ar": "هل تعرف كيف TCP يحسب Retransmission Timeout (RTO) بناء على RTT؟",
+        "text_en": "Do you know how TCP computes the retransmission timeout (RTO) from RTT?"
+      },
+      {
+        "id": "N_CNE_TR04b",
+        "text_ar": "هل بتعرف شو هو SRTT ولماذا مهم لتقليل timeouts الوهمية؟",
+        "text_en": "Do you know what SRTT is and why it matters for avoiding spurious timeouts?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR05",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "http_semantics_stateless",
+    "weight": 2,
+    "next_if_true": "N_CNE_TR06",
+    "next_if_false": "N_CNE_TR06",
+    "source_citation": "IETF RFC 9110 HTTP semantics (https://www.rfc-editor.org/rfc/rfc9110.html); RFC 9112 HTTP/1.1 (https://www.rfc-editor.org/rfc/rfc9112.html); RFC 9113 HTTP/2 (https://www.rfc-editor.org/rfc/rfc9113.html); RFC 9114 HTTP/3 (https://www.rfc-editor.org/rfc/rfc9114.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR05a",
+        "text_ar": "هل تعرف لماذا HTTP يعتبر stateless على مستوى البروتوكول؟",
+        "text_en": "Do you know why HTTP is defined as a stateless protocol?"
+      },
+      {
+        "id": "N_CNE_TR05b",
+        "text_ar": "هل بتقدر تشرح معنى request/response في HTTP بدون تخزين حالة ضمن البروتوكول؟",
+        "text_en": "Can you explain the request/response model without protocol-level state?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR06",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "http2_multiplexing_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TR07",
+    "next_if_false": "N_CNE_TR07",
+    "source_citation": "IETF RFC 9110 HTTP semantics (https://www.rfc-editor.org/rfc/rfc9110.html); RFC 9112 HTTP/1.1 (https://www.rfc-editor.org/rfc/rfc9112.html); RFC 9113 HTTP/2 (https://www.rfc-editor.org/rfc/rfc9113.html); RFC 9114 HTTP/3 (https://www.rfc-editor.org/rfc/rfc9114.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR06a",
+        "text_ar": "هل تعرف الفرق الرئيسي بين HTTP/1.1 و HTTP/2 من ناحية multiplexing؟",
+        "text_en": "Do you know the main difference between HTTP/1.1 and HTTP/2 regarding multiplexing?"
+      },
+      {
+        "id": "N_CNE_TR06b",
+        "text_ar": "هل بتعرف ليش HTTP/2 يقلل latency عبر streams على نفس الاتصال؟",
+        "text_en": "Do you know how HTTP/2 reduces latency via streams over a single connection?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR07",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "quic_http3_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TR08",
+    "next_if_false": "N_CNE_TR08",
+    "source_citation": "IETF RFC 9000 QUIC (https://datatracker.ietf.org/doc/html/rfc9000); IETF RFC 9110 HTTP semantics (https://www.rfc-editor.org/rfc/rfc9110.html); RFC 9112 HTTP/1.1 (https://www.rfc-editor.org/rfc/rfc9112.html); RFC 9113 HTTP/2 (https://www.rfc-editor.org/rfc/rfc9113.html); RFC 9114 HTTP/3 (https://www.rfc-editor.org/rfc/rfc9114.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR07a",
+        "text_ar": "هل تستطيع شرح فكرة QUIC ولماذا HTTP/3 مبني فوقه؟",
+        "text_en": "Can you explain QUIC and why HTTP/3 runs over it?"
+      },
+      {
+        "id": "N_CNE_TR07b",
+        "text_ar": "هل بتعرف شو يعني head-of-line blocking وليش QUIC يعالجه؟",
+        "text_en": "Do you know what head-of-line blocking is and how QUIC addresses it?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR08",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "dns_resolution_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TR09",
+    "next_if_false": "N_CNE_TR09",
+    "source_citation": "IETF RFC 1034 DNS concepts (https://datatracker.ietf.org/doc/html/rfc1034); IETF RFC 1035 DNS spec (https://datatracker.ietf.org/doc/html/rfc1035)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR08a",
+        "text_ar": "هل تستطيع شرح الفرق بين recursive و iterative DNS resolution؟",
+        "text_en": "Can you explain recursive vs iterative DNS resolution?"
+      },
+      {
+        "id": "N_CNE_TR08b",
+        "text_ar": "هل بتعرف دور TTL و caching ضمن DNS؟",
+        "text_en": "Do you know the role of TTL and caching in DNS?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TR09",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "udp_app_guidelines_basic",
+    "weight": 1,
+    "next_if_true": "N_CNE_WL01",
+    "next_if_false": "N_CNE_WL01",
+    "source_citation": "IETF RFC 5405 UDP usage guidelines (https://datatracker.ietf.org/doc/html/rfc5405)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TR09a",
+        "text_ar": "هل تعرف لماذا تطبيقات UDP يجب أن تراعي congestion control حتى لو البروتوكول ما فيه؟",
+        "text_en": "Do you know why UDP applications should implement congestion control considerations?"
+      },
+      {
+        "id": "N_CNE_TR09b",
+        "text_ar": "هل بتعرف مخاطر استخدام UDP بدون تحديد حجم الرسائل والتعامل مع loss؟",
+        "text_en": "Do you know the risks of using UDP without message sizing and loss handling?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_WL01",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "wifi_80211_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_WL02",
+    "next_if_false": "N_CNE_WL02",
+    "source_citation": "IEEE 802.11-2020 (https://standards.ieee.org/ieee/802.11/7028/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_WL01a",
+        "text_ar": "هل تعرف أساسيات IEEE 802.11 (AP/STA, association, channels)؟",
+        "text_en": "Do you know IEEE 802.11 basics (AP/STA, association, channels)?"
+      },
+      {
+        "id": "N_CNE_WL01b",
+        "text_ar": "هل بتعرف شو يعني BSSID و SSID بشكل صحيح؟",
+        "text_en": "Do you understand SSID vs BSSID?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_WL02",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "wpa3_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_WL03",
+    "next_if_false": "N_CNE_WL03",
+    "source_citation": "WPA3 Specification v1.0 (Wi-Fi Alliance) (https://media.telefonicatech.com/telefonicatech/uploads/2021/1/4371_WPA3_Specification_v1.0.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_WL02a",
+        "text_ar": "هل تعرف الفرق بين WPA2 و WPA3 ولماذا SAE مهم في WPA3-Personal؟",
+        "text_en": "Do you know the difference between WPA2 and WPA3 and why SAE matters in WPA3-Personal?"
+      },
+      {
+        "id": "N_CNE_WL02b",
+        "text_ar": "هل بتعرف شو يعني Protected Management Frames (PMF) ولماذا يستخدم مع WPA3؟",
+        "text_en": "Do you know what Protected Management Frames (PMF) are and why they are used with WPA3?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_WL03",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "wifi6_80211ax_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_WL04",
+    "next_if_false": "N_CNE_WL04",
+    "source_citation": "An Overview of the 802.11ax Standard (TUM NET) (https://www.net.in.tum.de/fileadmin/TUM/NET/NET-2024-04-1/NET-2024-04-1_08.pdf); IEEE 802.11-2020 (https://standards.ieee.org/ieee/802.11/7028/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_WL03a",
+        "text_ar": "هل تعرف ميزات Wi-Fi 6 (802.11ax) مثل OFDMA و MU-MIMO؟",
+        "text_en": "Do you know Wi-Fi 6 (802.11ax) features like OFDMA and MU-MIMO?"
+      },
+      {
+        "id": "N_CNE_WL03b",
+        "text_ar": "هل بتعرف كيف OFDMA بيساعد في بيئات كثيفة المستخدمين؟",
+        "text_en": "Do you know how OFDMA helps in high-density environments?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_WL04",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "wireless_controller_capwap",
+    "weight": 1,
+    "next_if_true": "N_CNE_WL05",
+    "next_if_false": "N_CNE_WL05",
+    "source_citation": "IETF RFC 5415 CAPWAP (https://datatracker.ietf.org/doc/html/rfc5415)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_WL04a",
+        "text_ar": "هل بتعرف كيف controllers تدير access points عبر بروتوكولات مثل CAPWAP؟",
+        "text_en": "Do you know how controllers manage access points using protocols like CAPWAP?"
+      },
+      {
+        "id": "N_CNE_WL04b",
+        "text_ar": "هل بتعرف الفرق بين control plane و data plane في إدارة WLAN المركزية؟",
+        "text_en": "Do you know the difference between control plane and data plane in centralized WLAN?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_WL05",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "fact_key": "rf_planning_skill",
+    "weight": 2,
+    "next_if_true": "N_CNE_WL06",
+    "next_if_false": "N_CNE_WL06",
+    "source_citation": "IEEE 802.11-2020 (https://standards.ieee.org/ieee/802.11/7028/); An Overview of the 802.11ax Standard (TUM NET) (https://www.net.in.tum.de/fileadmin/TUM/NET/NET-2024-04-1/NET-2024-04-1_08.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_WL05a",
+        "text_ar": "قيّم خبرتك بتخطيط Wi-Fi (قنوات, تداخل, SNR) من 0 إلى 5.",
+        "text_en": "Rate your Wi-Fi planning skill (channels, interference, SNR) from 0 to 5."
+      },
+      {
+        "id": "N_CNE_WL05b",
+        "text_ar": "من 0 إلى 5، قديش بتقدر تحلل مشكلة تداخل قنوات أو ضعف إشارة؟",
+        "text_en": "From 0 to 5, how well can you analyze interference or weak signal issues?"
+      }
+    ],
+    "scale_min": 0,
+    "scale_max": 5,
+    "truthy_rule": ">=3"
+  },
+  {
+    "id": "N_CNE_WL06",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "enterprise_auth_8021x_eap",
+    "weight": 2,
+    "next_if_true": "N_CNE_SEC01",
+    "next_if_false": "N_CNE_SEC01",
+    "source_citation": "IETF RFC 3748 EAP (https://datatracker.ietf.org/doc/html/rfc3748); NIST SP 800-120 (https://csrc.nist.gov/pubs/sp/800/120/final)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_WL06a",
+        "text_ar": "هل تعرف مفهوم 802.1X و EAP للمصادقة في شبكات المؤسسات (Wired/Wi-Fi)؟",
+        "text_en": "Do you know 802.1X and EAP for enterprise authentication (wired/Wi-Fi)?"
+      },
+      {
+        "id": "N_CNE_WL06b",
+        "text_ar": "هل بتعرف لماذا EAP هو framework وليس طريقة مصادقة واحدة؟",
+        "text_en": "Do you know why EAP is a framework rather than a single auth method?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_SEC01",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "tls13_basic",
+    "weight": 3,
+    "next_if_true": "N_CNE_SEC02",
+    "next_if_false": "N_CNE_SEC02",
+    "source_citation": "IETF RFC 8446 TLS 1.3 (https://datatracker.ietf.org/doc/html/rfc8446); IETF RFC 5280 X.509 PKI (https://www.rfc-editor.org/rfc/rfc5280.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_SEC01a",
+        "text_ar": "هل تستطيع شرح ما الذي يحميه TLS 1.3 (سرية, سلامة, مصادقة)؟",
+        "text_en": "Can you explain what TLS 1.3 protects (confidentiality, integrity, authentication)?"
+      },
+      {
+        "id": "N_CNE_SEC01b",
+        "text_ar": "هل بتعرف الفرق بين التشفير المتماثل وغير المتماثل ضمن TLS؟",
+        "text_en": "Do you know the difference between symmetric and asymmetric crypto in TLS?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_SEC02",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "pki_cert_validation",
+    "weight": 2,
+    "next_if_true": "N_CNE_SEC03",
+    "next_if_false": "N_CNE_SEC03",
+    "source_citation": "IETF RFC 8446 TLS 1.3 (https://datatracker.ietf.org/doc/html/rfc8446); IETF RFC 5280 X.509 PKI (https://www.rfc-editor.org/rfc/rfc5280.html); IETF RFC 5280 (https://www.rfc-editor.org/rfc/rfc5280.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_SEC02a",
+        "text_ar": "هل بتعرف شو يعني X.509 certificate وكيف يتم التحقق من سلسلة الثقة؟",
+        "text_en": "Do you know what an X.509 certificate is and how chain validation works?"
+      },
+      {
+        "id": "N_CNE_SEC02b",
+        "text_ar": "هل بتعرف دور CA و CRL/OCSP بشكل عام؟",
+        "text_en": "Do you know the role of CAs and CRL/OCSP at a high level?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_SEC03",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "firewall_policy_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_SEC04",
+    "next_if_false": "N_CNE_SEC04",
+    "source_citation": "NIST SP 800-41 Rev.1 firewalls (https://csrc.nist.gov/pubs/sp/800/41/r1/final)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_SEC03a",
+        "text_ar": "هل تستطيع تعريف firewall policy وما الذي يجب أن تحدده من قواعد؟",
+        "text_en": "Can you define a firewall policy and what its rules should specify?"
+      },
+      {
+        "id": "N_CNE_SEC03b",
+        "text_ar": "هل بتعرف الفرق بين allowlist و denylist ضمن سياسات الجدار الناري؟",
+        "text_en": "Do you know the difference between allowlisting and denylisting in firewall policy?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_SEC04",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "ipsec_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_SEC05",
+    "next_if_false": "N_CNE_SEC05",
+    "source_citation": "IETF RFC 4301 IPsec architecture (https://datatracker.ietf.org/doc/html/rfc4301); IETF RFC 4303 ESP (https://datatracker.ietf.org/doc/html/rfc4303)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_SEC04a",
+        "text_ar": "هل تستطيع شرح دور IPsec على طبقة IP ولماذا يستخدم في VPNs؟",
+        "text_en": "Can you explain IPsec at the IP layer and why it is used for VPNs?"
+      },
+      {
+        "id": "N_CNE_SEC04b",
+        "text_ar": "هل بتعرف الفرق بين AH و ESP بشكل عام؟",
+        "text_en": "Do you know the difference between AH and ESP at a high level?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_SEC05",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "security_preference",
+    "weight": 1,
+    "next_if_true": "N_CNE_SEC06",
+    "next_if_false": "N_CNE_SEC06",
+    "source_citation": "NIST SP 800-41 Rev.1 firewalls (https://csrc.nist.gov/pubs/sp/800/41/r1/final); IETF RFC 8446 TLS 1.3 (https://datatracker.ietf.org/doc/html/rfc8446); IETF RFC 5280 X.509 PKI (https://www.rfc-editor.org/rfc/rfc5280.html); IETF RFC 4301 IPsec architecture (https://datatracker.ietf.org/doc/html/rfc4301); IETF RFC 4303 ESP (https://datatracker.ietf.org/doc/html/rfc4303); IETF RFC 3748 EAP (https://datatracker.ietf.org/doc/html/rfc3748); NIST SP 800-120 (https://csrc.nist.gov/pubs/sp/800/120/final)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_SEC05a",
+        "text_ar": "أي نوع من أمن الشبكات تحب تشتغل عليه أكثر؟",
+        "text_en": "Which area of network security do you prefer to work on most?"
+      },
+      {
+        "id": "N_CNE_SEC05b",
+        "text_ar": "شو المجال الأقرب لاهتمامك ضمن security؟",
+        "text_en": "Which security domain feels most aligned with your interest?"
+      }
+    ],
+    "choices_ar": [
+      "تأمين الويب و TLS",
+      "VPN و IPsec",
+      "حماية الشبكات (firewalls/segmentation)",
+      "مصادقة المؤسسات (802.1X/EAP)",
+      "تحليل حزم و كشف هجمات (PCAP/IDS)",
+      "غير متأكد"
+    ],
+    "choices_en": [
+      "tls_web",
+      "vpn_ipsec",
+      "firewalls_segmentation",
+      "enterprise_auth",
+      "pcap_ids",
+      "not_sure"
+    ]
+  },
+  {
+    "id": "N_CNE_SEC06",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "fact_key": "threat_modeling_skill",
+    "weight": 2,
+    "next_if_true": "N_CNE_DC01",
+    "next_if_false": "N_CNE_DC01",
+    "source_citation": "NIST SP 800-41 Rev.1 firewalls (https://csrc.nist.gov/pubs/sp/800/41/r1/final); IETF RFC 8446 TLS 1.3 (https://datatracker.ietf.org/doc/html/rfc8446); IETF RFC 5280 X.509 PKI (https://www.rfc-editor.org/rfc/rfc5280.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_SEC06a",
+        "text_ar": "قيّم قدرتك على تحليل تهديدات شبكة بسيطة (MITM, spoofing, replay) من 0 إلى 5.",
+        "text_en": "Rate your ability to analyze basic network threats (MITM, spoofing, replay) from 0 to 5."
+      },
+      {
+        "id": "N_CNE_SEC06b",
+        "text_ar": "من 0 إلى 5، قديش بتقدر تختار control مناسب لما تواجه سيناريو هجوم؟",
+        "text_en": "From 0 to 5, how well can you select suitable controls for an attack scenario?"
+      }
+    ],
+    "scale_min": 0,
+    "scale_max": 5,
+    "truthy_rule": ">=3"
+  },
+  {
+    "id": "N_CNE_DC01",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "cloud_familiarity",
+    "weight": 2,
+    "next_if_true": "N_CNE_DC02",
+    "next_if_false": "N_CNE_DC02",
+    "source_citation": "NIST SP 800-145 cloud definition (https://csrc.nist.gov/pubs/sp/800/145/final); NIST SP 800-146 (https://csrc.nist.gov/pubs/sp/800/146/final)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_DC01a",
+        "text_ar": "أي نموذج سحابة تعرفه أو تعاملت معه أكثر؟",
+        "text_en": "Which cloud model are you most familiar with?"
+      },
+      {
+        "id": "N_CNE_DC01b",
+        "text_ar": "شو نوع الـ cloud environment يلي بتفهمه أو اشتغلت عليه؟",
+        "text_en": "What type of cloud environment do you understand or have worked with?"
+      }
+    ],
+    "choices_ar": [
+      "Public cloud",
+      "Private cloud",
+      "Hybrid cloud",
+      "Multi-cloud",
+      "ما اشتغلت على cloud",
+      "غير متأكد"
+    ],
+    "choices_en": [
+      "public",
+      "private",
+      "hybrid",
+      "multi",
+      "none",
+      "not_sure"
+    ]
+  },
+  {
+    "id": "N_CNE_DC02",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "overlay_underlay_vxlan",
+    "weight": 2,
+    "next_if_true": "N_CNE_DC03",
+    "next_if_false": "N_CNE_DC03",
+    "source_citation": "IETF RFC 7348 VXLAN (https://www.rfc-editor.org/rfc/rfc7348.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_DC02a",
+        "text_ar": "هل تستطيع شرح الفرق بين underlay و overlay networks (مثل VXLAN)؟",
+        "text_en": "Can you explain the difference between underlay and overlay networks (e.g., VXLAN)?"
+      },
+      {
+        "id": "N_CNE_DC02b",
+        "text_ar": "هل بتعرف شو هو VTEP ولماذا VXLAN يستخدم UDP encapsulation؟",
+        "text_en": "Do you know what a VTEP is and why VXLAN uses UDP encapsulation?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_DC03",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "sdn_openflow_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_DC04",
+    "next_if_false": "N_CNE_DC04",
+    "source_citation": "ONF OpenFlow Switch Specification 1.5.1 (https://rfc.nop.hu/openflow/openflow-switch-v1.5.1.pdf)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_DC03a",
+        "text_ar": "هل تعرف مفهوم SDN وفصل control plane عن data plane؟",
+        "text_en": "Do you know SDN and the separation of control plane and data plane?"
+      },
+      {
+        "id": "N_CNE_DC03b",
+        "text_ar": "هل بتعرف شو يعني flow table ضمن OpenFlow بشكل عام؟",
+        "text_en": "Do you know what a flow table is in OpenFlow at a high level?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_DC04",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "k8s_network_model_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_DC05",
+    "next_if_false": "N_CNE_DC05",
+    "source_citation": "Kubernetes Cluster Networking (https://kubernetes.io/docs/concepts/cluster-administration/networking/); Services & Networking (https://kubernetes.io/docs/concepts/services-networking/); Network Policies (https://kubernetes.io/docs/concepts/services-networking/network-policies/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_DC04a",
+        "text_ar": "هل تعرف نموذج شبكة Kubernetes (IP-per-Pod, east-west traffic) بشكل عام؟",
+        "text_en": "Do you know the Kubernetes networking model (IP-per-Pod, east-west traffic) at a high level?"
+      },
+      {
+        "id": "N_CNE_DC04b",
+        "text_ar": "هل بتعرف الفرق بين Service و Pod IP ضمن Kubernetes؟",
+        "text_en": "Do you know the difference between a Service and a Pod IP in Kubernetes?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_DC05",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "scale",
+    "fact_key": "cloud_routing_security_skill",
+    "weight": 2,
+    "next_if_true": "N_CNE_DC06",
+    "next_if_false": "N_CNE_DC06",
+    "source_citation": "NIST SP 800-145 cloud definition (https://csrc.nist.gov/pubs/sp/800/145/final); NIST SP 800-146 (https://csrc.nist.gov/pubs/sp/800/146/final)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_DC05a",
+        "text_ar": "قيّم خبرتك بمفاهيم مثل route tables و security groups/NSGs من 0 إلى 5.",
+        "text_en": "Rate your knowledge of route tables and security groups/NSGs from 0 to 5."
+      },
+      {
+        "id": "N_CNE_DC05b",
+        "text_ar": "من 0 إلى 5، قديش بتقدر تصمم segmentation بسيط ضمن شبكة سحابية؟",
+        "text_en": "From 0 to 5, how well can you design basic segmentation in a cloud network?"
+      }
+    ],
+    "scale_min": 0,
+    "scale_max": 5,
+    "truthy_rule": ">=3"
+  },
+  {
+    "id": "N_CNE_DC06",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "k8s_network_policy_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TEL01",
+    "next_if_false": "N_CNE_TEL01",
+    "source_citation": "Kubernetes Cluster Networking (https://kubernetes.io/docs/concepts/cluster-administration/networking/); Services & Networking (https://kubernetes.io/docs/concepts/services-networking/); Network Policies (https://kubernetes.io/docs/concepts/services-networking/network-policies/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_DC06a",
+        "text_ar": "هل تعرف مفهوم Kubernetes NetworkPolicy ولماذا يستخدم للـ micro-segmentation؟",
+        "text_en": "Do you know Kubernetes NetworkPolicy and why it is used for micro-segmentation?"
+      },
+      {
+        "id": "N_CNE_DC06b",
+        "text_ar": "هل بتعرف كيف network policies تختلف حسب CNI plugin (مثل Calico)؟",
+        "text_en": "Do you know that NetworkPolicy enforcement depends on the CNI plugin (e.g., Calico)?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TEL01",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "fiveg_core_components",
+    "weight": 2,
+    "next_if_true": "N_CNE_TEL02",
+    "next_if_false": "N_CNE_TEL02",
+    "source_citation": "3GPP TS 23.501 (https://www.3gpp.org/dynareport/23501.htm); 3GPP 5G System Overview (https://www.3gpp.org/technologies/5g-system-overview)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TEL01a",
+        "text_ar": "هل تعرف المكونات الأساسية في 5G Core مثل AMF و SMF و UPF؟",
+        "text_en": "Do you know key 5G Core components like AMF, SMF, and UPF?"
+      },
+      {
+        "id": "N_CNE_TEL01b",
+        "text_ar": "هل بتعرف الفرق العام بين RAN و Core في شبكات الموبايل؟",
+        "text_en": "Do you know the general difference between RAN and the Core in mobile networks?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TEL02",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "network_slicing_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TEL03",
+    "next_if_false": "N_CNE_TEL03",
+    "source_citation": "3GPP TS 23.501 (https://www.3gpp.org/dynareport/23501.htm); 3GPP 5G System Overview (https://www.3gpp.org/technologies/5g-system-overview)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TEL02a",
+        "text_ar": "هل تستطيع شرح مفهوم Network Slicing في 5G بشكل عام؟",
+        "text_en": "Can you explain 5G network slicing at a high level?"
+      },
+      {
+        "id": "N_CNE_TEL02b",
+        "text_ar": "هل بتعرف لماذا slicing مفيد لعزل خدمات مختلفة مثل IoT و eMBB؟",
+        "text_en": "Do you know why slicing helps isolate services like IoT and eMBB?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TEL03",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "sip_voip_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TEL04",
+    "next_if_false": "N_CNE_TEL04",
+    "source_citation": "IETF RFC 3261 SIP (https://www.rfc-editor.org/info/rfc3261)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TEL03a",
+        "text_ar": "هل تعرف دور SIP في إنشاء وتعديل وإنهاء جلسات VoIP؟",
+        "text_en": "Do you know SIP's role in establishing, modifying, and terminating VoIP sessions?"
+      },
+      {
+        "id": "N_CNE_TEL03b",
+        "text_ar": "هل بتعرف شو يعني INVITE و REGISTER ضمن SIP بشكل عام؟",
+        "text_en": "Do you know what INVITE and REGISTER are in SIP at a high level?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TEL04",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "rtp_rtcp_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TEL05",
+    "next_if_false": "N_CNE_TEL05",
+    "source_citation": "IETF RFC 3550 RTP (https://www.rfc-editor.org/rfc/rfc3550.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TEL04a",
+        "text_ar": "هل تعرف لماذا RTP يستخدم لنقل الصوت/الفيديو وما دور RTCP؟",
+        "text_en": "Do you know why RTP is used for audio/video transport and what RTCP does?"
+      },
+      {
+        "id": "N_CNE_TEL04b",
+        "text_ar": "هل بتعرف الفرق بين signaling (SIP) و media transport (RTP)؟",
+        "text_en": "Do you know the difference between signaling (SIP) and media transport (RTP)?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TEL05",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "boolean",
+    "fact_key": "qos_diffserv_basic",
+    "weight": 2,
+    "next_if_true": "N_CNE_TEL06",
+    "next_if_false": "N_CNE_TEL06",
+    "source_citation": "IETF RFC 2475 DiffServ arch (https://www.rfc-editor.org/rfc/rfc2475.html); IETF RFC 2474 DS field (https://datatracker.ietf.org/doc/rfc2474/)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TEL05a",
+        "text_ar": "هل تعرف معنى DSCP وكيف يستخدم لتطبيق QoS عبر Per-Hop Behaviors؟",
+        "text_en": "Do you know what DSCP is and how it enables QoS via per-hop behaviors?"
+      },
+      {
+        "id": "N_CNE_TEL05b",
+        "text_ar": "هل بتعرف كيف يتم marking و policing/shaping على حدود الشبكة؟",
+        "text_en": "Do you know how marking and policing/shaping are applied at network edges?"
+      }
+    ]
+  },
+  {
+    "id": "N_CNE_TEL06",
+    "domain": "CNE",
+    "level_filter": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "type": "choice",
+    "fact_key": "telecom_preference",
+    "weight": 1,
+    "next_if_true": "END",
+    "next_if_false": "END",
+    "source_citation": "3GPP TS 23.501 (https://www.3gpp.org/dynareport/23501.htm); 3GPP 5G System Overview (https://www.3gpp.org/technologies/5g-system-overview); IETF RFC 3261 SIP (https://www.rfc-editor.org/info/rfc3261); IETF RFC 3550 RTP (https://www.rfc-editor.org/rfc/rfc3550.html)",
+    "pool_pair": [
+      {
+        "id": "N_CNE_TEL06a",
+        "text_ar": "أي مجال ضمن الاتصالات الخلوية والـ telco تحب تركز عليه؟",
+        "text_en": "Which telecom subdomain do you want to focus on?"
+      },
+      {
+        "id": "N_CNE_TEL06b",
+        "text_ar": "شو الأقرب لإلك ضمن شبكات الموبايل والـ telco؟",
+        "text_en": "What feels most aligned with your interest in mobile and telecom networks?"
+      }
+    ],
+    "choices_ar": [
+      "5G Core and EPC",
+      "RAN and Radio concepts",
+      "IMS and VoIP",
+      "IoT cellular (NB-IoT/LPWAN)",
+      "Operations and troubleshooting",
+      "غير متأكد"
+    ],
+    "choices_en": [
+      "core",
+      "ran",
+      "ims_voip",
+      "iot_cellular",
+      "ops_troubleshooting",
+      "not_sure"
+    ]
+  }
+]

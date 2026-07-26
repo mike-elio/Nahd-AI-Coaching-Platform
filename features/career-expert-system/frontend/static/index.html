@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>GPES Expert System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-on-surface": "#313030",
+            "primary-container": "#8083ff",
+            "surface-bright": "#393939",
+            "secondary-fixed": "#6ffbbe",
+            "surface-container-low": "#1c1b1b",
+            "on-primary-container": "#0d0096",
+            "error-container": "#93000a",
+            "inverse-primary": "#494bd6",
+            "on-surface": "#e5e2e1",
+            "tertiary-container": "#d97721",
+            "on-tertiary-container": "#452000",
+            "tertiary-fixed-dim": "#ffb783",
+            "on-primary": "#1000a9",
+            "on-error": "#690005",
+            "outline": "#908fa0",
+            "on-secondary": "#003824",
+            "surface-container-high": "#2a2a2a",
+            "on-background": "#e5e2e1",
+            "on-tertiary": "#4f2500",
+            "outline-variant": "#464554",
+            "surface-tint": "#c0c1ff",
+            "tertiary-fixed": "#ffdcc5",
+            "tertiary": "#ffb783",
+            "surface": "#131313",
+            "on-secondary-fixed-variant": "#005236",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "surface-dim": "#131313",
+            "secondary-container": "#00a572",
+            "primary-fixed-dim": "#c0c1ff",
+            "surface-container-highest": "#353534",
+            "on-secondary-container": "#00311f",
+            "inverse-surface": "#e5e2e1",
+            "surface-container-lowest": "#0e0e0e",
+            "on-surface-variant": "#c7c4d7",
+            "on-tertiary-fixed-variant": "#703700",
+            background: "#131313",
+            "surface-variant": "#353534",
+            secondary: "#4edea3",
+            "primary-fixed": "#e1e0ff",
+            "on-primary-fixed": "#07006c",
+            "on-error-container": "#ffdad6",
+            "on-secondary-fixed": "#002113",
+            "surface-container": "#201f1f",
+            error: "#ffb4ab",
+            "on-tertiary-fixed": "#301400",
+            primary: "#c0c1ff",
+            "secondary-fixed-dim": "#4edea3",
+          },
+          fontFamily: {
+            headline: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+            label: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem",
+          },
+          boxShadow: {
+            panel: "0 28px 80px rgba(0, 0, 0, 0.28)",
+            glow: "0 0 40px rgba(99, 102, 241, 0.1)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100dvh;
+      background:
+        radial-gradient(circle at top right, rgba(99, 102, 241, 0.09), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(78, 222, 163, 0.06), transparent 24%),
+        #131313;
+    }
+
+    [x-cloak] {
+      display: none !important;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 450, "GRAD" 0, "opsz" 24;
+    }
+
+    .glass-card {
+      background: rgba(53, 53, 52, 0.4);
+      backdrop-filter: blur(20px);
+    }
+
+    .glass-panel {
+      background: rgba(28, 27, 27, 0.74);
+      backdrop-filter: blur(24px);
+    }
+
+    .primary-gradient {
+      background: linear-gradient(135deg, #c0c1ff 0%, #8083ff 100%);
+    }
+
+    .secondary-gradient {
+      background: linear-gradient(135deg, rgba(78, 222, 163, 0.22) 0%, rgba(0, 165, 114, 0.18) 100%);
+    }
+
+    .bg-grid-pattern {
+      background-image: radial-gradient(circle, rgba(70, 69, 84, 0.7) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .indigo-pulse {
+      box-shadow: 0 0 0 0 rgba(192, 193, 255, 0.4);
+      animation: pulse-ring 2s infinite cubic-bezier(0.66, 0, 0, 1);
+    }
+
+    .float-in {
+      animation: float-in 0.45s ease;
+    }
+
+    .progress-ring-circle {
+      stroke-dasharray: 439.82;
+      transition: stroke-dashoffset 0.8s ease;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        box-shadow: 0 0 0 0 rgba(192, 193, 255, 0.65);
+      }
+
+      70% {
+        box-shadow: 0 0 0 32px rgba(192, 193, 255, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(192, 193, 255, 0);
+      }
+    }
+
+    @keyframes float-in {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff !important;
+        color: #111 !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      main {
+        padding: 0 !important;
+      }
+    }
+  </style>
+  <script defer src="/static/app.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+  <div x-data="expertApp" x-init="init()" class="min-h-screen flex flex-col">
+    <div x-cloak x-show="booting" class="fixed inset-0 z-[80] flex items-center justify-center bg-[#131313]/95">
+      <div class="flex flex-col items-center gap-6 text-center">
+        <div class="relative flex h-28 w-28 items-center justify-center">
+          <div class="absolute inset-0 rounded-full border border-primary/20"></div>
+          <div class="absolute inset-4 rounded-full border border-secondary/30 indigo-pulse"></div>
+          <span class="material-symbols-outlined text-4xl text-primary">neurology</span>
+        </div>
+        <div class="space-y-2">
+          <p class="text-xs uppercase tracking-[0.3em] text-primary">GPES Interface</p>
+          <p class="text-lg font-semibold text-on-surface">Preparing the interview flow...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fixed inset-0 -z-10 overflow-hidden no-print">
+      <div class="absolute right-[-8rem] top-[-8rem] h-80 w-80 rounded-full bg-indigo-500/10 blur-[120px]"></div>
+      <div class="absolute bottom-[-6rem] left-[-4rem] h-72 w-72 rounded-full bg-emerald-500/10 blur-[100px]"></div>
+    </div>
+
+
+
+    <main class="mx-auto flex w-full max-w-7xl flex-1 flex-col px-6 pb-20 pt-10">
+      <template x-if="screen === 'home'">
+        <section class="float-in">
+          <div class="mb-16 max-w-3xl">
+            <span
+              class="mb-4 inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-primary">
+              Smart Interview Experience
+            </span>
+            <h1 class="mb-6 text-5xl font-extrabold tracking-tight text-on-surface md:text-6xl">
+              Find Your Ideal <span class="bg-clip-text text-transparent primary-gradient">Tech Path</span>
+            </h1>
+            <p class="max-w-2xl text-xl leading-relaxed text-on-surface-variant">
+              Choose a domain, launch the interview, and let the expert engine map your skills to the most fitting
+              track.
+            </p>
+          </div>
+
+          <div class="mb-16 grid grid-cols-1 gap-6 md:grid-cols-12">
+            <template x-for="domain in domains" :key="domain.code">
+              <button type="button" @click="chooseDomain(domain.code)"
+                class="group relative overflow-hidden rounded-xl border p-8 text-left transition-all duration-300"
+                :class="domainCardClasses(domain.code)">
+                <div class="absolute left-0 top-0 h-full w-1 bg-primary transition-opacity"
+                  :class="selectedDomain === domain.code ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'"></div>
+
+                <div class="mb-12 flex items-start justify-between gap-4">
+                  <div class="rounded-lg p-3 transition-colors duration-300"
+                    :class="selectedDomain === domain.code ? 'bg-primary/10' : 'bg-surface-container-high group-hover:bg-primary-container/40'">
+                    <span class="material-symbols-outlined text-primary"
+                      :style="domainMeta(domain.code).filled ? 'font-variation-settings: \u0027FILL\u0027 1, \u0027wght\u0027 450, \u0027GRAD\u0027 0, \u0027opsz\u0027 24;' : ''"
+                      x-text="domainMeta(domain.code).icon"></span>
+                  </div>
+
+                  <span class="rounded border px-2 py-1 text-[10px] font-bold uppercase tracking-[0.1em]"
+                    :class="selectedDomain === domain.code ? 'border-primary/30 text-primary' : 'border-outline/20 text-outline'"
+                    x-text="domainMeta(domain.code).badge"></span>
+                </div>
+
+                <h3 class="mb-4 text-2xl font-bold tracking-tight" x-text="domain.code"></h3>
+                <p class="mb-5 text-sm leading-relaxed text-on-surface-variant"
+                  x-text="domainMeta(domain.code).description || domain.description"></p>
+
+                <div class="flex items-center gap-2" x-show="domainMeta(domain.code).footnote" x-cloak>
+                  <div class="h-2 w-2 rounded-full"
+                    :class="selectedDomain === domain.code ? 'bg-secondary animate-pulse' : 'bg-outline'"></div>
+                  <span class="text-[10px] font-bold uppercase tracking-[0.18em]"
+                    :class="selectedDomain === domain.code ? 'text-secondary' : 'text-outline'"
+                    x-text="domainMeta(domain.code).footnote"></span>
+                </div>
+              </button>
+            </template>
+          </div>
+
+          <div class="flex flex-col items-start gap-6 md:flex-row md:items-center">
+            <button type="button" @click="startInterview()" :disabled="busy || !selectedDomain"
+              class="rounded-md px-12 py-4 font-bold text-on-primary-container transition-all duration-200 active:scale-95"
+              :class="busy ? 'cursor-wait opacity-70 primary-gradient' : 'primary-gradient hover:shadow-[0_0_30px_rgba(128,131,255,0.4)]'">
+              <span x-text="busy ? 'Launching...' : 'Start Interview'"></span>
+            </button>
+
+            <div class="flex items-center gap-4 text-xs font-medium uppercase tracking-[0.18em] text-outline">
+              <span class="hidden h-px w-12 bg-outline/20 lg:block"></span>
+              <span x-text="selectedDomainLabel()"></span>
+              <span class="hidden md:inline">Est. 3-5 minutes</span>
+            </div>
+          </div>
+        </section>
+      </template>
+
+      <template x-if="screen === 'question' && question">
+        <section class="float-in mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center">
+          <div class="mb-10 w-full">
+            <div class="mb-3 flex items-end justify-between">
+              <span class="text-[10px] font-bold uppercase tracking-[0.08em] text-on-surface-variant">
+                Profile Completion
+              </span>
+              <span class="text-xs font-bold text-primary" x-text="formatPercent(progress.percent)"></span>
+            </div>
+            <div class="h-1 w-full overflow-hidden rounded-full bg-surface-container-highest">
+              <div
+                class="h-full rounded-full bg-gradient-to-r from-secondary to-secondary-container transition-all duration-700 ease-in-out"
+                :style="`width: ${clampedPercent(progress.percent)}%`"></div>
+            </div>
+          </div>
+
+          <div class="glass-card relative overflow-hidden rounded-xl border border-outline/10 p-8 shadow-panel md:p-12">
+            <div class="absolute inset-y-0 left-0 w-[2px] bg-primary"></div>
+
+            <div class="mb-8 flex items-start justify-between gap-4">
+              <div class="space-y-2">
+                <span class="text-[10px] font-bold uppercase tracking-[0.08em] text-primary opacity-80"
+                  x-text="questionTypeLabel(question.type)"></span>
+                <h1 class="text-2xl font-bold leading-tight tracking-tight text-on-surface md:text-3xl"
+                  x-text="questionPrimaryText()"></h1>
+                <p class="max-w-2xl text-base leading-relaxed text-on-surface-variant" x-show="questionSecondaryText()"
+                  x-text="questionSecondaryText()"></p>
+              </div>
+
+              <div class="hidden rounded-lg border border-primary/20 bg-primary/10 px-4 py-3 md:block">
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary" x-text="selectedDomain"></p>
+                <p class="mt-1 text-sm text-on-surface-variant">
+                  <span x-text="progress.question_number"></span>
+                  /
+                  <span x-text="progress.estimated_total"></span>
+                </p>
+              </div>
+            </div>
+
+            <p class="mb-6 text-xs uppercase tracking-[0.18em] text-on-surface-variant" x-text="questionHint()"></p>
+
+            <div class="space-y-3" x-show="['boolean', 'choice', 'multi_choice'].includes(question.type)">
+              <template x-for="option in questionOptions" :key="option.value">
+                <button type="button" @click="selectOption(option.value)"
+                  class="group flex w-full items-center justify-between rounded-lg p-5 text-left transition-all duration-300"
+                  :class="optionButtonClasses(option.value)">
+                  <div class="pr-4">
+                    <span class="block font-medium"
+                      :class="isSelected(option.value) ? 'text-on-surface' : 'text-on-surface-variant group-hover:text-on-surface'"
+                      x-text="option.title"></span>
+                    <span class="mt-1 block text-sm text-on-surface-variant" x-show="option.subtitle"
+                      x-text="option.subtitle"></span>
+                  </div>
+
+                  <div class="flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors"
+                    :class="isSelected(option.value) ? 'border-primary' : 'border-outline-variant'">
+                    <div class="h-2.5 w-2.5 rounded-full bg-primary transition-opacity"
+                      :class="isSelected(option.value) ? 'opacity-100 shadow-[0_0_8px_rgba(99,102,241,0.4)]' : 'opacity-0'">
+                    </div>
+                  </div>
+                </button>
+              </template>
+            </div>
+
+            <div x-show="question.type === 'scale'" class="space-y-6">
+              <div class="grid grid-cols-3 gap-3 md:grid-cols-5">
+                <template x-for="value in scaleValues()" :key="value">
+                  <button type="button" @click="answer = value"
+                    class="rounded-lg border px-4 py-4 text-center text-lg font-bold transition-all duration-200"
+                    :class="scaleButtonClasses(value)">
+                    <span x-text="value"></span>
+                  </button>
+                </template>
+              </div>
+              <div class="flex items-center justify-between text-sm text-on-surface-variant">
+                <span x-text="`Low confidence (${question.scale_min})`"></span>
+                <span x-text="`High confidence (${question.scale_max})`"></span>
+              </div>
+            </div>
+
+            <div x-show="question.type === 'numeric'" class="space-y-4">
+              <label class="text-[10px] font-bold uppercase tracking-[0.18em] text-outline">Numeric Input</label>
+              <input type="number" inputmode="decimal" x-model="answer" :min="question.numeric_min ?? null"
+                :max="question.numeric_max ?? null" step="any"
+                class="w-full rounded-lg border border-outline/15 bg-surface-container-low px-5 py-4 text-lg text-on-surface outline-none transition focus:border-primary focus:ring-0"
+                placeholder="Type a number" />
+              <p x-show="hasNumericBounds()" x-text="`Allowed range: ${question.numeric_min} - ${question.numeric_max}`"
+                class="text-sm text-on-surface-variant"></p>
+            </div>
+
+            <div x-show="question.type === 'text'" class="space-y-4">
+              <label class="text-[10px] font-bold uppercase tracking-[0.18em] text-outline">Your Answer</label>
+              <textarea x-model="answer" rows="4"
+                class="w-full rounded-lg border border-outline/15 bg-surface-container-low px-5 py-4 text-base text-on-surface outline-none transition focus:border-primary focus:ring-0"
+                placeholder="Write your answer here"></textarea>
+            </div>
+
+            <p x-show="errorMessage" x-text="errorMessage" class="mt-5 text-sm text-error"></p>
+
+            <div class="flex flex-col gap-4 pt-8 md:flex-row md:items-center md:justify-between">
+              <button type="button" @click="goBack()" :disabled="busy || !progress.can_go_back"
+                class="flex items-center justify-center gap-2 rounded-md border px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors active:scale-95"
+                :class="progress.can_go_back ? 'border-outline/20 text-primary-fixed-dim hover:bg-[#2A2A2A]' : 'cursor-not-allowed border-outline/10 text-outline opacity-40'">
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+                <span>Back</span>
+              </button>
+
+              <div class="flex flex-col items-stretch gap-3 md:flex-row">
+                <button type="button" @click="navigateHome()" :disabled="busy"
+                  class="rounded-md border border-outline/20 px-6 py-3 text-sm font-bold uppercase tracking-wider text-on-surface-variant transition-colors hover:bg-[#202020]">
+                  Home
+                </button>
+                <button type="button" @click="nextQuestion()" :disabled="busy"
+                  class="flex items-center justify-center gap-2 rounded-md px-8 py-3 font-bold uppercase tracking-wider text-on-primary-container transition-all active:scale-95"
+                  :class="busy ? 'cursor-wait opacity-70 primary-gradient' : 'primary-gradient shadow-[0_4px_20px_rgba(128,131,255,0.3)] hover:brightness-110'">
+                  <span x-text="busy ? 'Working...' : 'Next'"></span>
+                  <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-10 flex items-center gap-3 self-center rounded-full border border-outline-variant/10 bg-surface-container-low px-4 py-2">
+            <div class="h-2 w-2 rounded-full bg-primary-container shadow-[0_0_10px_#8083ff]"
+              :class="busy ? 'animate-pulse' : ''"></div>
+            <span class="text-[10px] font-medium uppercase tracking-[0.12em] text-on-surface-variant">
+              <span x-text="busy ? 'Processing logical inputs...' : 'Interview ready'"></span>
+            </span>
+          </div>
+        </section>
+      </template>
+
+      <template x-if="screen === 'analysis'">
+        <section
+          class="float-in relative flex flex-1 flex-col items-center justify-center overflow-hidden pt-6 text-center">
+          <div class="pointer-events-none absolute inset-0 bg-grid-pattern opacity-10"></div>
+          <div
+            class="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]">
+          </div>
+
+          <div class="relative z-10 flex w-full max-w-2xl flex-col items-center">
+            <div class="relative mb-12 flex h-64 w-64 items-center justify-center">
+              <div class="absolute inset-0 rounded-full indigo-pulse opacity-20"></div>
+              <svg class="h-full w-full -rotate-90">
+                <circle class="stroke-surface-container-high" cx="128" cy="128" fill="transparent" r="70"
+                  stroke-width="4"></circle>
+                <circle class="progress-ring-circle stroke-primary" cx="128" cy="128" fill="transparent" r="70"
+                  stroke-linecap="round" stroke-width="4" :stroke-dashoffset="analysisDashOffset()"></circle>
+              </svg>
+              <div class="absolute flex flex-col items-center">
+                <span class="material-symbols-outlined text-5xl text-primary"
+                  style="font-variation-settings: 'FILL' 1;">analytics</span>
+                <div class="mt-4 flex gap-1">
+                  <span class="h-1.5 w-1.5 rounded-full bg-primary animate-bounce"></span>
+                  <span class="h-1.5 w-1.5 rounded-full bg-primary animate-bounce [animation-delay:-0.15s]"></span>
+                  <span class="h-1.5 w-1.5 rounded-full bg-primary animate-bounce [animation-delay:-0.3s]"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h2 class="text-4xl font-extrabold tracking-tighter text-on-surface md:text-5xl">
+                Analyzing your answers...
+              </h2>
+              <p class="mx-auto max-w-lg text-lg font-light leading-relaxed text-on-surface-variant md:text-xl">
+                Our expert engine is calculating the best track based on your interests, skills, and decision signals.
+              </p>
+            </div>
+
+            <div class="mt-16 grid w-full grid-cols-1 gap-4 md:grid-cols-3">
+              <template x-for="node in analysisNodes()" :key="node.title">
+                <div
+                  class="flex flex-col items-start gap-4 rounded-xl border border-outline/5 bg-surface-container-low p-6 text-left">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-xl" :class="node.iconColor" x-text="node.icon"></span>
+                    <span class="text-[10px] font-medium uppercase tracking-[0.08em] text-on-surface-variant"
+                      x-text="node.title"></span>
+                  </div>
+                  <div class="h-1 w-full overflow-hidden rounded-full bg-surface-container-highest">
+                    <div class="h-full rounded-full transition-all duration-700" :class="node.barColor"
+                      :style="`width: ${node.width}`"></div>
+                  </div>
+                  <span class="text-xs font-medium text-on-surface-variant/70" x-text="node.status"></span>
+                </div>
+              </template>
+            </div>
+          </div>
+        </section>
+      </template>
+
+      <template x-if="screen === 'result' && result">
+        <section class="float-in">
+          <div class="mb-12">
+            <label class="mb-2 block text-xs uppercase tracking-[0.2em] text-primary">Assessment Complete</label>
+            <h2 class="text-4xl font-extrabold tracking-tighter text-on-surface md:text-5xl">Your Recommended Path</h2>
+          </div>
+
+          <div class="mx-auto w-full max-w-5xl">
+            <section class="glass-card relative overflow-hidden rounded-xl border-l-2 border-primary shadow-panel">
+              <div class="p-8 md:p-12">
+                <div class="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+                  <div>
+                    <h3 class="text-3xl font-bold leading-tight tracking-tight text-on-surface md:text-4xl"
+                      x-text="selectedGoalHeading()"></h3>
+                  </div>
+
+                  <div class="relative flex h-32 w-32 items-center justify-center">
+                    <svg class="h-full w-full -rotate-90">
+                      <circle class="text-surface-container-highest" cx="64" cy="64" fill="transparent" r="58"
+                        stroke="currentColor" stroke-width="6"></circle>
+                      <circle class="text-secondary transition-all duration-700" cx="64" cy="64" fill="transparent"
+                        r="58" stroke="currentColor" stroke-dasharray="364.42" :stroke-dashoffset="resultDashOffset()"
+                        stroke-linecap="round" stroke-width="8"></circle>
+                    </svg>
+                    <div class="absolute flex flex-col items-center">
+                      <span class="text-2xl font-black text-on-surface" x-text="displayFitScore()"></span>
+                      <span
+                        class="rounded bg-secondary px-1.5 py-0.5 text-[10px] uppercase tracking-tight text-on-secondary-container">Fit
+                        Score</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="space-y-10">
+                  <div>
+                    <span class="mb-4 block text-xs uppercase tracking-[0.1em] text-primary-fixed-dim">Why this
+                      track</span>
+                    <p class="text-lg leading-relaxed text-on-surface" x-text="primaryReason()"></p>
+                  </div>
+
+                  <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                    <div class="rounded-lg bg-surface-container-low p-6">
+                      <span class="mb-3 block text-xs uppercase tracking-[0.1em] text-outline">Core Strengths</span>
+                      <div class="space-y-3">
+                        <template x-for="item in strengthItems()" :key="item">
+                          <div class="flex items-center gap-3 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-lg text-secondary"
+                              style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span x-text="item"></span>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+
+                    <div class="rounded-lg bg-surface-container-low p-6">
+                      <span class="mb-3 block text-xs uppercase tracking-[0.1em] text-outline">Gap Resolution Plan</span>
+                      <div class="space-y-4" x-show="hasGapResolutionPlan()">
+                        <template x-for="(item, index) in gapResolutionPlanItems()" :key="`${item.action}-${index}`">
+                          <div class="flex items-start gap-3 text-on-surface-variant">
+                            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary"
+                              x-text="index + 1"></span>
+                            <div>
+                              <div class="font-semibold text-on-surface" x-text="item.title"></div>
+                              <div class="mt-1 text-sm leading-relaxed" x-text="item.action"></div>
+                            </div>
+                          </div>
+                        </template>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-12 flex flex-col gap-4 md:flex-row no-print">
+                  <button type="button" @click="restartInterview()"
+                    class="flex-1 rounded-md bg-gradient-to-br from-primary to-primary-container px-8 py-4 font-bold text-on-primary shadow-[0_10px_30px_rgba(99,102,241,0.2)] transition-all hover:scale-[1.02] active:scale-95">
+                    Start a New Interview
+                  </button>
+                  <button type="button" @click="savePdf()"
+                    class="rounded-md border border-outline/20 px-8 py-4 font-medium text-on-surface-variant transition-colors hover:bg-surface-container-high">
+                    Save as PDF
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </template>
+    </main>
+
+    <footer class="mt-auto w-full bg-[#131313] py-8 no-print">
+      <div class="mb-8 h-px bg-gradient-to-r from-transparent via-[#464554]/15 to-transparent"></div>
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-12 md:flex-row">
+        <span class="text-[10px] font-medium uppercase tracking-[0.05em] text-[#C7C4D7]"
+          x-text="copyrightText()"></span>
+        <div class="flex gap-8">
+          <button type="button" @click="showToast('Help content is not wired yet.', 'info')"
+            class="text-[10px] font-medium uppercase tracking-[0.05em] text-[#C7C4D7] transition-colors hover:text-indigo-300">
+            Help
+          </button>
+          <button type="button" @click="showToast('Settings can be added next.', 'info')"
+            class="text-[10px] font-medium uppercase tracking-[0.05em] text-[#C7C4D7] transition-colors hover:text-indigo-300">
+            Settings
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <div x-cloak x-show="toast.visible" x-transition.opacity
+      class="fixed right-6 top-24 z-[70] max-w-sm rounded-xl border px-4 py-3 shadow-panel no-print"
+      :class="toastClasses()">
+      <div class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-lg" x-text="toast.icon"></span>
+        <div>
+          <p class="text-sm font-semibold" x-text="toast.title"></p>
+          <p class="mt-1 text-sm text-on-surface-variant" x-text="toast.message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

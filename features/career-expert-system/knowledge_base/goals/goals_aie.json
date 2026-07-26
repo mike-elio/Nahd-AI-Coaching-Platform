@@ -1,0 +1,564 @@
+[
+    {
+        "goal_id": "AIE_GOAL_01",
+        "goal_name": "Machine Learning Engineering Track",
+        "domain": "AIE",
+        "description": "Prepares the user to design, train, evaluate, and deploy ML models, targeting employment as an ML Engineer or Data Scientist.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_ml",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "python_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "math_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 10
+            },
+            {
+                "fact": "target_outcome",
+                "op": "in",
+                "value": [
+                    "job",
+                    "internship",
+                    "freelance"
+                ]
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_cv",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_02"
+            },
+            {
+                "fact": "prefers_nlp",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_03"
+            },
+            {
+                "fact": "prefers_data_eng",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_04"
+            },
+            {
+                "fact": "research_interest",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_05"
+            },
+            {
+                "fact": "math_skill",
+                "op": "<",
+                "value": 2,
+                "note": "Mathematics is the backbone of ML"
+            },
+            {
+                "fact": "python_skill",
+                "op": "<",
+                "value": 2,
+                "note": "Insufficient Python skill level"
+            },
+            {
+                "fact": "weak_device",
+                "op": "==",
+                "value": true,
+                "note": "Model training requires adequate computational resources"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 10,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "python_skill",
+            "math_skill",
+            "ml_exposure",
+            "data_handling",
+            "prefers_ml",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level",
+            "weak_device",
+            "pressure_load"
+        ],
+        "base_score": 60,
+        "typical_duration_range_weeks": {
+            "min": 12,
+            "max": 24
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "AIE_GOAL_02",
+        "goal_name": "Computer Vision Track",
+        "domain": "AIE",
+        "description": "Prepares the user to build computer vision applications (image classification, object detection, video analysis) using CNNs and deep learning.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_cv",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "python_skill",
+                "op": ">=",
+                "value": 3
+            },
+            {
+                "fact": "math_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "ml_exposure",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "weak_device",
+                "op": "==",
+                "value": false
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 10
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_ml",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_01"
+            },
+            {
+                "fact": "prefers_nlp",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_03"
+            },
+            {
+                "fact": "prefers_data_eng",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_04"
+            },
+            {
+                "fact": "research_interest",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_05"
+            },
+            {
+                "fact": "python_skill",
+                "op": "<",
+                "value": 3,
+                "note": "Insufficient Python level for CV"
+            },
+            {
+                "fact": "math_skill",
+                "op": "<",
+                "value": 2,
+                "note": "CNNs require linear algebra and statistics"
+            },
+            {
+                "fact": "ml_exposure",
+                "op": "<",
+                "value": 2,
+                "note": "ML foundation is required before CV"
+            },
+            {
+                "fact": "weak_device",
+                "op": "==",
+                "value": true,
+                "note": "GPU or Cloud compute is required for CV training"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 10,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "python_skill",
+            "math_skill",
+            "ml_exposure",
+            "data_handling",
+            "prefers_cv",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level",
+            "weak_device"
+        ],
+        "base_score": 55,
+        "typical_duration_range_weeks": {
+            "min": 14,
+            "max": 24
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "AIE_GOAL_03",
+        "goal_name": "Natural Language Processing Track",
+        "domain": "AIE",
+        "description": "Prepares the user to build NLP applications ranging from sentiment analysis and NER to Transformer models for Arabic and English.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_nlp",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "python_skill",
+                "op": ">=",
+                "value": 3
+            },
+            {
+                "fact": "math_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "english_level",
+                "op": "in",
+                "value": [
+                    "intermediate",
+                    "advanced"
+                ]
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 10
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_ml",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_01"
+            },
+            {
+                "fact": "prefers_cv",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_02"
+            },
+            {
+                "fact": "prefers_data_eng",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_04"
+            },
+            {
+                "fact": "research_interest",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_05"
+            },
+            {
+                "fact": "python_skill",
+                "op": "<",
+                "value": 3,
+                "note": "Insufficient Python level for NLP"
+            },
+            {
+                "fact": "math_skill",
+                "op": "<",
+                "value": 2,
+                "note": "Insufficient mathematics level"
+            },
+            {
+                "fact": "english_level",
+                "op": "==",
+                "value": "basic",
+                "note": "Most NLP resources and models are in English"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 10,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "python_skill",
+            "math_skill",
+            "ml_exposure",
+            "data_handling",
+            "prefers_nlp",
+            "english_level",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "pressure_load"
+        ],
+        "base_score": 55,
+        "typical_duration_range_weeks": {
+            "min": 12,
+            "max": 22
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "AIE_GOAL_04",
+        "goal_name": "AI Data Engineering Track",
+        "domain": "AIE",
+        "description": "Prepares the user to build data pipelines required to feed AI models: ETL, data warehouses, streaming, and data quality.",
+        "eligibility_rules": [
+            {
+                "fact": "prefers_data_eng",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "python_skill",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "data_handling",
+                "op": ">=",
+                "value": 2
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 8
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_ml",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_01"
+            },
+            {
+                "fact": "prefers_cv",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_02"
+            },
+            {
+                "fact": "prefers_nlp",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_03"
+            },
+            {
+                "fact": "research_interest",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_05"
+            },
+            {
+                "fact": "python_skill",
+                "op": "<",
+                "value": 2,
+                "note": "Insufficient Python skill level"
+            },
+            {
+                "fact": "data_handling",
+                "op": "<",
+                "value": 2,
+                "note": "Data handling foundation is required"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 8,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "python_skill",
+            "data_handling",
+            "ml_exposure",
+            "prefers_data_eng",
+            "hours_per_week",
+            "target_outcome",
+            "current_level",
+            "english_level"
+        ],
+        "base_score": 50,
+        "typical_duration_range_weeks": {
+            "min": 10,
+            "max": 20
+        },
+        "recommended_for": "both"
+    },
+    {
+        "goal_id": "AIE_GOAL_05",
+        "goal_name": "AI Research Track",
+        "domain": "AIE",
+        "description": "Prepares the user for AI research work: reading research papers, designing experiments, publishing results, and participating in academic projects.",
+        "eligibility_rules": [
+            {
+                "fact": "research_interest",
+                "op": "==",
+                "value": true
+            },
+            {
+                "fact": "user_type",
+                "op": "==",
+                "value": "graduate"
+            },
+            {
+                "fact": "python_skill",
+                "op": ">=",
+                "value": 3
+            },
+            {
+                "fact": "math_skill",
+                "op": ">=",
+                "value": 3
+            },
+            {
+                "fact": "target_outcome",
+                "op": "==",
+                "value": "research"
+            },
+            {
+                "fact": "english_level",
+                "op": "in",
+                "value": [
+                    "intermediate",
+                    "advanced"
+                ]
+            },
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 12
+            }
+        ],
+        "disqualifiers": [
+            {
+                "fact": "prefers_ml",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_01"
+            },
+            {
+                "fact": "prefers_cv",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_02"
+            },
+            {
+                "fact": "prefers_nlp",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_03"
+            },
+            {
+                "fact": "prefers_data_eng",
+                "op": "==",
+                "value": true,
+                "note": "Primary conflict — redirect to AIE_GOAL_04"
+            },
+            {
+                "fact": "user_type",
+                "op": "==",
+                "value": "student",
+                "note": "Research track requires an advanced academic background"
+            },
+            {
+                "fact": "math_skill",
+                "op": "<",
+                "value": 3,
+                "note": "AI research requires strong mathematics"
+            },
+            {
+                "fact": "python_skill",
+                "op": "<",
+                "value": 3,
+                "note": "Insufficient Python skill level"
+            },
+            {
+                "fact": "english_level",
+                "op": "==",
+                "value": "basic",
+                "note": "Research papers are in English"
+            },
+            {
+                "fact": "hours_per_week",
+                "op": "<",
+                "value": 12,
+                "note": "Insufficient available time"
+            }
+        ],
+        "relevant_facts": [
+            "python_skill",
+            "math_skill",
+            "ml_exposure",
+            "data_handling",
+            "research_interest",
+            "user_type",
+            "english_level",
+            "hours_per_week",
+            "target_outcome",
+            "current_level"
+        ],
+        "base_score": 35,
+        "typical_duration_range_weeks": {
+            "min": 16,
+            "max": 24
+        },
+        "recommended_for": "graduate"
+    },
+    {
+        "goal_id": "AIE_GOAL_06",
+        "goal_name": "AI Foundations Track",
+        "domain": "AIE",
+        "description": "Builds the beginner foundation for AI through Python, math, data handling, and introductory ML concepts before branching into ML, CV, NLP, or data engineering.",
+        "eligibility_rules": [
+            {
+                "fact": "hours_per_week",
+                "op": ">=",
+                "value": 1
+            }
+        ],
+        "disqualifiers": [],
+        "relevant_facts": [
+            "python_skill",
+            "math_skill",
+            "ml_exposure",
+            "data_handling",
+            "pretrack_readiness",
+            "hours_per_week",
+            "target_outcome",
+            "english_level",
+            "weak_device"
+        ],
+        "base_score": 48,
+        "typical_duration_range_weeks": {
+            "min": 6,
+            "max": 12
+        },
+        "selection_priority": 8,
+        "recommended_for": "both"
+    }
+]

@@ -1,0 +1,102 @@
+{
+    "version": "2.0",
+    "total_goals": 20,
+    "facts_source": "gpes_plan.md §6 Facts Schema",
+    "domains": {
+        "SE": {
+            "file": "goals_se.json",
+            "goals": [
+                {
+                    "goal_id": "SE_GOAL_01",
+                    "goal_name": "Backend Development Track"
+                },
+                {
+                    "goal_id": "SE_GOAL_02",
+                    "goal_name": "Frontend Development Track"
+                },
+                {
+                    "goal_id": "SE_GOAL_03",
+                    "goal_name": "DevOps & Cloud Engineering Track"
+                },
+                {
+                    "goal_id": "SE_GOAL_04",
+                    "goal_name": "Application Security Track"
+                },
+                {
+                    "goal_id": "SE_GOAL_05",
+                    "goal_name": "Data Engineering Track"
+                },
+                {
+                    "goal_id": "SE_GOAL_06",
+                    "goal_name": "Backend Development Foundations Track"
+                },
+                {
+                    "goal_id": "SE_GOAL_08",
+                    "goal_name": "Frontend Development Foundations Track"
+                },
+                {
+                    "goal_id": "SE_GOAL_07",
+                    "goal_name": "Software Engineering Foundations Track"
+                }
+            ]
+        },
+        "AIE": {
+            "file": "goals_aie.json",
+            "goals": [
+                {
+                    "goal_id": "AIE_GOAL_01",
+                    "goal_name": "Machine Learning Engineering Track"
+                },
+                {
+                    "goal_id": "AIE_GOAL_02",
+                    "goal_name": "Computer Vision Track"
+                },
+                {
+                    "goal_id": "AIE_GOAL_03",
+                    "goal_name": "Natural Language Processing Track"
+                },
+                {
+                    "goal_id": "AIE_GOAL_04",
+                    "goal_name": "AI Data Engineering Track"
+                },
+                {
+                    "goal_id": "AIE_GOAL_05",
+                    "goal_name": "AI Research Track"
+                },
+                {
+                    "goal_id": "AIE_GOAL_06",
+                    "goal_name": "AI Foundations Track"
+                }
+            ]
+        },
+        "CNE": {
+            "file": "goals_cne.json",
+            "goals": [
+                {
+                    "goal_id": "CNE_GOAL_01",
+                    "goal_name": "CCNA Network Operations Track"
+                },
+                {
+                    "goal_id": "CNE_GOAL_02",
+                    "goal_name": "Network Security Track"
+                },
+                {
+                    "goal_id": "CNE_GOAL_03",
+                    "goal_name": "Wireless & RF Engineering Track"
+                },
+                {
+                    "goal_id": "CNE_GOAL_04",
+                    "goal_name": "Cloud Networking Track"
+                },
+                {
+                    "goal_id": "CNE_GOAL_05",
+                    "goal_name": "IoT & Edge Networking Track"
+                },
+                {
+                    "goal_id": "CNE_GOAL_06",
+                    "goal_name": "Networking Foundations Track"
+                }
+            ]
+        }
+    }
+}
