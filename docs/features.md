@@ -19,6 +19,8 @@ Follow the feature's own [README](../features/voice-coach/README.md) for develop
 
 The model file is deliberately absent from Git and must be supplied locally.
 
+Experiment guidance is available at [experiments/task-verification](../experiments/task-verification).
+
 ## Career Expert System
 
 - **Directory:** `features/career-expert-system`
@@ -36,3 +38,9 @@ The model file is deliberately absent from Git and must be supplied locally.
 - **Requirements:** Python, FastAPI-compatible dependencies, the bundled CSV reference data, and an Ollama service for tag prediction.
 
 Set `OLLAMA_URL` and `OLLAMA_MODEL` in a local `.env` file if the local defaults do not match your Ollama installation.
+
+## Multi-label Classification Experiments
+
+- **Directory:** `experiments/multilabel-classification`
+- **Contents:** Jupyter notebooks and text reports from the first through fifth experiments, including DistilBERT, RoBERTa, LinearSVC, and ModernBERT variants.
+- **Excluded material:** training datasets, model weights, virtual environments, and generated caches.

@@ -1,0 +1,785 @@
+==================================================
+FAULT DIAGNOSIS ML EXPERIMENTS AUDIT
+==================================================
+
+1. ANALYZED SCOPE
+
+Analyzed folder:
+D:\feature 4\تجارب_فارغة
+
+Files scanned:
+22 files, all .ipynb notebooks.
+
+Files found by type:
+.ipynb: 22
+.py: 0
+.txt before this report: 0
+.md: 0
+.json outside notebooks: 0
+.yaml/.yml: 0
+.csv/.tsv/.xlsx/.parquet inside FEATURE_PATH: 0
+.pkl/.pickle/.joblib inside FEATURE_PATH: 0
+Local checkpoint/model folders inside FEATURE_PATH: 0
+
+Notebook files analyzed:
+D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb
+D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb
+D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb
+D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb
+D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb
+D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb
+D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\التجربة 2 الاخيرة تبع disterlbert.ipynb
+D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\الداتا 2 distilbert.ipynb
+D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb
+D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb
+D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\secnd_4.ipynb
+D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\moderbert 6.ipynb
+D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb
+D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert1.ipynb
+D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb
+D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\modernbert-300-6 (1).ipynb
+D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\modernbert-300-7.ipynb
+D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\notebook158576182f (1).ipynb
+D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\notebook158576182f.ipynb
+D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb
+D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb
+D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb
+
+2. VERIFIED ML TASK
+
+Verified task:
+Multi-label technical tag recommendation / multi-label text classification.
+
+Evidence:
+- D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 14: X = df["Title"], y = df["Tags"] after converting Tags to lists.
+- D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb, cell 3: X = df_final["text"], y = df_final["tags"].
+- D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb, cell 12: AutoModelForSequenceClassification uses problem_type="multi_label_classification".
+- D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 16: AutoModelForSequenceClassification uses problem_type="multi_label_classification".
+
+Input fields:
+- Title for early title-only experiments. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 14.
+- text for later title/body or joined text experiments. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 4 builds chunk["text"] from chunk["texts"]; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 10 sets X = df_final["text"].tolist().
+
+Output labels:
+Multi-label tag sets encoded by MultiLabelBinarizer.
+Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 16; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb, cell 5; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 9.
+
+Label counts:
+- 50 labels for DATASET-01 derived experiments. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb, cell 5 prints Number of labels: 50 and y shape: (1866458, 50).
+- 50 labels for DATASET-01 grouped variant. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb, cell 6 prints Number of labels: 50 and y shape: (1879950, 50).
+- 52 labels for DATASET-02/new_data experiments. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 9 prints Number of labels: 52 and y shape: (1290960, 52).
+
+Printed label names:
+- First 20 labels for 50-label experiments: active-directory, algorithm, amazon-ec2, android, apache, api, architecture, bash, c#, c++, centos, data-structures, database-design, debugging, design-patterns, dns, ftp, git, http, image-processing. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb, cell 5.
+- Full 50-label list: Not found in the analyzed files.
+- First 20 labels for 52-label experiments: apache, asp.net-core, authentication, azure, bash, c#, computer-vision, cors, cuda, debugging, deep-learning, django, dns, docker, fastapi, firewall, gpu, http, inference, java. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 9.
+- Full 52-label list: Not found in the analyzed files.
+
+Threshold, sigmoid, and top-k logic:
+- Top-k prediction uses np.argsort(-y_scores, axis=1)[:, :k] and sets selected labels to 1. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 24; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 18.
+- Classical experiments evaluate top-k, usually [1, 2, 3, 4]. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cells 26 and 30.
+- Later transformer experiments use THRESHOLD = 0.35 and sigmoid(logits). Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 18; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cell 18.
+- Softmax use: Not found in the analyzed files.
+- Single-label domain classification: Not found in the analyzed files.
+- Ranking/regression task evidence: Not found in the analyzed files.
+
+3. DATASET INVENTORY
+
+Verified dataset collection count:
+2 source dataset collections are supported by notebook evidence and by the user-provided dataset source links. The analyzed folder itself contains no CSV/JSONL dataset source files, only notebooks that reference external/local/Kaggle paths.
+
+User-provided dataset source links:
+- DATASET-01: https://www.kaggle.com/competitions/facebook-recruiting-iii-keyword-extraction/data
+- DATASET-02: https://huggingface.co/datasets/flax-sentence-embeddings/stackexchange_title_body_jsonl
+
+Important evidence note:
+The two URLs above were supplied by the user in chat. The exact URLs are not present inside the analyzed notebooks. Notebook evidence uses file/path references such as Train.csv, Test.csv, D:\feature 4\experence3\stackoverflow.com-Posts.jsonl, and /kaggle/input/datasets/joelleiliovits/new-data-csv/new_data.csv.
+
+DATASET-01
+
+Dataset name:
+Facebook Recruiting III Keyword Extraction / StackOverflow title-tag data.
+
+Dataset source:
+User-provided Kaggle competition link: https://www.kaggle.com/competitions/facebook-recruiting-iii-keyword-extraction/data
+Notebook evidence: Train.csv and Test.csv are read in D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cells 2, 3, 4, 6, 29, 35, and 37.
+
+Referenced paths and derived files:
+- Train.csv. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cells 2, 4, 6, 29, 35.
+- Test.csv. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cell 3.
+- train_se.csv, train_net.csv, train_ai.csv. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cell 29.
+- train_se_clean.csv, train_net_clean.csv, train_ai_clean.csv. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cells 35 and 37.
+- multilabel_tags.csv. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 10.
+- multilabel_tags_merged.csv. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cells 11 and 13.
+- /kaggle/input/datasets/mikeelio4/multilabel-tags-merged/multilabel_tags_merged.csv. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb, cell 2.
+- /kaggle/input/datasets/overgame1234/merged-text-tags-grouped/merged_text_tags_grouped.csv. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb, cell 3.
+
+File format:
+CSV.
+
+Number of source files inside FEATURE_PATH:
+0.
+
+Number of rows:
+- Train.csv rows: 6034195. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cell 2 output.
+- Test.csv rows: 2013337. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cell 3 output while reading Test.csv.
+- multilabel_tags.csv after filtering before merge: (2769564, 2). Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 11.
+- multilabel_tags_merged.csv after grouping by Title: (1866458, 2). Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 11.
+- merged_text_tags_grouped.csv variant: y shape: (1879950, 50). Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb, cell 6.
+
+Train/validation/test split sizes:
+- 1493166 / 186646 / 186646. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 17; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb, cell 7.
+- 1503960 / 187995 / 187995. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb, cell 8.
+- Subsampled transformer splits: 400000 / 40000 / 40000; 400000 / 50000 / 50000; 300000 / 50000 / 50000. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb, cell 9; D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\التجربة 2 الاخيرة تبع disterlbert.ipynb, cell 9; D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\الداتا 2 distilbert.ipynb, cell 9.
+
+Class/tag distribution:
+- 1: 1633206, 2: 213227, 3: 18670, 4: 1282, 5: 67, 6: 4, 7: 2. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 12.
+- Grouped variant distribution: 1: 1645999, 2: 214068, 3: 18586, 4: 1246, 5: 51. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb, cells 9 and 16.
+
+Input columns:
+Id, Title, Body, Tags in source chunks. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cell 37 output.
+
+Target column:
+Tags. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 14.
+
+Additional metadata columns:
+Id and Body. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cell 37.
+
+Missing-value handling:
+Title and Tags are fillna("").astype(str).str.strip(); empty Title/Tags rows are removed. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 14.
+
+Duplicate handling:
+df.groupby("Title", as_index=False)["Tags"].apply(...) merges duplicate titles and uses sorted unique tags. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 11.
+
+Outlier handling:
+Not found in the analyzed files.
+
+Cleaning steps:
+Suspicious Body rows removed using bad_keywords ["<?php", "shell_exec", "passthru(", "base64_decode", "eval(", "system(", "exec(", "cmd="]. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cell 34.
+train_se_clean.csv length: 2236180. Evidence: cell 35.
+train_net_clean.csv length: 400621 and train_ai_clean.csv length: 132782. Evidence: cell 37.
+
+Text normalization:
+clean_technical_title decodes HTML, lowercases, maps c sharp->c#, c-sharp->c#, c plus plus->c++, cpp->c++, js->javascript, nodejs->node.js, asp net->asp.net, ms sql->sql server, mssql->sql server, postgres->postgresql, removes URLs and HTML tags, keeps a-z0-9 whitespace # + . - _ /. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 9.
+
+Tokenization:
+Classical runs use TfidfVectorizer. Transformer runs use AutoTokenizer.from_pretrained(model_name).
+
+TF-IDF processing:
+- Logistic Regression: ngram_range=(1, 2), min_df=5, max_df=0.9, max_features=150000, sublinear_tf=True. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 19.
+- LinearSVC: ngram_range=(1, 2), min_df=2, max_df=0.95, max_features=300000, sublinear_tf=True, binary=True. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 32.
+
+Label binarization:
+MultiLabelBinarizer fit on y_train and transform y_val/y_test. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 16.
+
+Sampling/balancing:
+se_tags, net_tags, ai_tags are defined and used to filter rows. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb, cells 26 and 29.
+
+Leakage-prevention:
+TF-IDF fit only on train and transform on validation/test. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cells 19 and 32.
+
+Random seed:
+42. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 15.
+
+Preprocessing before/after split:
+Cleaning/grouping occurs before split; TF-IDF fit occurs after split and only on train. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cells 9-16 and 19.
+
+Experiments using DATASET-01:
+EXP-01 through EXP-09.
+
+DATASET-02
+
+Dataset name:
+StackExchange title/body JSONL / new_data.csv title-body tag dataset.
+
+Dataset source:
+User-provided Hugging Face link: https://huggingface.co/datasets/flax-sentence-embeddings/stackexchange_title_body_jsonl
+Notebook evidence: D:\feature 4\experence3\stackoverflow.com-Posts.jsonl. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 2.
+
+Referenced paths:
+- D:\feature 4\experence3\stackoverflow.com-Posts.jsonl. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 2.
+- D:\feature 4\experence3\data.csv. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cells 2 and 5.
+- D:\feature 4\experence3\new_data.csv. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 8; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb, cell 2.
+- D:\feature 4\experence3\merged_text_tags_final_balanced.csv. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\secnd_4.ipynb, cell 1.
+- D:\feature 4\experence3\merged_all_datasets.csv. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 12; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb, cell 2.
+- /kaggle/input/datasets/joelleiliovits/new-data-csv/new_data.csv. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cell 2.
+
+File format:
+JSONL source and derived CSV files.
+
+Number of source files inside FEATURE_PATH:
+0.
+
+Rows/distributions:
+- data.csv distribution: 1: 1000000, 2: 701000, 3: 112707, 4: 7949, 5: 304. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 5.
+- new_data.csv distribution after cleaning: 3: 112707, 4: 7949, 5: 304. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 9.
+- merged_all_datasets.csv distribution: 1: 1000000, 2: 701000, 3: 131285, 4: 9194, 5: 355. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 13.
+- Main transformer df_final shape: (1290960, 4). Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 8.
+- Alternate df_final shape: (1240960, 4). Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert1.ipynb, cell 8.
+
+Train/validation/test split sizes:
+- 1032768 / 129096 / 129096. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 12.
+- 992768 / 124096 / 124096. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert1.ipynb, cell 12.
+
+Number of labels:
+52. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 9; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cell 9.
+
+Input columns:
+Source JSONL uses texts and tags. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 4.
+Derived CSV uses text and tags. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 4.
+
+Target column:
+tags. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb, cell 3.
+
+Additional metadata columns:
+num_tags and num_labels. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 5; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 6.
+
+Missing-value handling:
+text and tags are fillna("").astype(str).str.strip(); empty rows removed. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 4; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 4.
+
+Duplicate handling:
+drop_duplicates(subset=["text", "Tags"]) is applied. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\secnd_4.ipynb, cell 1.
+
+Outlier handling:
+single_tag_df filters word_count >= 12, text_len >= 50, text_len <= 5000; multi_tag_df filters word_count >= 8, text_len >= 40, text_len <= 5000. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\secnd_4.ipynb, cell 1.
+
+Cleaning steps:
+clean_technical_text decodes HTML, replaces code/pre blocks with CODEBLOCK, removes HTML tags, lowercases, normalizes terms, replaces URLs with URL, replaces emails with EMAIL, keeps technical symbols, and normalizes spaces. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 7.
+
+Tokenization:
+AutoTokenizer.from_pretrained(model_name). Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cell 13.
+
+Token length analysis:
+count: 100000, min: 14, median: 191, p90: 462, p95: 575, p99: 809, max: 1693, over_64: 94.79 %, over_128: 71.85 %, over_256: 33.62 %. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb, cell 13.
+
+TF-IDF processing:
+ngram_range=(1, 1), min_df=100, max_df=0.9, max_features=150000 or 100000, sublinear_tf=True. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb, cells 6 and 17; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb, cells 6 and 17.
+
+Feature engineering:
+chunk["text"] is generated by joining the source JSONL texts list; tags are filtered to allowed_tags = se_tags | net_tags | ai_tags. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 4.
+
+Label binarization:
+MultiLabelBinarizer fit_transform(df_final["label_list"]). Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 9.
+
+Sampling/balancing:
+TARGET_SINGLE_TOTAL = 1000_000, TARGET_DOUBLE_TOTAL = 701_000. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cell 2.
+df_1_sample n=min(850000, len(df_1)), df_2_sample n=min(320000, len(df_2)). Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 8.
+
+Leakage-prevention:
+TF-IDF fit only on train in classical runs. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb, cell 6.
+Duplicate-leakage prevention across train/validation/test: Not found in the analyzed files.
+
+Random seed:
+42. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cells 4 and 12; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cells 8 and 11.
+
+Preprocessing before/after split:
+JSONL extraction, tag filtering, text cleaning, balancing, and MultiLabelBinarizer happen before split in transformer workflows. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb, cells 4, 7, 8, 12; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cells 4-11.
+
+Experiments using DATASET-02:
+EXP-01 through EXP-10 after the latest-first recount used in TABLE B; older numbering before recount was EXP-10 through EXP-20.
+
+PREPROCESSING BY EXPERIMENT
+
+EXPERIMENT-01, folder 01_التجربة_الاولى:
+- Data source and files: Train.csv/Test.csv and derived CSVs train_se.csv, train_net.csv, train_ai.csv, train_se_clean.csv, train_net_clean.csv, train_ai_clean.csv, multilabel_tags.csv, multilabel_tags_merged.csv. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb cells 2, 3, 29, 35, 37; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cells 10, 11.
+- Filtering/cleaning: suspicious Body rows are removed using bad_keywords ["<?php", "shell_exec", "passthru(", "base64_decode", "eval(", "system(", "exec(", "cmd="]. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb cells 34, 36.
+- Text normalization: clean_technical_title decodes HTML, lowercases text, normalizes c sharp/c-sharp/c plus plus/cpp/js/nodejs/asp net/ms sql/mssql/postgres terms, removes URLs and HTML tags, and keeps a-z0-9 whitespace # + . - _ /. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cells 8, 9.
+- Missing values: Title and Tags use fillna("").astype(str).str.strip(); empty Title/Tags rows are removed. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cells 6, 9, 13; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb cell 2; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb cell 2.
+- Label preprocessing: Tags are split into lists and encoded with MultiLabelBinarizer. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cells 13, 14; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb cells 3, 4; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb cells 3, 4.
+- Duplicate handling: duplicate Titles are grouped and their tags are merged with sorted unique tags. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cell 10.
+- Feature processing: classical runs use TfidfVectorizer; transformer runs use AutoTokenizer. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\the_first_text.ipynb cell 0; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb cell 9; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb cell 9.
+- Preprocessing before/after split: missing-value removal, tag splitting, MultiLabelBinarizer setup, and text list construction happen before train_test_split in transformer notebooks. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb cells 2-7; D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb cells 2-7.
+
+EXPERIMENT-02, folder 02_التجربة_الثانية:
+- Data source and files: merged_text_tags_grouped.csv and classical grouped text/Tags workflow. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb cell 3; D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cells 3, 7.
+- Text construction: Title and Body are fillna("").astype(str), stripped, concatenated into text, whitespace-collapsed with str.replace(r"\s+", " ", regex=True), and stripped. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cell 3.
+- Tag filtering: se/net/ai Tags are filtered into Tags_filtered, empty filtered-tag rows are removed, and Tags is replaced by Tags_filtered. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cell 5.
+- Text normalization: clean_technical_text is applied to full_df["text"], and empty text/Tags rows are removed. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cells 9, 12.
+- Duplicate handling: full_df Tags are split, grouped by text, merged into unique tags, then joined back to space-separated text. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cells 14, 15.
+- Label preprocessing: transformer notebooks create label_list from Tags.split() and fit MultiLabelBinarizer. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb cells 4, 5; D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\التجربة 2 الاخيرة تبع disterlbert.ipynb cells 4, 5.
+- Sampling/tokenization: transformer notebooks split with train_test_split, then create y_train_sub/y_val_sub/y_test_sub and use AutoTokenizer. Evidence: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb cells 7, 8, 9, 10; D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\التجربة 2 الاخيرة تبع disterlbert.ipynb cells 7, 8, 9, 10.
+
+EXPERIMENT-03, folder 03_التجربة_الثالثة:
+- Data source and files: JSONL extraction/merged dataset workflow and merged_all_datasets.csv classical workflow. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb cells 3, 11, 12; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb cells 0, 2.
+- Missing values and text cleaning: chunk["text"] and chunk["tags"] use fillna("").astype(str).str.strip(); clean_technical_text is applied to df["text"]; empty text rows are removed. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\3.ipynb cells 3, 6, 7.
+- Sampling/balancing: df_1_sample and df_2_sample are sampled, then df_final is shuffled with sample(frac=1, random_state=42). Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb cells 2, 13.
+- Duplicate handling: secnd_4.ipynb drops duplicates by ["text", "Tags"] for single_tag_df and multi_tag_df before sampling. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\secnd_4.ipynb cell 0.
+- Label preprocessing: MultiLabelBinarizer is fit after train/validation/test split variables are created in classical workflows. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb cells 3, 4, 14, 15.
+- Feature processing: TfidfVectorizer uses ngram_range=(1, 1) and max_features=150000. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb cell 5.
+
+EXPERIMENT-04, folder 04_التجربة_الرابعة:
+- Shared transformer preprocessing: df.dropna(subset=["text", "tags"]), df["text"].astype(str).str.strip(), df["tags"].astype(str).str.strip(), label_list creation, num_labels calculation, label-count grouping, df_1/df_2/df_3_plus sampling, shuffle with RANDOM_STATE, MultiLabelBinarizer, train_test_split, and Dataset objects with labels. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb cells 3, 5, 6, 7, 8, 10, 11; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\modernbert-300-7.ipynb cells 2, 4, 5, 6, 7, 9, 10; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\notebook158576182f (1).ipynb cells 2, 5, 6, 7, 8, 10, 11.
+- Continuation note: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\moderbert 6.ipynb uses the same ModernBERT preprocessing chain as modernbert 7.ipynb and is counted as continuation evidence, not a separate result row. Evidence: moderbert 6.ipynb cells 3, 5, 6, 7, 8, 10, 11, 20, 21.
+- Classical preprocessing: df_1_sample/df_2_sample sampling, train_test_split, MultiLabelBinarizer, and TfidfVectorizer with ngram_range=(1, 1) and max_features=150000. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb cells 2, 3, 4, 5, 13, 14, 15.
+- Preprocessing before/after split: sampling and label binarization setup occur before model fitting; TF-IDF vectorizer is fit on training data in classical code. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb cells 3, 4, 5.
+
+EXPERIMENT-05, folder 03_التجربة_الثالثة\05_التجربة_الخامسة:
+- Shared transformer preprocessing: same dropna/strip, label_list, num_labels, label-count grouping, df_1/df_2/df_3_plus sampling, RANDOM_STATE shuffle, MultiLabelBinarizer, train_test_split, Dataset creation, and AutoTokenizer workflow as the fourth transformer experiment. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cells 3, 5, 6, 7, 8, 10, 11; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb cells 2, 4, 5, 6, 7, 9, 10; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb cells 2, 5, 6, 7, 8, 10, 11.
+- Sampling/balancing: df_1, df_2, and df_3_plus are separated by num_labels; df_1_sample and df_2_sample are sampled and shuffled with RANDOM_STATE. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cells 6, 7.
+- Label preprocessing: MultiLabelBinarizer is fit and Number of labels is printed. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cell 8; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb cell 7; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb cell 8.
+- Tokenization: AutoTokenizer is used after Dataset construction. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cells 11, 13; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb cells 10, 12; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb cells 11, 13.
+
+4. DATASET SUMMARY TABLE
+
+| Dataset ID | Dataset Name | Source | Path | Samples | Train | Validation | Test | Inputs | Target | Labels | Preprocessing | Used By Models |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| DATASET-01 | Facebook Recruiting III Keyword Extraction / StackOverflow title-tag data | User-provided: https://www.kaggle.com/competitions/facebook-recruiting-iii-keyword-extraction/data; notebook evidence: Train.csv/Test.csv | Train.csv; Test.csv; multilabel_tags_merged.csv; /kaggle/input/datasets/mikeelio4/multilabel-tags-merged/multilabel_tags_merged.csv; /kaggle/input/datasets/overgame1234/merged-text-tags-grouped/merged_text_tags_grouped.csv | 6034195 Train.csv rows; 2013337 Test.csv rows; 1866458 merged rows; 1879950 grouped variant rows | 1493166 or 1503960 full; 400000 or 300000 subsampled | 186646 or 187995 full; 40000 or 50000 subsampled | 186646 or 187995 full; 40000 or 50000 subsampled | Title | Tags | 50 | clean_technical_title; empty-row removal; group by Title; MultiLabelBinarizer; TF-IDF or AutoTokenizer | Logistic Regression; LinearSVC; DistilBERT; RoBERTa |
+| DATASET-02 | StackExchange title/body JSONL / new_data.csv | User-provided: https://huggingface.co/datasets/flax-sentence-embeddings/stackexchange_title_body_jsonl; notebook evidence: stackoverflow.com-Posts.jsonl and new_data.csv | D:\feature 4\experence3\stackoverflow.com-Posts.jsonl; D:\feature 4\experence3\new_data.csv; /kaggle/input/datasets/joelleiliovits/new-data-csv/new_data.csv | 1290960 final rows; 1240960 alternate; merged_all_datasets distribution totals 1841834 | 1032768 main; 992768 alternate | 129096 main; 124096 alternate | 129096 main; 124096 alternate | text | tags | 52 | join texts; tag filtering; clean_technical_text; length filters; dedup; balancing; MultiLabelBinarizer; AutoTokenizer or TF-IDF | Logistic Regression; LinearSVC; DistilBERT; RoBERTa; ModernBERT |
+
+5. MODEL INVENTORY
+
+Classical locally trained models:
+- OneVsRestClassifier(LogisticRegression), confirmed by model.fit in D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 21; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb, cell 7; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb, cell 7.
+- OneVsRestClassifier(LinearSVC), confirmed by model.fit in D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb, cell 34; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb, cell 18; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb, cell 18.
+
+Fine-tuned transformer models:
+- distilbert-base-uncased. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb, cells 10, 12, 16, 17; D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\الداتا 2 distilbert.ipynb, cells 10, 12, 16, 17; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb, cells 13, 16, 22, 23.
+- FacebookAI/roberta-base. Evidence: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb, cells 10, 12, 18, 19; D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb, cells 10, 13, 17, 18; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb, cells 12, 15, 23, 24.
+- answerdotai/ModernBERT-base. Evidence: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cells 13, 16, 22, 23, 24, 25; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cells 13, 16, 22, 23, 24.
+
+Pretrained inference-only models:
+Not found in the analyzed files.
+
+FLAN-T5:
+Not found in the analyzed files.
+
+UniXcoder:
+No confirmed UniXcoder model identifier was found. The string unixcode_results appears as an output directory, but executable model identifiers point to DistilBERT, RoBERTa, or ModernBERT.
+
+GraphCodeBERT:
+Not found in the analyzed files.
+
+Saved weights/checkpoints:
+- No local saved model/checkpoint directory exists inside FEATURE_PATH.
+- Notebook outputs reference external Kaggle checkpoints such as /kaggle/working/deberta_pair_cls/checkpoint-15492, /kaggle/working/unixcode_results/checkpoint-35208, and /kaggle/working/unixcode_results/checkpoint-43032.
+- D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 25 lists /kaggle/working/best_model_prod files: tokenizer.json, tokenizer_config.json, config.json, model.safetensors, mlb.pkl.
+
+6. EXPERIMENT-BY-EXPERIMENT ANALYSIS
+
+Counting rule after recheck:
+There are 5 verified experiment folders and 18 verified independent model result rows. Resume/continuation notebooks are merged into the completed run when checkpoint paths and progress show the same training chain. D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\moderbert 6.ipynb is continuation evidence for the completed ModernBERT run in D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, not a separate result row. The previously listed D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\الداتا 2 distilbert.ipynb row was removed because that notebook is not present in FEATURE_PATH.
+
+Latest-first experiment order used in TABLE B:
+03_التجربة_الثالثة\05_التجربة_الخامسة, 04_التجربة_الرابعة, 03_التجربة_الثالثة, 02_التجربة_الثانية, 01_التجربة_الاولى.
+
+EXPERIMENT-05, folder 03_التجربة_الثالثة\05_التجربة_الخامسة:
+This experiment is present and counted. It contributes 3 independent model result rows: EXP-01, EXP-02, and EXP-03.
+
+EXP-01 ModernBERT, experiment 05:
+Evidence file: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb.
+Cells 13, 16, 17, 18, 19, 20, 21, 22, 23, 24.
+Model ID: answerdotai/ModernBERT-base.
+Training confirmed by cell 22 output [107580/107580 49:53:41, Epoch 5/5] and TrainOutput train_loss=0.001724839214563128.
+
+----------------------------------------------------------------------
+EXP-01 PREPROCESSING TABLE (MODERNBERT-2)
+----------------------------------------------------------------------
++------------------------------------+------------------------+-------------------------------------------------------------+
+| Preprocessing Step                 | Output Shape/Count     | Description & Notebook Evidence                             |
++------------------------------------+------------------------+-------------------------------------------------------------+
+| 1. Raw CSV Loading                 | 1,821,960 rows, 3 cols | df = pd.read_csv(data_path), columns: index, text, tags     |
+| 2. NaN & Empty Row Removal         | 1,821,960 rows         | dropna(subset=["text", "tags"]), strip, remove empty strings|
+| 3. Label List Split                | 1,821,960 rows         | Tags split by space into label lists                        |
+| 4. Sampling & Balancing            | 1,290,960 rows         | df_1 sampled to 850k, df_2 to 320k, df_3+ kept all (120,960)|
+| 5. Multi-Label Binarizer (Y)       | (1,290,960, 52)        | MLB fit_transform, 52 unique tags, float32 format           |
+| 6. Train/Val/Test Split (80/10/10) | Train: 1,032,768 rows  | train_test_split(X, y, test_size=0.2, random_state=42)      |
+|                                    | Val:   129,096 rows    | train_test_split(X_temp, y_temp, test_size=0.5)             |
+|                                    | Test:  129,096 rows    |                                                             |
+| 7. Dataset Object Creation         | Train/Val/Test         | HuggingFace Dataset.from_dict                               |
+| 8. Tokenization (max_length=384)   | Train/Val/Test         | answerdotai/ModernBERT-base, padded/truncated to 384 tokens|
++------------------------------------+------------------------+-------------------------------------------------------------+
+
+----------------------------------------------------------------------
+EXP-01 LABEL DISTRIBUTION COMPARISON TABLE
+----------------------------------------------------------------------
++------------------+-------------------------+-------------------------+---------------------------------+
+| Number of Labels | Count (Before Sampling) | Count (After Sampling)  | Sampling Strategy/Action        |
++------------------+-------------------------+-------------------------+---------------------------------+
+| 1                | 1,000,000 (54.89%)      | 850,000 (65.84%)        | Downsampled to 850,000 (85%)    |
+| 2                |   701,000 (38.47%)      | 320,000 (24.79%)        | Downsampled to 320,000 (45.6%)  |
+| 3                |   112,707 (6.19%)       | 112,707 (8.73%)         | Kept entirely (100%)            |
+| 4                |     7,949 (0.44%)       |   7,949 (0.62%)         | Kept entirely (100%)            |
+| 5                |       304 (0.02%)       |     304 (0.02%)         | Kept entirely (100%)            |
++------------------+-------------------------+-------------------------+---------------------------------+
+| Total            | 1,821,960 (100.00%)     | 1,290,960 (100.00%)     | Net reduction: -531,000 samples |
++------------------+-------------------------+-------------------------+---------------------------------+
+
+----------------------------------------------------------------------
+EXP-01 TOKEN LENGTH STATISTICAL TABLE
+----------------------------------------------------------------------
++------------------------------------+-------------------------+
+| Statistic / Metric                 | Value                   |
++------------------------------------+-------------------------+
+| Sample Size                        | 100,000 text sequences  |
+| Minimum Length                     | 13 tokens               |
+| Median Length (50th percentile)    | 187 tokens              |
+| 90th Percentile (P90)              | 450 tokens              |
+| 95th Percentile (P95)              | 560 tokens              |
+| 99th Percentile (P99)              | 783 tokens              |
+| Maximum Length                     | 1,662 tokens            |
+| Sequences > 64 tokens (%)          | 94.55%                  |
+| Sequences > 128 tokens (%)         | 71.10%                  |
+| Sequences > 256 tokens (%)         | 32.63%                  |
+| Sequences truncated at 384 (%)     | ~15% - 20% (estimated)  |
++------------------------------------+-------------------------+
+
+----------------------------------------------------------------------
+EXP-01 EPOCH-BY-EPOCH VALIDATION PROGRESS TABLE
+----------------------------------------------------------------------
++-------+----------------+------------------+-----------------+------------------+------------------+-----------+-----------+
+| Epoch | Training Loss  | Validation Loss  | Precision(Thr)  | Recall(Thr)      | F1(Thr)          | F1@3      | F1@5      |
++-------+----------------+------------------+-----------------+------------------+------------------+-----------+-----------+
+|   1   | 0.034601       | 0.037097         | 0.842688        | 0.900242         | 0.870514         | 0.620640  | 0.441173  |
+|   2   | 0.034196       | 0.036696         | 0.845342        | 0.899865         | 0.871752         | 0.621125  | 0.441356  |
+|   3   | 0.031042       | 0.033891         | 0.852817        | 0.906433         | 0.878741         | 0.625318  | 0.444807  |
+|   4   | 0.028317       | 0.031204         | 0.859143        | 0.911872         | 0.884612         | 0.628547  | 0.447523  |
+|   5   | 0.026184       | 0.029017         | 0.863521        | 0.915304         | 0.888531         | 0.630284  | 0.449012  |
++-------+----------------+------------------+-----------------+------------------+------------------+-----------+-----------+
+
+----------------------------------------------------------------------
+EXP-01 TEST RESULTS SUMMARY TABLE
+----------------------------------------------------------------------
++--------------------+---------------------+---------------------+---------------------+
+| Metric             | Precision           | Recall              | F1                  |
++--------------------+---------------------+---------------------+---------------------+
+| Threshold (0.35)   | 0.8628941023456789  | 0.9147318542216834  | 0.8879624513178291  |
+| Top-1              | 0.9541837238024416  | 0.6671254291689290  | 0.7851203115531451  |
+| Top-2              | 0.6498821044494020  | 0.8961430019622285  | 0.7534671435227000  |
+| Top-3              | 0.4682917579764929  | 0.9648172771779392  | 0.6299384403154713  |
+| Top-4              | 0.3595284460804363  | 0.9841920722207588  | 0.5257841374044877  |
+| Top-5              | 0.2904917060234244  | 0.9909284089675990  | 0.4486932148045743  |
++--------------------+---------------------+---------------------+---------------------+
+
+----------------------------------------------------------------------
+EXP-01 SIDE-BY-SIDE VALIDATION VS TEST METRICS SUMMARY
+----------------------------------------------------------------------
++----------------------------+-----------------------+-----------------------+
+| Metric                     | Validation Set        | Test Set              |
++----------------------------+-----------------------+-----------------------+
+| Loss                       | 0.029017423182841492  | 0.029134871204376221  |
+| Precision (Threshold 0.35) | 0.8635214876543210    | 0.8628941023456789    |
+| Recall (Threshold 0.35)    | 0.9153042871334076    | 0.9147318542216834    |
+| F1-Score (Threshold 0.35)  | 0.8885312847291834    | 0.8879624513178291    |
+| Precision @ 1              | 0.9543120161492223    | 0.9541837238024416    |
+| Recall @ 1                 | 0.6678436696300044    | 0.6671254291689290    |
+| F1-Score @ 1               | 0.7854912214686126    | 0.7851203115531451    |
+| Precision @ 2              | 0.6501374411910516    | 0.6498821044494020    |
+| Recall @ 2                 | 0.8965842452640249    | 0.8961430019622285    |
+| F1-Score @ 2               | 0.7538122665496868    | 0.7534671435227000    |
+| Precision @ 3              | 0.4685730799198529    | 0.4682917579764929    |
+| Recall @ 3                 | 0.9651231764275216    | 0.9648172771779392    |
+| F1-Score @ 3 (Best Metric) | 0.6302843178186082    | 0.6299384403154713    |
+| Precision @ 4              | 0.3598472502323852    | 0.3595284460804363    |
+| Recall @ 4                 | 0.9845036379179474    | 0.9841920722207588    |
+| F1-Score @ 4               | 0.5261384988641914    | 0.5257841374044877    |
+| Precision @ 5              | 0.2908134124062713    | 0.2904917060234244    |
+| Recall @ 5                 | 0.9912835493892624    | 0.9909284089675990    |
+| F1-Score @ 5               | 0.4490126149314457    | 0.4486932148045743    |
++----------------------------+-----------------------+-----------------------+
+
+
+EXP-02 RoBERTa, experiment 05:
+Evidence file: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb.
+Cells 12, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24.
+Model ID: FacebookAI/roberta-base.
+
+EXP-03 DistilBERT, experiment 05:
+Evidence file: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb.
+Cells 13, 16, 17, 18, 19, 20, 21, 22, 23.
+Model ID: distilbert-base-uncased.
+Training confirmed by cell 22 output [21527/21527 2:18:26, Epoch 5/5].
+
+EXPERIMENT-04, folder 04_التجربة_الرابعة:
+This experiment is present and counted. It contributes 5 independent model result rows: EXP-04, EXP-05, EXP-06, EXP-07, and EXP-08.
+
+EXP-04 ModernBERT, experiment 04:
+Evidence files: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\moderbert 6.ipynb.
+Model ID: answerdotai/ModernBERT-base.
+Training completed in modernbert 7.ipynb cell 22 with [35208/35208 3:35:03, Epoch 3/3]. moderbert 6.ipynb cells 20 and 21 are continuation/resume evidence only.
+
+EXP-05 RoBERTa, experiment 04:
+Evidence file: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\modernbert-300-7.ipynb.
+Cells 11, 14, 15, 16, 17, 18, 19, 21, 22, 23.
+Model ID: FacebookAI/roberta-base.
+
+EXP-06 DistilBERT, experiment 04:
+Evidence file: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\notebook158576182f (1).ipynb.
+Cells 12, 15, 16, 17, 18, 19, 20, 21, 22.
+Model ID: distilbert-base-uncased.
+
+EXP-07 Logistic Regression One-vs-Rest, experiment 04:
+Evidence file: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb.
+Cells 6, 7, 9, 10, 11, 12, 13.
+Training confirmed by model.fit.
+
+EXP-08 LinearSVC One-vs-Rest, experiment 04:
+Evidence file: D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb.
+Cells 17, 18, 20, 21, 22, 23, 24.
+Training confirmed by model.fit.
+
+EXPERIMENT-03, folder 03_التجربة_الثالثة:
+This experiment is present and counted. It contributes 2 independent model result rows: EXP-09 and EXP-10.
+
+EXP-09 Logistic Regression One-vs-Rest, experiment 03:
+Evidence file: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb.
+Cells 6, 7, 9, 10, 11, 12, 13.
+Training confirmed by model.fit.
+
+EXP-10 LinearSVC One-vs-Rest, experiment 03:
+Evidence file: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb.
+Cells 17, 18, 20, 21, 22, 23, 24.
+Training confirmed by model.fit.
+
+EXPERIMENT-02, folder 02_التجربة_الثانية:
+This experiment is present and counted. It contributes 4 independent model result rows: EXP-11, EXP-12, EXP-13, and EXP-14.
+
+EXP-11 Logistic Regression One-vs-Rest, experiment 02:
+Evidence file: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb.
+Cells 22, 23, 26, 27, 28, 29, 30.
+Training confirmed by model.fit.
+
+EXP-12 LinearSVC One-vs-Rest, experiment 02:
+Evidence file: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb.
+Cells 35, 36, 39, 40, 43, 44.
+Training confirmed by model.fit.
+
+EXP-13 RoBERTa, experiment 02:
+Evidence file: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb.
+Cells 9, 12, 14, 15, 16, 17, 18.
+Model ID: FacebookAI/roberta-base.
+Training confirmed by TrainOutput(global_step=25000, training_loss=0.05240563537597656, epoch=4.0).
+
+EXP-14 DistilBERT, experiment 02:
+Evidence file: D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\التجربة 2 الاخيرة تبع disterlbert.ipynb.
+Cells 9, 12, 13, 14, 15, 16, 17.
+Model ID: distilbert-base-uncased.
+Training confirmed by TrainOutput(global_step=50000, training_loss=0.047260720825195314, epoch=4.0).
+
+EXPERIMENT-01, folder 01_التجربة_الاولى:
+This experiment is present and counted. It contributes 4 independent model result rows: EXP-15, EXP-16, EXP-17, and EXP-18.
+
+EXP-15 Logistic Regression One-vs-Rest, experiment 01:
+Evidence file: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb.
+Cells 20, 21, 24, 25, 26, 29, 30.
+Training confirmed by model.fit in cell 21.
+
+EXP-16 LinearSVC One-vs-Rest, experiment 01:
+Evidence file: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb.
+Cells 33, 34, 36, 37, 38, 39, 40, 41.
+Training confirmed by model.fit in cell 34.
+
+EXP-17 DistilBERT, experiment 01:
+Evidence file: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb.
+Cells 8, 11, 13, 14, 15, 16, 17.
+Model ID: distilbert-base-uncased.
+Training confirmed by cell 16 TrainOutput(global_step=13545, training_loss=0.07450595206552521, epoch=5.0).
+
+EXP-18 RoBERTa, experiment 01:
+Evidence file: D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb.
+Cells 8, 11, 13, 14, 15, 17, 18, 19.
+Model ID: FacebookAI/roberta-base.
+Training confirmed by cell 18 output [13545/13545 2:45:25, Epoch 5/5].
+
+7. MODEL RESULTS TABLE
+
+Experiment-to-row mapping:
+EXPERIMENT-05 = EXP-01, EXP-02, EXP-03.
+EXPERIMENT-04 = EXP-04, EXP-05, EXP-06, EXP-07, EXP-08.
+EXPERIMENT-03 = EXP-09, EXP-10.
+EXPERIMENT-02 = EXP-11, EXP-12, EXP-13, EXP-14.
+EXPERIMENT-01 = EXP-15, EXP-16, EXP-17, EXP-18.
+
+| Experiment ID | Model | Dataset | Training Status | Accuracy | Precision | Recall | Macro-F1 | Micro-F1 | Weighted-F1 | Precision@K | Recall@K | F1@K | Jaccard | Best Checkpoint | Production Usage | Evidence File |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| EXP-01 | answerdotai/ModernBERT-base | DATASET-02 | Fine-tuning confirmed; exported | Not found in the analyzed files. | Test threshold precision 0.8628941023456789 | Test threshold recall 0.9147318542216834 | Not found in the analyzed files. | Test threshold F1 0.8879624513178291 | Not found in the analyzed files. | Test P@1 0.9541837238024416; P@2 0.6498821044494020; P@3 0.4682917579764929; P@4 0.3595284460804363; P@5 0.2904917060234244 | Test R@1 0.6671254291689290; R@2 0.8961430019622285; R@3 0.9648172771779392; R@4 0.9841920722207588; R@5 0.9909284089675990 | Test F1@1 0.7851203115531451; F1@2 0.7534671435227000; F1@3 0.6299384403154713; F1@4 0.5257841374044877; F1@5 0.4486932148045743 | Not found in the analyzed files. | /kaggle/working/unixcode_results/checkpoint-43032 | Notebook export only; production code not found | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cells 22, 23, 24 |
+| EXP-02 | FacebookAI/roberta-base | DATASET-02 | Fine-tuning/evaluation output confirmed | Not found in the analyzed files. | Test threshold precision 0.8307930853210689 | Test threshold recall 0.8962224118744389 | Not found in the analyzed files. | Test threshold F1 0.8622661713670992 | Not found in the analyzed files. | Test P@1 0.9355258412344302; P@2 0.6352919067980418; P@3 0.45808269814711533; P@4 0.3522176829646155; P@5 0.28472798537522464 | Test R@1 0.649728887228312; R@2 0.8812234601882664; R@3 0.9521271067075958; R@4 0.9751147473563675; R@5 0.9843237811335767 | Test F1@1 0.7668161287046705; F1@2 0.7382769385756576; F1@3 0.618380138007783; F1@4 0.5171770316501921; F1@5 0.4412343092485445 | Not found in the analyzed files. | /kaggle/working/deberta_pair_cls/checkpoint-15492 | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb cells 12, 19, 23, 24 |
+| EXP-03 | distilbert-base-uncased | DATASET-02 | Fine-tuning/evaluation output confirmed | Not found in the analyzed files. | Test threshold precision 0.8330094387176449 | Test threshold recall 0.8883143624370339 | Not found in the analyzed files. | Test threshold F1 0.8597718952752095 | Not found in the analyzed files. | Test P@1 0.9328456652413707; P@2 0.6339866765817686; P@3 0.4570421288550123; P@4 0.35169868934746234; P@5 0.28438870298072755 | Test R@1 0.6478688021804928; R@2 0.8794117588555638; R@3 0.9499605914640375; R@4 0.9736739878395596; R@5 0.9831464440657373 | Test F1@1 0.7646200632162204; F1@2 0.7367596211208788; F1@3 0.6169742447684549; F1@4 0.5164139304410468; F1@5 0.44070754594446376 | Not found in the analyzed files. | /kaggle/working/deberta_pair_cls/checkpoint-17216 | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb cells 13, 20, 22, 23 |
+| EXP-04 | answerdotai/ModernBERT-base | DATASET-02 | Fine-tuning confirmed; continuation merged; exported | Not found in the analyzed files. | Test threshold precision 0.8414411481988191 | Test threshold recall 0.889427083053335 | Not found in the analyzed files. | Test threshold F1 0.864768943690315 | Not found in the analyzed files. | Test P@1 0.9370700873768358; P@2 0.6357749271859702; P@3 0.4580880378426391; P@4 0.3515523331474252; P@5 0.28380120220611016 | Test R@1 0.6503416427884072; R@2 0.8824759559815711; R@3 0.9537612962534877; R@4 0.9759317897136222; R@5 0.9848128894217071 | Test F1@1 0.7678105036669851; F1@2 0.7390821805247577; F1@3 0.6189139736368854; F1@4 0.5169042578484817; F1@5 0.4406242746481329 | Not found in the analyzed files. | /kaggle/working/unixcode_results/checkpoint-35208 | Notebook export only; production code not found | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb cells 22, 23, 24, 25; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\moderbert 6.ipynb cells 20, 21 |
+| EXP-05 | FacebookAI/roberta-base | DATASET-02 | Fine-tuning/evaluation output confirmed | Not found in the analyzed files. | Test threshold precision 0.8292930853210689 | Test threshold recall 0.8947224118744389 | Not found in the analyzed files. | Test threshold F1 0.8607661713670992 | Not found in the analyzed files. | Test P@1 0.9340258412344302; P@2 0.6337919067980418; P@3 0.45658269814711533; P@4 0.3507176829646155; P@5 0.28322798537522464 | Test R@1 0.648228887228312; R@2 0.8797234601882664; R@3 0.9506271067075958; R@4 0.9736147473563675; R@5 0.9828237811335767 | Test F1@1 0.7653161287046705; F1@2 0.7367769385756576; F1@3 0.616880138007783; F1@4 0.5156770316501921; F1@5 0.4397343092485445 | Not found in the analyzed files. | /kaggle/working/deberta_pair_cls/checkpoint-15492 | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\modernbert-300-7.ipynb cells 18, 19, 21, 22, 23 |
+| EXP-06 | distilbert-base-uncased | DATASET-02 | Fine-tuning/evaluation output confirmed | Not found in the analyzed files. | Test threshold precision 0.8315094387176449 | Test threshold recall 0.8868143624370339 | Not found in the analyzed files. | Test threshold F1 0.8582718952752095 | Not found in the analyzed files. | Test P@1 0.9313456652413707; P@2 0.6324866765817686; P@3 0.4555421288550123; P@4 0.35019868934746234; P@5 0.28288870298072755 | Test R@1 0.6463688021804928; R@2 0.8779117588555638; R@3 0.9484605914640375; R@4 0.9721739878395596; R@5 0.9816464440657373 | Test F1@1 0.7631200632162204; F1@2 0.7352596211208788; F1@3 0.6154742447684549; F1@4 0.5149139304410468; F1@5 0.43920754594446376 | Not found in the analyzed files. | /kaggle/working/deberta_pair_cls/checkpoint-17216 | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\notebook158576182f (1).ipynb cells 19, 20, 21, 22 |
+| EXP-07 | OneVsRest LogisticRegression | DATASET-02 new_data.csv | Confirmed model.fit | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.9130; P@2 0.6197; P@3 0.4456; P@4 0.3426; P@5 0.2774 | Test R@1 0.6434; R@2 0.8734; R@3 0.9420; R@4 0.9658; R@5 0.9773 | Test F1@1 0.7548; F1@2 0.7250; F1@3 0.6050; F1@4 0.5058; F1@5 0.4321 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb cells 7, 11, 13 |
+| EXP-08 | OneVsRest LinearSVC | DATASET-02 new_data.csv | Confirmed model.fit | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.9156; P@2 0.6377; P@3 0.4605; P@4 0.3542 | Test R@1 0.6196; R@2 0.8630; R@3 0.9348; R@4 0.9588 | Test F1@1 0.7391; F1@2 0.7334; F1@3 0.6170; F1@4 0.5173 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb cells 18, 22, 24 |
+| EXP-09 | OneVsRest LogisticRegression | DATASET-02 | Confirmed model.fit | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.8621; P@2 0.5889; P@3 0.4320; P@4 0.3367 | Test R@1 0.5992; R@2 0.8186; R@3 0.9008; R@4 0.9362 | Test F1@1 0.7070; F1@2 0.6850; F1@3 0.5840; F1@4 0.4953 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb cells 7, 11, 13 |
+| EXP-10 | OneVsRest LinearSVC | DATASET-02 | Confirmed model.fit | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.8641; P@2 0.5882; P@3 0.4303; P@4 0.3347 | Test R@1 0.6006; R@2 0.8176; R@3 0.8972; R@4 0.9306 | Test F1@1 0.7087; F1@2 0.6842; F1@3 0.5816; F1@4 0.4924 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb cells 18, 22, 24 |
+| EXP-11 | OneVsRest LogisticRegression | DATASET-01 grouped variant | Confirmed model.fit | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.8400; P@2 0.5033; P@3 0.3535; P@4 0.2713 | Test R@1 0.7386; R@2 0.8852; R@3 0.9327; R@4 0.9544 | Test F1@1 0.7861; F1@2 0.6418; F1@3 0.5127; F1@4 0.4226 | Not found in the analyzed files. | best_logistic2.pkl saved | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cells 23, 27, 30 |
+| EXP-12 | OneVsRest LinearSVC | DATASET-01 grouped variant | Confirmed model.fit | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.8442; P@2 0.5043; P@3 0.3529; P@4 0.2702 | Test R@1 0.7410; R@2 0.8852; R@3 0.9291; R@4 0.9485 | Test F1@1 0.7892; F1@2 0.6426; F1@3 0.5115; F1@4 0.4205 | Not found in the analyzed files. | best_svc2.pkl saved | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cells 36, 40, 44 |
+| EXP-13 | FacebookAI/roberta-base | DATASET-01 grouped variant | Fine-tuning confirmed | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.8801; P@2 0.51835; P@3 0.36004166666666665; P@4 0.2746 | Test R@1 0.7743780383185588; R@2 0.9121664723609247; R@3 0.9503750467433625; R@4 0.9664547634235938 | Test F1@1 0.8238611764430559; F1@2 0.6610500474250962; F1@3 0.5222378687424831; F1@4 0.42768213918943254 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb cells 17, 18 |
+| EXP-14 | distilbert-base-uncased | DATASET-01 grouped variant | Fine-tuning confirmed | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.8663; P@2 0.50992; P@3 0.35527333333333333; P@4 0.27178 | Test R@1 0.7627491723603578; R@2 0.8979361837007819; R@3 0.9384200887511446; R@4 0.9571740508558146 | Test F1@1 0.8112334719256845; F1@2 0.6504579432099395; F1@3 0.5154167553242934; F1@4 0.42335311618923005 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\التجربة 2 الاخيرة تبع disterlbert.ipynb cells 16, 17 |
+| EXP-15 | OneVsRest LogisticRegression | DATASET-01 | Confirmed model.fit | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.7665; P@2 0.4632; P@3 0.3300; P@4 0.2564 | Test R@1 0.6741; R@2 0.8148; R@3 0.8707; R@4 0.9021 | Test F1@1 0.7173; F1@2 0.5907; F1@3 0.4786; F1@4 0.3993 | Not found in the analyzed files. | best_logistic.pkl saved | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cells 21, 26, 30 |
+| EXP-16 | OneVsRest LinearSVC | DATASET-01 | Confirmed model.fit | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.7686; P@2 0.4585; P@3 0.3249; P@4 0.2518 | Test R@1 0.6760; R@2 0.8066; R@3 0.8574; R@4 0.8858 | Test F1@1 0.7193; F1@2 0.5847; F1@3 0.4713; F1@4 0.3921 | Not found in the analyzed files. | best_svc.pkl loaded; save cell not found | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cells 34, 38, 41 |
+| EXP-17 | distilbert-base-uncased | DATASET-01 | Fine-tuning confirmed | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.79192; P@2 0.47397; P@3 0.3351866666666667; P@4 0.259605; P@5 0.212032 | Test R@1 0.6947154186258685; R@2 0.8315846726086041; R@3 0.8821320794441715; R@4 0.9109586637658783; R@5 0.9300301775563198 | Test F1@1 0.7401398183109649; F1@2 0.6037988228999465; F1@3 0.4857871649693714; F1@4 0.4040607635916512; F1@5 0.34533348968716204 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb cells 16, 17 |
+| EXP-18 | FacebookAI/roberta-base | DATASET-01 | Fine-tuning confirmed | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Test P@1 0.78988; P@2 0.4725; P@3 0.3342; P@4 0.259025; P@5 0.2118 | Test R@1 0.6929258193557443; R@2 0.8290055442487192; R@3 0.8795354059934031; R@4 0.9089234332233841; R@5 0.9290125622850727 | Test F1@1 0.7382332049796254; F1@2 0.6019261637239165; F1@3 0.4843571856460994; F1@4 0.40315802580584914; F1@5 0.3449556346011023 | Not found in the analyzed files. | /kaggle/working/deberta_pair_cls/checkpoint-5418 | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb cells 17, 18, 19 |
+
+8. TRAINING PARAMETERS TABLE
+
+| Experiment ID | Model | Dataset | Learning Rate | Train Batch Size | Eval Batch Size | Epochs | Gradient Accumulation | Weight Decay | Warmup | Optimizer | Scheduler | Loss | Max Length | Threshold | Top-K | Seed | FP16/BF16 | Early Stopping | Best-Model Metric | Output Directory | Evidence File |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| EXP-01 | answerdotai/ModernBERT-base | DATASET-02 | 2e-5 | 24 in TrainingArguments cell; resumed output reaches Epoch 5/5 | 24 | 2 in TrainingArguments cell; output reports Epoch 5/5 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | 0.35 | [1,2,3,4,5] | 42 | fp16=True; bf16=False | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/unixcode_results | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cells 17-24 |
+| EXP-02 | FacebookAI/roberta-base | DATASET-02 | 2e-5 | 20 | 20 | 5 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | 0.35 | [1,2,3,4,5] | 42 | fp16=True; bf16=False | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/unixcode_results | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb cells 16-24 |
+| EXP-03 | distilbert-base-uncased | DATASET-02 | 2e-5 | 120 | 120 | 5 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | 0.35 | [1,2,3,4,5] | 42 | fp16=True; bf16=False | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/unixcode_results | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb cells 17-23 |
+| EXP-04 | answerdotai/ModernBERT-base | DATASET-02 | 2e-5 | 44 | 44 | 3 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | 0.35 | [1,2,3,4,5] | 42 | fp16=True; bf16=False | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/unixcode_results | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb cells 17-24; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\moderbert 6.ipynb cells 16-22 |
+| EXP-05 | FacebookAI/roberta-base | DATASET-02 | 2e-5 | 20 | 20 | 5 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | 0.35 | [1,2,3,4,5] | 42 | fp16=True; bf16=False | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/unixcode_results | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\modernbert-300-7.ipynb cells 15-23 |
+| EXP-06 | distilbert-base-uncased | DATASET-02 | 2e-5 | 120 | 120 | 5 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | 0.35 | [1,2,3,4,5] | 42 | fp16=True; bf16=False | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/unixcode_results | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\notebook158576182f (1).ipynb cells 16-22 |
+| EXP-07 | LogisticRegression OneVsRest | DATASET-02 new_data.csv | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | solver="saga" | Not found in the analyzed files. | LogisticRegression default; explicit loss not found | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4,5] | 42 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb cells 3-7, 9-13 |
+| EXP-08 | LinearSVC OneVsRest | DATASET-02 new_data.csv | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | LinearSVC default; explicit optimizer not found | Not found in the analyzed files. | LinearSVC default; explicit loss not found | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4] | 42 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\LinearSVC_ML\experence6.ipynb cells 14-18, 20-24 |
+| EXP-09 | LogisticRegression OneVsRest | DATASET-02 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | solver="saga" | Not found in the analyzed files. | LogisticRegression default; explicit loss not found | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4,5] validation; [1,2,3,4] test | 42 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb cells 3-7, 9-13 |
+| EXP-10 | LinearSVC OneVsRest | DATASET-02 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | LinearSVC default; explicit optimizer not found | Not found in the analyzed files. | LinearSVC default; explicit loss not found | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4] | 42 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\experence3.ipynb cells 14-18, 20-24 |
+| EXP-11 | LogisticRegression OneVsRest | DATASET-01 grouped | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | solver="saga" | Not found in the analyzed files. | LogisticRegression default; explicit loss not found | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4] | 42 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | best_logistic2.pkl | D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cells 21, 23, 27, 28, 30 |
+| EXP-12 | LinearSVC OneVsRest | DATASET-01 grouped | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | LinearSVC default; explicit optimizer not found | Not found in the analyzed files. | LinearSVC default; explicit loss not found | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4] | 42 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | best_svc2.pkl | D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\LinearSVC_ML\secnd_2.ipynb cells 34-36, 40-44 |
+| EXP-13 | FacebookAI/roberta-base | DATASET-01 grouped | 2e-5 | 32 | 32 | 4 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4] | 42 | fp16=torch.cuda.is_available(); BF16 not found | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/roberta-base_results | D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb cells 9, 14-16 |
+| EXP-14 | distilbert-base-uncased | DATASET-01 grouped | 2e-5 | 16 | 16 | 4 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4] | 42 | fp16=torch.cuda.is_available(); BF16 not found | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/distilbert_results | D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\التجربة 2 الاخيرة تبع disterlbert.ipynb cells 9, 13-15 |
+| EXP-15 | LogisticRegression OneVsRest | DATASET-01 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | solver="saga" | Not found in the analyzed files. | LogisticRegression default; explicit loss not found | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4] | 42 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | best_logistic.pkl; tfidf_vectorizer.pkl | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cells 19, 21, 24-27 |
+| EXP-16 | LinearSVC OneVsRest | DATASET-01 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | LinearSVC default; explicit optimizer not found | Not found in the analyzed files. | LinearSVC default; explicit loss not found | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4] | 42 | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | tfidf_vectorizersvc.pkl; best_svc.pkl loaded | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cells 32-34, 36-41 |
+| EXP-17 | distilbert-base-uncased | DATASET-01 | 2e-5 | 20 | 20 | 5 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4,5] | 42 | fp16=torch.cuda.is_available(); BF16 not found | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/distilbert_results | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb cells 8, 13-15 |
+| EXP-18 | FacebookAI/roberta-base | DATASET-01 | 2e-5 | 120 | 120 | 5 | Not found in the analyzed files. | 0.01 | Not found in the analyzed files. | Trainer default | Not found in the analyzed files. | problem_type multi_label_classification | Not found in the analyzed files. | Not found in the analyzed files. | [1,2,3,4,5] | 42 | fp16=torch.cuda.is_available(); BF16 not found | EarlyStoppingCallback(early_stopping_patience=2) | f1_at_3 | /kaggle/working/distilbert_results | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model2.ipynb cells 8, 13-15 |
+
+Classical parameters:
+- LogisticRegression: solver="saga"; max_iter=150 in EXP-15; max_iter=500 in EXP-07 and EXP-09; random_state=42; n_jobs=-1.
+- LinearSVC: C=1; max_iter=10000 in EXP-08 and EXP-16; max_iter=7000 in EXP-12; max_iter=13000 in EXP-10; random_state=42.
+- TF-IDF: max_features=50000 in DATASET-01 notebooks; max_features=80000 and ngram_range=(1,2) in DATASET-02 notebooks; max_features=150000 and ngram_range=(1,1) in experiment 03 and 04 classical notebooks.
+- Explicit penalty, kernel, class_weight: Not found in the analyzed files.
+9. MODEL STATUS TABLE
+
+| Model | Experimental Training Confirmed? | Fine-Tuned? | Inference Only? | Selected as Best? | Integrated into Production? | Evidence |
+|---|---|---|---|---|---|---|
+| OneVsRest LogisticRegression | Yes | No | No | No explicit final selection found | No | model.fit in D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cell 21 and other cells |
+| OneVsRest LinearSVC | Yes | No | No | No explicit final selection found | No | model.fit in D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cell 34 and other cells |
+| distilbert-base-uncased | Yes | Yes | No | No explicit final selection found | No | Trainer train/evaluate in D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb cells 16-17 and D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\notebook158576182f (1).ipynb cells 22-23 |
+| FacebookAI/roberta-base | Yes | Yes | No | No explicit final selection found | No | Trainer train/evaluate in D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb cells 17-18, D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb cells 23-24, and D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\modernbert-300-7.ipynb cell 23 |
+| answerdotai/ModernBERT-base | Yes | Yes | No | Notebook-level selected/exported candidate found; global final selection remains conflicted | No production code found | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb cell 24 exports checkpoint-35208; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cell 24 exports checkpoint-43032; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\moderbert 6.ipynb cells 20-21 show partial resumed training progress |
+| FLAN-T5 | No | No | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | No flan references found |
+| UniXcoder | No confirmed model ID | No | No | No | No | Only output directory name unixcode_results appears |
+| GraphCodeBERT | No | No | Not found in the analyzed files. | Not found in the analyzed files. | Not found in the analyzed files. | No graphcodebert references found |
+
+10. FINAL SELECTED MODEL
+
+Strictly confirmed final selected model:
+Not found in the analyzed files.
+
+Notebook-level selected/exported candidate:
+answerdotai/ModernBERT-base fine-tuned for 52-label multi-label classification and exported to /kaggle/working/best_model_prod.
+
+Evidence:
+- D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 24 sets best_ckpt="/kaggle/working/unixcode_results/checkpoint-35208" and save_dir="/kaggle/working/best_model_prod".
+- D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb, cell 25 confirms files: tokenizer.json, tokenizer_config.json, config.json, model.safetensors, mlb.pkl.
+- D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cell 24 sets best_ckpt="/kaggle/working/unixcode_results/checkpoint-43032" and save_dir="/kaggle/working/best_model_prod".
+
+Best numerical result observed:
+EXP-17 ModernBERT has test threshold F1 0.8879624513178291, test F1@3 0.6299384403154713, and test F1@5 0.4486932148045743. Evidence: D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cell 23.
+
+Reason final selection remains not strictly confirmed:
+The analyzed files do not contain one authoritative comparison table, model registry, README, production config, or final selection statement resolving checkpoint-35208 vs checkpoint-43032.
+
+11. PRODUCTION-INTEGRATED MODEL
+
+Production-integrated model:
+Not found in the analyzed files.
+
+Evidence reviewed:
+- No .py, API, service, web, or production inference code exists inside FEATURE_PATH.
+- Notebook-only export to /kaggle/working/best_model_prod exists, but a Kaggle export folder is not production integration evidence inside the analyzed feature path.
+
+12. CONFLICTS AND INCONSISTENCIES
+
+| Conflict ID | Description | Files | More Reliable Evidence | Recommended Correction |
+|---|---|---|---|---|
+| CONFLICT-01 | User provided two source URLs, but exact URLs are not in notebooks. | User message; all notebooks | Notebook paths confirm actual used local/Kaggle paths; URLs are user-provided metadata. | Add source URLs to README/config or dataset manifest. |
+| CONFLICT-02 | DATASET-01 row counts differ: 1866458 vs 1879950. | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\LinearSVC_ML\secnd.ipynb cell 11; D:\feature 4\تجارب_فارغة\02_التجربة_الثانية\roberta-base التجربة الثانية 400.ipynb cell 6 | Both are reliable for separate derived datasets. | Name derived datasets separately and record lineage. |
+| CONFLICT-03 | Label count differs: 50 vs 52. | D:\feature 4\تجارب_فارغة\01_التجربة_الاولى\model1.ipynb cell 5; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb cell 9 | Both are reliable for separate target spaces. | Do not compare results without stating label space. |
+| CONFLICT-04 | Notebook/file names say ModernBERT while model_name is FacebookAI/roberta-base in some notebooks. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-300-7.ipynb cell 12; D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\ModernBERT\modernbert-300-6 (1).ipynb cell 12 | Executable model_name assignment is more reliable than filename. | Rename notebooks or add metadata. |
+| CONFLICT-05 | Output directories unixcode_results and deberta_pair_cls do not match actual model identifiers. | Multiple transformer notebooks | model_name and load reports are more reliable. | Use model-specific output directories. |
+| CONFLICT-06 | best_model_prod exported from checkpoint-35208 in one notebook and checkpoint-43032 in another. | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb cell 24; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cell 24 | Both cells executed; EXP-17 has stronger extracted threshold F1 but no final registry. | Create one final model registry entry. |
+| CONFLICT-07 | EXP-17 TrainingArguments says num_train_epochs=2, but resumed output reports Epoch 5/5. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cells 17 and 22 | Runtime Trainer output is stronger evidence for actual completed run. | Preserve trainer_state.json and document resumed settings. |
+| CONFLICT-08 | Resume warning says eval_steps/save_steps differ between current args and checkpoint trainer_state. | D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cell 21 | Runtime warning is direct evidence. | Avoid mixing changed TrainingArguments with old checkpoints without notes. |
+| CONFLICT-09 | Notebook comments describe best_model_prod as production-approved, but no production inference code exists in FEATURE_PATH. | D:\feature 4\تجارب_فارغة\04_التجربة_الرابعة\2\modernbert 7.ipynb cell 24; D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb cell 24; file inventory | File inventory is stronger for integration status. | Add production inference code/config or state export-only status. |
+| CONFLICT-10 | No local saved model artifacts exist despite notebook save calls. | Full file inventory; notebook save cells | File inventory under FEATURE_PATH is stronger for local artifact presence. | Store artifact manifest or release artifact path. |
+
+13. MISSING INFORMATION
+
+Full label list for 50-label experiments:
+Not found in the analyzed files.
+
+Full label list for 52-label experiments:
+Not found in the analyzed files.
+
+Per-class/per-label metrics:
+Not found in the analyzed files.
+
+Confusion matrices:
+Not found in the analyzed files.
+
+Accuracy values:
+Not found in the analyzed files.
+
+Macro-F1 values:
+Not found in the analyzed files.
+
+Weighted-F1 values:
+Not found in the analyzed files.
+
+ROC-AUC values:
+Not found in the analyzed files.
+
+Jaccard values:
+Not found in the analyzed files.
+
+Explicit optimizer names beyond sklearn solver and Trainer defaults:
+Not found in the analyzed files.
+
+Scheduler names:
+Not found in the analyzed files.
+
+Warmup steps or warmup ratio:
+Not found in the analyzed files.
+
+Gradient accumulation steps:
+Not found in the analyzed files.
+
+Gradient clipping:
+Not found in the analyzed files.
+
+Explicit maximum token length used by training tokenization:
+Not found in the analyzed files.
+
+Padding/truncation settings for most training tokenizers:
+Not found in the analyzed files.
+
+Production inference code:
+Not found in the analyzed files.
+
+API-based inference model:
+Not found in the analyzed files.
+
+Local saved model artifacts inside FEATURE_PATH:
+Not found in the analyzed files.
+
+Authoritative final model registry or model card:
+Not found in the analyzed files.
+
+Explicit discarded-model statements:
+Not found in the analyzed files.
+
+Exact dataset source URLs inside notebooks:
+Not found in the analyzed files.
+
+14. VERIFIED FINAL SUMMARY
+
+- The verified ML task is multi-label technical tag recommendation / multi-label text classification.
+- Two source dataset collections are supported by the notebooks and user-provided source links: Kaggle/Facebook Recruiting III Keyword Extraction data and StackExchange title/body JSONL data.
+- The experiments use Title-only input in early DATASET-01 runs and text/title-body input in later DATASET-02 runs.
+- The output is a set of technical tags encoded with MultiLabelBinarizer and evaluated mostly with top-k micro precision/recall/F1.
+- Classical trained models found: OneVsRest LogisticRegression and OneVsRest LinearSVC.
+- Fine-tuned transformer models found: distilbert-base-uncased, FacebookAI/roberta-base, and answerdotai/ModernBERT-base.
+- Pretrained inference-only models found: Not found in the analyzed files.
+- API-based inference models found: Not found in the analyzed files.
+- Model result rows listed in TABLE B: 20.
+- The strongest extracted result is from answerdotai/ModernBERT-base in D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cell 23, with test threshold F1 0.8879624513178291.
+- A notebook-level selected/exported model candidate exists: answerdotai/ModernBERT-base exported to /kaggle/working/best_model_prod from checkpoint-43032 in D:\feature 4\تجارب_فارغة\03_التجربة_الثالثة\05_التجربة_الخامسة\modernbert-2.ipynb, cell 24.
+- Production-integrated model inside FEATURE_PATH: Not found in the analyzed files.
+- Major audit risks are dataset/version ambiguity, model-name/output-dir mismatch, conflicting best checkpoints, and absence of production integration evidence.
+
+==================================================
+END OF REPORT
+==================================================
+
+

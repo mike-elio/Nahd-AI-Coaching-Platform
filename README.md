@@ -22,7 +22,15 @@ features/
   career-expert-system/
   fault-diagnosis/
 docs/
+experiments/
+  task-verification/
+  multilabel-classification/
 ```
+
+## Experiments
+
+- [Task verification](experiments/task-verification) documents the experiment entry point for the image-verification feature.
+- [Multi-label classification](experiments/multilabel-classification) contains the available Jupyter notebooks and text reports from the training experiments. Datasets, virtual environments, and model artifacts are intentionally excluded.
 
 ## Requirements
 

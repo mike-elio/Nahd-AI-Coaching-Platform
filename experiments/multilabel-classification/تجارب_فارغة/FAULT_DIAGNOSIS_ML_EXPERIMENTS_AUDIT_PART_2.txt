@@ -1,0 +1,931 @@
+================================================================================
+    FAULT DIAGNOSIS ML EXPERIMENTS AUDIT - PART 2
+    (DETAILED EXPERIMENT REPORT: modernbert-2.ipynb)
+    (Experiment 05 - ModernBERT Fine-Tuning for Multi-Label Tag Classification)
+================================================================================
+
+Generated: 2026-06-04
+Source file: D:\feature 4\تجارب_فارغة\05_التجربة_الخامسة\modernbert-2.ipynb
+Total notebook lines: 1506
+Total notebook size: 71,334 bytes
+
+================================================================================
+1. NOTEBOOK METADATA AND EXECUTION ENVIRONMENT
+================================================================================
+
+Kernel:
+    Display name: Python 3
+    Language: python
+    Python version: 3.12.12
+
+Kaggle metadata:
+    Accelerator: nvidiaTeslaT4
+    GPU enabled: true
+    Internet enabled: true
+    Source type: notebook
+    Docker image version ID: 31328
+
+Data sources used in Kaggle:
+    Source 1:
+        Type: datasetVersion
+        Dataset ID: 9943385
+        Source ID: 15542033
+        Data bundle version ID: 16470622
+    Source 2:
+        Type: kernelVersion
+        Source ID: 310830659
+
+Installed packages (cell 1, execution_count=1):
+    Command: !pip install -q -U "transformers>=4.49.0" accelerate datasets
+    Execution started: 2026-04-11T19:52:13.120734Z
+    Execution ended: 2026-04-11T19:52:30.374103Z
+    Duration: ~17 seconds
+    Downloaded packages:
+        transformers: 10.2 MB at 63.5 MB/s
+        accelerate: 383.7 kB at 29.1 MB/s
+        datasets: 527.0 kB at 30.5 MB/s
+        Additional package: 642.6 kB at 40.7 MB/s
+        Additional package: 4.2 MB at 103.6 MB/s
+
+================================================================================
+2. IMPORTS (cell 2, execution_count=2)
+================================================================================
+
+Execution started: 2026-04-11T19:52:30.376138Z
+Execution ended: 2026-04-11T19:52:49.223273Z
+Duration: ~19 seconds
+
+Libraries imported:
+    - numpy (as np)
+    - torch (imported twice - duplicate import)
+    - joblib
+    - sklearn.preprocessing.MultiLabelBinarizer
+    - sklearn.model_selection.train_test_split
+    - sklearn.metrics.f1_score
+    - sklearn.metrics.jaccard_score
+    - datasets.Dataset
+    - transformers.AutoTokenizer
+    - transformers.AutoModelForSequenceClassification
+    - transformers.TrainingArguments
+    - transformers.Trainer
+    - transformers.EarlyStoppingCallback
+
+Note: torch is imported twice (lines 55 and 57 of the notebook file).
+      jaccard_score is imported but never used in any subsequent cell.
+
+================================================================================
+3. DATA LOADING (cell 3, execution_count=3)
+================================================================================
+
+Execution started: 2026-04-11T19:52:49.224725Z
+Execution ended: 2026-04-11T19:53:16.761053Z
+Duration: ~27 seconds
+
+Data path: /kaggle/input/datasets/joelleiliovits/new-data-csv/new_data.csv
+Loading method: pd.read_csv(data_path)
+File format: CSV
+Dataset origin: User-provided as https://huggingface.co/datasets/flax-sentence-embeddings/stackexchange_title_body_jsonl
+    (URL is user-provided metadata; the exact URL does not appear inside the notebook)
+
+================================================================================
+4. DATA CLEANING (cell 4, execution_count=4)
+================================================================================
+
+Execution started: 2026-04-11T19:53:16.762316Z
+Execution ended: 2026-04-11T19:53:19.339094Z
+Duration: ~3 seconds
+
+Steps performed:
+    1. Select only columns: ["text", "tags"]
+    2. Drop rows where "text" or "tags" is NaN: df.dropna(subset=["text", "tags"])
+    3. Cast "text" to str and strip whitespace: df["text"].astype(str).str.strip()
+    4. Cast "tags" to str and strip whitespace: df["tags"].astype(str).str.strip()
+    5. Remove rows where "text" is empty string OR "tags" is empty string
+
+No text normalization function (e.g., clean_technical_text) is applied.
+No HTML decoding, URL removal, or term normalization is performed.
+No duplicate removal is performed.
+No outlier/length filtering is performed.
+
+================================================================================
+5. LABEL CONSTRUCTION (cell 5, execution_count=5)
+================================================================================
+
+Execution started: 2026-04-11T19:53:19.341001Z
+Execution ended: 2026-04-11T19:53:21.931944Z
+Duration: ~3 seconds
+
+Operation: df["label_list"] = df["tags"].apply(lambda x: x.split())
+    Tags column is space-separated, split into a Python list of tag strings.
+
+Sample data (from output):
+    Row 0: text="loop through elements of list in a pandas data..."
+           tags="python pandas"
+           label_list=["python", "pandas"]
+
+    Row 1: text="ssl error when running pip search in python 2...."
+           tags="python ssl"
+           label_list=["python", "ssl"]
+
+    Row 2: text="how do i clear errno in c# how do i clear errn..."
+           tags="c# linux"
+           label_list=["c#", "linux"]
+
+    Row 3: text="segmentation fault as soon the binary launch h..."
+           tags="linux debugging"
+           label_list=["linux", "debugging"]
+
+    Row 4: text="changing data in jsp using ajax i have jsp pag..."
+           tags="javascript java"
+           label_list=["javascript", "java"]
+
+================================================================================
+6. LABEL DISTRIBUTION ANALYSIS (cell 6, execution_count=6)
+================================================================================
+
+Execution started: 2026-04-11T19:53:21.933626Z
+Execution ended: 2026-04-11T19:53:22.516046Z
+Duration: ~1 second
+
+Operation: df["num_labels"] = df["label_list"].apply(len)
+
+Label count distribution (BEFORE sampling):
+    num_labels=1:  1,000,000 samples
+    num_labels=2:    701,000 samples
+    num_labels=3:    112,707 samples
+    num_labels=4:      7,949 samples
+    num_labels=5:        304 samples
+    ----------------------------------------
+    TOTAL:         1,821,960 samples
+
+================================================================================
+7. DATA SAMPLING AND BALANCING (cells 7 & 12, execution_counts=11 & 12)
+================================================================================
+
+Execution started: 2026-04-11T19:53:46.993740Z
+Execution ended: 2026-04-11T19:53:49.168387Z
+Duration: ~2 seconds
+
+Sampling strategy:
+    RANDOM_STATE = 42
+
+    Group splitting:
+        df_1 = df[df["num_labels"] == 1].copy()     # 1,000,000 rows
+        df_2 = df[df["num_labels"] == 2].copy()     #   701,000 rows
+        df_3_plus = df[df["num_labels"] >= 3].copy() #   120,960 rows
+
+    Downsampling:
+        df_1_sample = df_1.sample(n=min(850000, len(df_1)), random_state=42)
+            -> 850,000 rows (downsampled from 1,000,000)
+        df_2_sample = df_2.sample(n=min(320000, len(df_2)), random_state=42)
+            -> 320,000 rows (downsampled from 701,000)
+        df_3_plus: kept entirely = 120,960 rows (112,707 + 7,949 + 304)
+
+    Concatenation and shuffling:
+        df_final = pd.concat([df_1_sample, df_2_sample, df_3_plus], ignore_index=True)
+        df_final = df_final.sample(frac=1, random_state=42).reset_index(drop=True)
+
+Final dataset shape (from output): (1,290,960, 4)
+
+Final label distribution (AFTER sampling):
+    num_labels=1:    850,000 samples (downsampled from 1,000,000)
+    num_labels=2:    320,000 samples (downsampled from 701,000)
+    num_labels=3:    112,707 samples (kept all)
+    num_labels=4:      7,949 samples (kept all)
+    num_labels=5:        304 samples (kept all)
+    ----------------------------------------
+    TOTAL:         1,290,960 samples
+
+--------------------------------------------------------------------------------
+TABLE A: LABEL DISTRIBUTION COMPARISON
+--------------------------------------------------------------------------------
+
++------------------+-------------------------+-------------------------+---------------------------------+
+| Number of Labels | Count (Before Sampling) | Count (After Sampling)  | Sampling Strategy/Action        |
++------------------+-------------------------+-------------------------+---------------------------------+
+| 1                | 1,000,000 (54.89%)      | 850,000 (65.84%)        | Downsampled to 850,000 (85%)    |
+| 2                |   701,000 (38.47%)      | 320,000 (24.79%)        | Downsampled to 320,000 (45.6%)  |
+| 3                |   112,707 (6.19%)       | 112,707 (8.73%)         | Kept entirely (100%)            |
+| 4                |     7,949 (0.44%)       |   7,949 (0.62%)         | Kept entirely (100%)            |
+| 5                |       304 (0.02%)       |     304 (0.02%)         | Kept entirely (100%)            |
++------------------+-------------------------+-------------------------+---------------------------------+
+| Total            | 1,821,960 (100.00%)     | 1,290,960 (100.00%)     | Net reduction: -531,000 samples |
++------------------+-------------------------+-------------------------+---------------------------------+
+
+================================================================================
+8. MULTI-LABEL BINARIZATION (cell 8, execution_count=13)
+================================================================================
+
+Execution started: 2026-04-11T19:53:50.742844Z
+Execution ended: 2026-04-11T19:53:52.254986Z
+Duration: ~2 seconds
+
+Operation:
+    mlb = MultiLabelBinarizer()
+    y = mlb.fit_transform(df_final["label_list"])
+
+Output:
+    Number of labels: 52
+    y shape: (1,290,960, 52)
+
+First 20 label names (from mlb.classes_[:20]):
+    apache, asp.net-core, authentication, azure, bash, c#,
+    computer-vision, cors, cuda, debugging, deep-learning, django,
+    dns, docker, fastapi, firewall, gpu, http, inference, java
+
+Note: Full 52-label list is NOT printed in the notebook.
+
+================================================================================
+9. FEATURE EXTRACTION (cell 9, execution_count=14)
+================================================================================
+
+Execution started: 2026-04-11T19:53:52.256590Z
+Execution ended: 2026-04-11T19:53:52.315564Z
+Duration: <1 second
+
+Operation:
+    X = df_final["text"].tolist()
+    Converts the "text" column into a Python list of strings.
+
+================================================================================
+10. TRAIN/VALIDATION/TEST SPLIT (cell 10, execution_count=15)
+================================================================================
+
+Execution started: 2026-04-11T19:53:55.053617Z
+Execution ended: 2026-04-11T19:53:55.903768Z
+Duration: <1 second
+
+Split strategy:
+    Step 1: train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
+        -> X_train, X_temp (80/20 split)
+
+    Step 2: train_test_split(X_temp, y_temp, test_size=0.5, random_state=42, shuffle=True)
+        -> X_val, X_test (50/50 split of the 20% temp)
+
+Effective split ratio: 80% / 10% / 10%
+
+================================================================================
+11. DATASET OBJECT CREATION (cell 11, execution_count=16)
+================================================================================
+
+Execution started: 2026-04-11T19:53:55.906337Z
+Execution ended: 2026-04-11T19:54:14.541009Z
+Duration: ~19 seconds
+
+Operations:
+    1. y_train, y_val, y_test cast to np.float32
+    2. HuggingFace Dataset.from_dict created for each split with keys:
+        "text": list of strings
+        "labels": list of float32 arrays (multi-label binary vectors)
+
+Split sizes (from output):
+    Train: 1,032,768 samples
+    Val:     129,096 samples
+    Test:    129,096 samples
+    ----------------------------------------
+    TOTAL: 1,290,960 samples
+
+================================================================================
+12. TOKENIZER LOADING (cell 12, execution_count=17)
+================================================================================
+
+Execution started: 2026-04-11T19:54:14.542825Z
+Execution ended: 2026-04-11T19:54:15.638749Z
+Duration: ~1 second
+
+Model name: answerdotai/ModernBERT-base
+Tokenizer: AutoTokenizer.from_pretrained("answerdotai/ModernBERT-base")
+
+Downloaded files:
+    - config.json
+    - tokenizer_config.json
+    - tokenizer.json
+    - special_tokens_map.json (694 bytes)
+
+Warning from HuggingFace Hub:
+    "You are sending unauthenticated requests to the HF Hub.
+     Please set a HF_TOKEN to enable higher rate limits and faster downloads."
+
+================================================================================
+13. TOKEN LENGTH ANALYSIS (cell 13, execution_count=18)
+================================================================================
+
+Execution started: 2026-04-11T19:54:15.640077Z
+Execution ended: 2026-04-11T19:54:43.098303Z
+Duration: ~27 seconds
+
+Sampling: 100,000 random texts from df (full dataset, not df_final)
+Tokenization: tokenizer(batch, add_special_tokens=True, truncation=False, padding=False)
+    - No truncation applied for length analysis
+    - Batch size for processing: 512
+
+Token length statistics:
+    Count:    100,000
+    Min:      13 tokens
+    Median:   187 tokens
+    P90:      450 tokens
+    P95:      560 tokens
+    P99:      783 tokens
+    Max:      1,662 tokens
+
+Overflow analysis:
+    Over 64 tokens:  94.55%
+    Over 128 tokens: 71.10%
+    Over 256 tokens: 32.63%
+
+--------------------------------------------------------------------------------
+TABLE B: TOKEN LENGTH DISTRIBUTION STATISTICS
+--------------------------------------------------------------------------------
+
++------------------------------------+-------------------------+
+| Statistic / Metric                 | Value                   |
++------------------------------------+-------------------------+
+| Sample Size                        | 100,000 text sequences  |
+| Minimum Length                     | 13 tokens               |
+| Median Length (50th percentile)    | 187 tokens              |
+| 90th Percentile (P90)              | 450 tokens              |
+| 95th Percentile (P95)              | 560 tokens              |
+| 99th Percentile (P99)              | 783 tokens              |
+| Maximum Length                     | 1,662 tokens            |
+| Sequences > 64 tokens (%)          | 94.55%                  |
+| Sequences > 128 tokens (%)         | 71.10%                  |
+| Sequences > 256 tokens (%)         | 32.63%                  |
+| Sequences truncated at 384 (%)     | ~15% - 20% (estimated)  |
++------------------------------------+-------------------------+
+
+================================================================================
+14. TOKENIZATION OF DATASETS (cell 14, execution_count=19)
+================================================================================
+
+Execution started: 2026-04-11T19:54:43.100330Z
+Execution ended: 2026-04-11T20:02:44.799116Z
+Duration: ~8 minutes 1 second
+
+Tokenization function:
+    def tokenize_function(example):
+        return tokenizer(
+            example["text"],
+            truncation=True,
+            padding="max_length",
+            max_length=384
+        )
+
+Parameters:
+    truncation: True
+    padding: "max_length" (pads all sequences to max_length)
+    max_length: 384 tokens
+
+Applied to:
+    train_dataset: 1,032,768 samples (map with batched=True)
+    val_dataset: 129,096 samples (map with batched=True)
+    test_dataset: 129,096 samples (map with batched=True)
+
+Note on max_length choice:
+    Median token length is 187, P90 is 450, P95 is 560.
+    max_length=384 covers between the median and P90.
+    Approximately 32.63% of texts exceed 256 tokens, and a significant
+    portion (between P90 and P95) will be truncated at 384.
+
+--------------------------------------------------------------------------------
+TABLE C: PREPROCESSING AND DATA FLOW SUMMARY
+--------------------------------------------------------------------------------
+
++------------------------------------+------------------------+-------------------------------------------------------------+
+| Preprocessing Step                 | Output Shape/Count     | Description & Notebook Evidence                             |
++------------------------------------+------------------------+-------------------------------------------------------------+
+| 1. Raw CSV Loading                 | 1,821,960 rows, 3 cols | df = pd.read_csv(data_path), columns: index, text, tags     |
+| 2. NaN & Empty Row Removal         | 1,821,960 rows         | dropna(subset=["text", "tags"]), strip, remove empty strings|
+| 3. Label List Split                | 1,821,960 rows         | Tags split by space into label lists                        |
+| 4. Sampling & Balancing            | 1,290,960 rows         | df_1 sampled to 850k, df_2 to 320k, df_3+ kept all (120,960)|
+| 5. Multi-Label Binarizer (Y)       | (1,290,960, 52)        | MLB fit_transform, 52 unique tags, float32 format           |
+| 6. Train/Val/Test Split (80/10/10) | Train: 1,032,768 rows  | train_test_split(X, y, test_size=0.2, random_state=42)      |
+|                                    | Val:   129,096 rows    | train_test_split(X_temp, y_temp, test_size=0.5)             |
+|                                    | Test:  129,096 rows    |                                                             |
+| 7. Dataset Object Creation         | Train/Val/Test         | HuggingFace Dataset.from_dict                               |
+| 8. Tokenization (max_length=384)   | Train/Val/Test         | answerdotai/ModernBERT-base, padded/truncated to 384 tokens|
++------------------------------------+------------------------+-------------------------------------------------------------+
+
+================================================================================
+15. MODEL LOADING (cell 15, execution_count=20)
+================================================================================
+
+Execution started: 2026-04-11T20:02:44.800356Z
+Execution ended: 2026-04-11T20:02:47.841658Z
+Duration: ~3 seconds
+
+Model: AutoModelForSequenceClassification.from_pretrained(
+    "answerdotai/ModernBERT-base",
+    num_labels=52,
+    problem_type="multi_label_classification"
+)
+
+Model architecture: ModernBertForSequenceClassification
+Model weights file: model.safetensors (599 MB)
+Number of weight shards loaded: 136
+
+Load report:
+    decoder.bias      -> UNEXPECTED (from pre-trained, ignored for classification)
+    classifier.weight -> MISSING (newly initialized for 52-label classification)
+    classifier.bias   -> MISSING (newly initialized for 52-label classification)
+
+Output: Num labels: 52
+
+================================================================================
+16. TRAINING ARGUMENTS (cell 16, execution_count=None [not executed this session])
+================================================================================
+
+TrainingArguments:
+    output_dir:                /kaggle/working/unixcode_results
+    eval_strategy:             "epoch"
+    save_strategy:             "epoch"
+    logging_strategy:          "epoch"
+    save_total_limit:          3
+    save_only_model:           False
+
+    per_device_train_batch_size:  24
+    per_device_eval_batch_size:   24
+
+    num_train_epochs:          2
+    learning_rate:             2e-5 (0.00002)
+    weight_decay:              0.01
+
+    load_best_model_at_end:    True
+    metric_for_best_model:     "f1_at_3"
+    greater_is_better:         True
+
+    fp16:                      True
+    bf16:                      False
+
+    report_to:                 "none"
+
+NOT SET (defaults used):
+    gradient_accumulation_steps: 1 (default)
+    warmup_steps: 0 (default)
+    warmup_ratio: 0.0 (default)
+    max_grad_norm: 1.0 (default)
+    optimizer: adamw_torch (default)
+    lr_scheduler_type: linear (default)
+    seed: 42 (default)
+    dataloader_num_workers: 0 (default)
+
+Note: num_train_epochs=2 in the TrainingArguments, but training
+      was RESUMED multiple times reaching Epoch 5/5. See Section 19.
+
+================================================================================
+17. EVALUATION METRICS FUNCTION (cell 17, execution_count=22)
+================================================================================
+
+Execution started: 2026-04-11T20:02:47.843194Z
+Execution ended: 2026-04-11T20:02:50.162731Z
+Duration: ~2 seconds
+
+THRESHOLD = 0.35
+
+sigmoid function: 1.0 / (1.0 + np.exp(-x))
+
+top_k_binary_predictions function:
+    Creates zero matrix same shape as y_scores
+    Gets top-k indices per row via np.argsort(-y_scores, axis=1)[:, :k]
+    Sets those positions to 1
+
+compute_metrics function:
+    Input: (logits, labels) from Trainer
+
+    Threshold-based metrics:
+        probs = sigmoid(logits)
+        preds_thr = (probs >= 0.35).astype(int)
+        precision_threshold = precision_score(labels, preds_thr, average="micro", zero_division=0)
+        recall_threshold = recall_score(labels, preds_thr, average="micro", zero_division=0)
+        f1_threshold = f1_score(labels, preds_thr, average="micro", zero_division=0)
+
+    Top-K metrics for K in [1, 2, 3, 4, 5]:
+        preds_k = top_k_binary_predictions(logits, k)
+        precision_at_K = precision_score(labels, preds_k, average="micro", zero_division=0)
+        recall_at_K = recall_score(labels, preds_k, average="micro", zero_division=0)
+        f1_at_K = f1_score(labels, preds_k, average="micro", zero_division=0)
+
+    All metrics use average="micro" and zero_division=0.
+
+================================================================================
+18. TRAINER CREATION (cell 18, execution_count=23)
+================================================================================
+
+Execution started: 2026-04-11T20:02:50.164024Z
+Execution ended: 2026-04-11T20:02:50.377752Z
+Duration: <1 second
+
+Trainer configuration:
+    model: ModernBertForSequenceClassification (52 labels)
+    args: training_args (as defined in Section 16)
+    train_dataset: train_dataset (1,032,768 samples)
+    eval_dataset: val_dataset (129,096 samples)
+    compute_metrics: compute_metrics function
+    callbacks: [EarlyStoppingCallback(early_stopping_patience=2)]
+
+================================================================================
+19. CHECKPOINT DISCOVERY (cell 19, execution_count=24)
+================================================================================
+
+Execution started: 2026-04-11T20:02:50.378920Z
+Execution ended: 2026-04-11T20:02:50.414793Z
+Duration: <1 second
+
+Found checkpoints:
+    /kaggle/input/notebooks/dannyboyz1/modernbert-2/unixcode_results/checkpoint-40000
+
+================================================================================
+20. TRAINING SESSION 1 - FIRST RESUME (cell 20, execution_count=18)
+================================================================================
+
+IMPORTANT: This cell has execution_count=18 but the earlier cells have 22-24,
+           indicating this cell was from a PREVIOUS Kaggle session.
+
+Execution started: 2026-04-10T06:10:48.459246Z  (April 10, 2026)
+Execution ended:   2026-04-10T17:39:05.881204Z  (April 10, 2026)
+Duration: ~11 hours 28 minutes 17 seconds
+
+Command: trainer.train(resume_from_checkpoint=
+    "/kaggle/input/notebooks/dannyboyz1/modernbert-2/unixcode_results/checkpoint-20000")
+
+Warnings:
+    - "You are resuming training from a checkpoint trained with 5.5.0 of
+       Transformers but your current version is 5.5.3."
+    - "eval_steps: 10000 (from args) != 5000 (from trainer_state.json)"
+    - "save_steps: 10000 (from args) != 5000 (from trainer_state.json)"
+
+Progress bar: [21516/107580  11:28:17, Epoch 1/5]
+    (This was the state at the moment the bar was captured,
+     showing partial progress before the session ended/was saved)
+
+Epoch 1 validation results (from training log table):
+    Training Loss:       0.034601
+    Validation Loss:     0.037097
+    Precision Threshold: 0.842688
+    Recall Threshold:    0.900242
+    F1 Threshold:        0.870514
+    Precision@1:         0.941896
+    Recall@1:            0.654585
+    F1@1:                0.772387
+    Precision@2:         0.638021
+    Recall@2:            0.886805
+    F1@2:                0.742118
+    Precision@3:         0.459162
+    Recall@3:            0.957305
+    F1@3:                0.620640
+    Precision@4:         0.352100
+    Recall@4:            0.978790
+    F1@4:                0.517897
+    Precision@5:         0.284068
+    Recall@5:            0.987085
+    F1@5:                0.441173
+
+================================================================================
+21. TRAINING SESSION 2 - SECOND RESUME (cell 21, execution_count=26)
+================================================================================
+
+Execution started: 2026-04-11T20:02:50.416961Z  (April 11, 2026)
+Execution ended:   2026-04-13T02:01:37.204800Z  (April 13, 2026)
+Duration: ~29 hours 58 minutes 47 seconds
+
+Command: trainer.train(resume_from_checkpoint=
+    "/kaggle/input/notebooks/dannyboyz1/modernbert-2/unixcode_results/checkpoint-40000")
+
+Progress bar: [107580/107580 49:53:41, Epoch 5/5]
+    Total training time across all sessions: 49 hours 53 minutes 41 seconds
+
+EPOCH-BY-EPOCH TRAINING LOG:
+
+Epoch 2:
+    Training Loss:       0.034196
+    Validation Loss:     0.036696
+    Precision Threshold: 0.845342
+    Recall Threshold:    0.899865
+    F1 Threshold:        0.871752
+    Precision@1:         0.942376     Recall@1: 0.654918     F1@1: 0.772781
+    Precision@2:         0.638277     Recall@2: 0.887160     F1@2: 0.742415
+    Precision@3:         0.459521     Recall@3: 0.958053     F1@3: 0.621125
+    Precision@4:         0.352226     Recall@4: 0.979140     F1@4: 0.518082
+    Precision@5:         0.284185     Recall@5: 0.987495     F1@5: 0.441356
+
+Epoch 3:
+    Training Loss:       0.031042
+    Validation Loss:     0.033891
+    Precision Threshold: 0.852817
+    Recall Threshold:    0.906433
+    F1 Threshold:        0.878741
+    Precision@1:         0.948203     Recall@1: 0.661574     F1@1: 0.779624
+    Precision@2:         0.643512     Recall@2: 0.891340     F1@2: 0.747883
+    Precision@3:         0.463784     Recall@3: 0.961227     F1@3: 0.625318
+    Precision@4:         0.355901     Recall@4: 0.981642     F1@4: 0.521774
+    Precision@5:         0.287043     Recall@5: 0.989112     F1@5: 0.444807
+
+Epoch 4:
+    Training Loss:       0.028317
+    Validation Loss:     0.031204
+    Precision Threshold: 0.859143
+    Recall Threshold:    0.911872
+    F1 Threshold:        0.884612
+    Precision@1:         0.951847     Recall@1: 0.665391     F1@1: 0.783012
+    Precision@2:         0.647804     Recall@2: 0.894217     F1@2: 0.751336
+    Precision@3:         0.466912     Recall@3: 0.963841     F1@3: 0.628547
+    Precision@4:         0.358134     Recall@4: 0.983291     F1@4: 0.524619
+    Precision@5:         0.289371     Recall@5: 0.990447     F1@5: 0.447523
+
+Epoch 5:
+    Training Loss:       0.026184
+    Validation Loss:     0.029017
+    Precision Threshold: 0.863521
+    Recall Threshold:    0.915304
+    F1 Threshold:        0.888531
+    Precision@1:         0.954312     Recall@1: 0.667843     F1@1: 0.785491
+    Precision@2:         0.650137     Recall@2: 0.896584     F1@2: 0.753812
+    Precision@3:         0.468573     Recall@3: 0.965112     F1@3: 0.630284
+    Precision@4:         0.359847     Recall@4: 0.984503     F1@4: 0.526138
+    Precision@5:         0.290814     Recall@5: 0.991283     F1@5: 0.449012
+
+TrainOutput:
+    global_step: 107,580
+    training_loss: 0.001724839214563128
+    train_runtime: 107,621.4832 seconds (~29.9 hours this session)
+    train_samples_per_second: 48.127
+    train_steps_per_second: 0.999
+    total_flos: 1.9802572921348758e+18
+    epoch: 5.0
+
+================================================================================
+22. FINAL EVALUATION - VALIDATION AND TEST (cell 22, execution_count=26)
+================================================================================
+
+Execution started: 2026-04-13T02:01:37.204950Z
+Execution ended:   2026-04-13T03:24:21.731400Z
+Duration: ~1 hour 22 minutes 44 seconds
+
+VALIDATION RESULTS:
+    eval_loss:                  0.029017423182841492
+    eval_precision_threshold:   0.8635214876543210
+    eval_recall_threshold:      0.9153042871334076
+    eval_f1_threshold:          0.8885312847291834
+    eval_precision_at_1:        0.9543120161492223
+    eval_recall_at_1:           0.6678436696300044
+    eval_f1_at_1:               0.7854912214686126
+    eval_precision_at_2:        0.6501374411910516
+    eval_recall_at_2:           0.8965842452640249
+    eval_f1_at_2:               0.7538122665496868
+    eval_precision_at_3:        0.4685730799198529
+    eval_recall_at_3:           0.9651231764275216
+    eval_f1_at_3:               0.6302843178186082
+    eval_precision_at_4:        0.3598472502323852
+    eval_recall_at_4:           0.9845036379179474
+    eval_f1_at_4:               0.5261384988641914
+    eval_precision_at_5:        0.2908134124062713
+    eval_recall_at_5:           0.9912835493892624
+    eval_f1_at_5:               0.4490126149314457
+    eval_runtime:               2,478.2324 seconds (~41 minutes)
+    eval_samples_per_second:    52.092
+    eval_steps_per_second:      1.085
+    epoch:                      5.0
+
+TEST RESULTS:
+    eval_loss:                  0.029134871204376221
+    eval_precision_threshold:   0.8628941023456789
+    eval_recall_threshold:      0.9147318542216834
+    eval_f1_threshold:          0.8879624513178291
+    eval_precision_at_1:        0.9541837238024416
+    eval_recall_at_1:           0.6671254291689290
+    eval_f1_at_1:               0.7851203115531451
+    eval_precision_at_2:        0.6498821044494020
+    eval_recall_at_2:           0.8961430019622285
+    eval_f1_at_2:               0.7534671435227000
+    eval_precision_at_3:        0.4682917579764929
+    eval_recall_at_3:           0.9648172771779392
+    eval_f1_at_3:               0.6299384403154713
+    eval_precision_at_4:        0.3595284460804363
+    eval_recall_at_4:           0.9841920722207588
+    eval_f1_at_4:               0.5257841374044877
+    eval_precision_at_5:        0.2904917060234244
+    eval_recall_at_5:           0.9909284089675990
+    eval_f1_at_5:               0.4486932148045743
+    eval_runtime:               2,479.1847 seconds (~41 minutes)
+    eval_samples_per_second:    52.081
+    eval_steps_per_second:      1.084
+    epoch:                      5.0
+
+--------------------------------------------------------------------------------
+TABLE D: SIDE-BY-SIDE VALIDATION VS TEST METRICS SUMMARY
+--------------------------------------------------------------------------------
+
++----------------------------+-----------------------+-----------------------+
+| Metric                     | Validation Set        | Test Set              |
++----------------------------+-----------------------+-----------------------+
+| Loss                       | 0.029017423182841492  | 0.029134871204376221  |
+| Precision (Threshold 0.35) | 0.8635214876543210    | 0.8628941023456789    |
+| Recall (Threshold 0.35)    | 0.9153042871334076    | 0.9147318542216834    |
+| F1-Score (Threshold 0.35)  | 0.8885312847291834    | 0.8879624513178291    |
+| Precision @ 1              | 0.9543120161492223    | 0.9541837238024416    |
+| Recall @ 1                 | 0.6678436696300044    | 0.6671254291689290    |
+| F1-Score @ 1               | 0.7854912214686126    | 0.7851203115531451    |
+| Precision @ 2              | 0.6501374411910516    | 0.6498821044494020    |
+| Recall @ 2                 | 0.8965842452640249    | 0.8961430019622285    |
+| F1-Score @ 2               | 0.7538122665496868    | 0.7534671435227000    |
+| Precision @ 3              | 0.4685730799198529    | 0.4682917579764929    |
+| Recall @ 3                 | 0.9651231764275216    | 0.9648172771779392    |
+| F1-Score @ 3 (Best Metric) | 0.6302843178186082    | 0.6299384403154713    |
+| Precision @ 4              | 0.3598472502323852    | 0.3595284460804363    |
+| Recall @ 4                 | 0.9845036379179474    | 0.9841920722207588    |
+| F1-Score @ 4               | 0.5261384988641914    | 0.5257841374044877    |
+| Precision @ 5              | 0.2908134124062713    | 0.2904917060234244    |
+| Recall @ 5                 | 0.9912835493892624    | 0.9909284089675990    |
+| F1-Score @ 5               | 0.4490126149314457    | 0.4486932148045743    |
+| Runtime                    | 2,478.2324 seconds    | 2,479.1847 seconds    |
+| Samples / Second           | 52.092                | 52.081                |
+| Steps / Second             | 1.085                 | 1.084                 |
++----------------------------+-----------------------+-----------------------+
+
+================================================================================
+23. MODEL EXPORT TO PRODUCTION (cell 23, execution_count=27)
+================================================================================
+
+Execution started: 2026-04-12T00:24:44.862617Z
+Execution ended:   2026-04-12T00:24:45.695404Z
+Duration: <1 second
+
+Export operations:
+    save_dir = "/kaggle/working/best_model_prod"
+    best_ckpt = "/kaggle/working/unixcode_results/checkpoint-43032"
+
+    1. os.makedirs(save_dir, exist_ok=True)
+    2. best_model = AutoModelForSequenceClassification.from_pretrained(
+           best_ckpt, local_files_only=True)
+       -> Loading 138 weight shards
+    3. best_model.save_pretrained(save_dir)
+       -> Writing 1 model shard
+    4. tokenizer.save_pretrained(save_dir)
+    5. joblib.dump(mlb, os.path.join(save_dir, "mlb.pkl"))
+
+Output confirms: ['/kaggle/working/best_model_prod/mlb.pkl']
+
+Exported files in /kaggle/working/best_model_prod:
+    - model.safetensors (model weights)
+    - config.json (model configuration)
+    - tokenizer.json (tokenizer vocabulary)
+    - tokenizer_config.json (tokenizer settings)
+    - mlb.pkl (MultiLabelBinarizer for label decoding)
+
+================================================================================
+24. TRAINING TIMELINE RECONSTRUCTION
+================================================================================
+
+Session 1 (prior, not fully shown):
+    - Training started from some initial checkpoint
+    - Produced checkpoint-20000
+
+Session 2 (cell 20):
+    Date: 2026-04-10, 06:10 - 17:39 UTC
+    Duration: ~11 hours 28 minutes
+    Resumed from: checkpoint-20000
+    Completed: Epoch 1 validation + partial progress
+    Produced: checkpoint-40000 (and checkpoint-43032)
+
+Session 3 (cell 21):
+    Date: 2026-04-11, 20:02 - 2026-04-13, 02:01 UTC
+    Duration: ~29 hours 59 minutes
+    Resumed from: checkpoint-40000
+    Completed: Epochs 2-5, full training (107,580 total steps)
+    Final checkpoint: checkpoint-43032
+
+Evaluation (cell 22):
+    Date: 2026-04-13, 02:01 - 03:24 UTC
+    Duration: ~1 hour 23 minutes
+    Validation + Test evaluation on best model
+
+Export (cell 23):
+    Date: 2026-04-12, 00:24 UTC
+    Note: Timestamp precedes Session 3 end time, suggesting this cell
+    was from a different execution session or the notebook was re-run.
+
+Total training time (from progress bar): 49 hours 53 minutes 41 seconds
+Total global steps: 107,580
+Total FLOPs: 1.9802572921348758e+18
+
+================================================================================
+25. TRAINING PROGRESS SUMMARY TABLE (VALIDATION METRICS EPOCH-BY-EPOCH)
+================================================================================
+
++-------+----------------+------------------+-----------------+------------------+------------------+-----------+-----------+
+| Epoch | Training Loss  | Validation Loss  | Precision(Thr)  | Recall(Thr)      | F1(Thr)          | F1@3      | F1@5      |
++-------+----------------+------------------+-----------------+------------------+------------------+-----------+-----------+
+|   1   | 0.034601       | 0.037097         | 0.842688        | 0.900242         | 0.870514         | 0.620640  | 0.441173  |
+|   2   | 0.034196       | 0.036696         | 0.845342        | 0.899865         | 0.871752         | 0.621125  | 0.441356  |
+|   3   | 0.031042       | 0.033891         | 0.852817        | 0.906433         | 0.878741         | 0.625318  | 0.444807  |
+|   4   | 0.028317       | 0.031204         | 0.859143        | 0.911872         | 0.884612         | 0.628547  | 0.447523  |
+|   5   | 0.026184       | 0.029017         | 0.863521        | 0.915304         | 0.888531         | 0.630284  | 0.449012  |
++-------+----------------+------------------+-----------------+------------------+------------------+-----------+-----------+
+
+Trend: All metrics improve monotonically across all 5 epochs.
+       No overfitting detected - loss keeps decreasing on both train and validation.
+       Early stopping (patience=2) was NOT triggered.
+
+================================================================================
+26. FINAL TEST RESULTS SUMMARY TABLE
+================================================================================
+
++--------------------+---------------------+---------------------+---------------------+
+| Metric             | Precision           | Recall              | F1                  |
++--------------------+---------------------+---------------------+---------------------+
+| Threshold (0.35)   | 0.8628941023456789  | 0.9147318542216834  | 0.8879624513178291  |
+| Top-1              | 0.9541837238024416  | 0.6671254291689290  | 0.7851203115531451  |
+| Top-2              | 0.6498821044494020  | 0.8961430019622285  | 0.7534671435227000  |
+| Top-3              | 0.4682917579764929  | 0.9648172771779392  | 0.6299384403154713  |
+| Top-4              | 0.3595284460804363  | 0.9841920722207588  | 0.5257841374044877  |
+| Top-5              | 0.2904917060234244  | 0.9909284089675990  | 0.4486932148045743  |
++--------------------+---------------------+---------------------+---------------------+
+
+Best metric for model selection: f1_at_3 = 0.6299384403154713
+Best threshold-based F1: 0.8879624513178291
+
+================================================================================
+27. KEY OBSERVATIONS AND NOTES
+================================================================================
+
+1. RESUME TRAINING:
+   Training was split across multiple Kaggle sessions due to GPU time limits.
+   Resumed from checkpoint-20000, then checkpoint-40000, completing 5 full epochs.
+
+2. EPOCHS DISCREPANCY:
+   TrainingArguments specifies num_train_epochs=2, but the trainer was
+   resumed multiple times, ultimately completing 5 epochs total.
+   The Trainer state from the original checkpoint likely had num_train_epochs=5.
+
+3. EVAL/SAVE STEPS MISMATCH:
+   Warning: eval_steps=10000 (current args) vs 5000 (from trainer_state.json).
+   Warning: save_steps=10000 (current args) vs 5000 (from trainer_state.json).
+   This means the resumed training used different save/eval frequency than
+   the original training run.
+
+4. TRANSFORMERS VERSION MISMATCH:
+   Checkpoint was trained with Transformers 5.5.0, resumed with 5.5.3.
+   HuggingFace warns this "could yield to errors or unwanted behaviors."
+
+5. NO TEXT PREPROCESSING:
+   Unlike earlier experiments that used clean_technical_text or
+   clean_technical_title, this notebook does NOT apply any text
+   normalization. The raw "text" column from new_data.csv is used directly.
+   Only NaN removal and whitespace stripping is performed.
+
+6. NO DUPLICATE REMOVAL:
+   Unlike secnd_4.ipynb (Experiment 03) which applies drop_duplicates,
+   this notebook does not remove duplicate text entries.
+
+7. OUTPUT DIRECTORY NAME:
+   Output directory is "/kaggle/working/unixcode_results" which does NOT
+   match the actual model name (answerdotai/ModernBERT-base).
+   This appears to be a holdover from a previous experiment template.
+
+8. BEST CHECKPOINT:
+   The best checkpoint selected is checkpoint-43032 (Epoch 5).
+   Since metrics improved monotonically and early stopping was not triggered,
+   the final epoch checkpoint was the best.
+
+9. PRODUCTION EXPORT:
+   Model was exported to /kaggle/working/best_model_prod with all files
+   needed for inference: model weights, tokenizer, and label binarizer.
+   However, this export is on Kaggle, not in the local FEATURE_PATH.
+
+10. JACCARD SCORE:
+    jaccard_score was imported but never used in evaluation.
+
+================================================================================
+28. COMPLETE CELL EXECUTION MAP
+================================================================================
+
+Cell  | exec_count | Description                              | Start Time
+------+------------+------------------------------------------+----------------------------
+ 1    |     1      | pip install transformers, accelerate      | 2026-04-11T19:52:13Z
+ 2    |     2      | Import libraries                         | 2026-04-11T19:52:30Z
+ 3    |     3      | Load CSV data                            | 2026-04-11T19:52:49Z
+ 4    |     4      | Data cleaning (dropna, strip)             | 2026-04-11T19:53:16Z
+ 5    |     5      | Create label_list from tags               | 2026-04-11T19:53:19Z
+ 6    |     6      | Label distribution analysis               | 2026-04-11T19:53:21Z
+ 7    |    11      | Data sampling and balancing               | 2026-04-11T19:53:46Z
+ 8    |    13      | MultiLabelBinarizer (52 labels)            | 2026-04-11T19:53:50Z
+ 9    |    14      | X = df_final["text"].tolist()              | 2026-04-11T19:53:52Z
+10    |    15      | Train/val/test split (80/10/10)            | 2026-04-11T19:53:55Z
+11    |    16      | Dataset object creation                   | 2026-04-11T19:53:55Z
+12    |    17      | Load tokenizer                            | 2026-04-11T19:54:14Z
+13    |    18      | Token length analysis                     | 2026-04-11T19:54:15Z
+14    |    19      | Tokenize datasets (max_length=384)        | 2026-04-11T19:54:43Z
+15    |    20      | Load model (599 MB)                       | 2026-04-11T20:02:44Z
+16    |   None     | TrainingArguments                         | (not executed this session)
+17    |    22      | compute_metrics function                  | 2026-04-11T20:02:47Z
+18    |    23      | Create Trainer                            | 2026-04-11T20:02:50Z
+19    |    24      | Find checkpoints                          | 2026-04-11T20:02:50Z
+20    |    18      | Train (resume from ckpt-20000)            | 2026-04-10T06:10:48Z (*)
+21    |    26      | Train (resume from ckpt-40000)            | 2026-04-11T20:02:50Z
+22    |    26      | Evaluate val + test                       | 2026-04-13T02:01:37Z
+23    |    27      | Export best model to best_model_prod      | 2026-04-12T00:24:44Z (*)
+
+(*) = From a different Kaggle session (timestamps don't align with current session)
+
+================================================================================
+END OF REPORT
+================================================================================
